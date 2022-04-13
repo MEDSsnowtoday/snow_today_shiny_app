@@ -40,7 +40,7 @@ ui <- fluidPage(
                                                  selected = 93)
                                      ),
                         mainPanel("agkgklh",
-                                  textOutput("index"),
+                                  textOutput("input$select_day"),
                                   h2("Home of Snow Today"),
                                   h4("This shiny app shows some cool snow stuff."),
                                   plotOutput(outputId = "snow_cover_area_2001")
@@ -73,8 +73,12 @@ server <- function(input, output) {
   
 
   # plot of 2001 snow cover area
+  # output$snow_cover_area_2001 <- renderPlot({
+  #   terra::plot(sample_stack, as.numeric(input$select_day))
+  # })
+  
   output$snow_cover_area_2001 <- renderPlot({
-    terra::plot(sample_stack, 100)
+    terra::plot(sample_stack, as.numeric(input$select_day))
   })
   
 
