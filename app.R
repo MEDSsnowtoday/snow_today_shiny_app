@@ -11,10 +11,25 @@ library(rgdal)
 library(tidyverse)
 library(terra)
 library(maptiles)
+library(sf)
 
 
 # load data
 sample_stack <- terra::rast("data/sample_stack.tif")
+#monthly_snow_cover_2001_01_raster <- raster("2001_01_mean_snow_cover.tif")
+wy2001_mean_annual_scp <- raster::raster(here("data", "wy2001", "wy2001_annual_mean_snow_cover_percent.tif"))
+oct2000_mean_scp <- raster::raster(here("data", "wy2001", "2000_10_mean_snow_cover_percent.tif"))
+nov2000_mean_scp <- raster::raster(here("data", "wy2001", "2000_11_mean_snow_cover_percent.tif"))
+dec2000_mean_scp <- raster::raster(here("data", "wy2001", "2000_12_mean_snow_cover_percent.tif"))
+jan2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_01_mean_snow_cover_percent.tif"))
+feb2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_02_mean_snow_cover_percent.tif"))
+mar2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_03_mean_snow_cover_percent.tif"))
+apr2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_04_mean_snow_cover_percent.tif"))
+may2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_05_mean_snow_cover_percent.tif"))
+jun2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_06_mean_snow_cover_percent.tif"))
+jul2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_07_mean_snow_cover_percent.tif"))
+aug2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_08_mean_snow_cover_percent.tif"))
+sep2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_09_mean_snow_cover_percent.tif"))
 
 # create 'ui' = "User Interface"
 # widgets are things that the user interacts with to make decisions about what they want to appear as outputs
@@ -40,11 +55,34 @@ ui <- fluidPage(
                                                  selected = 93)
                                      ),
                         mainPanel("agkgklh",
-                                  textOutput("input$select_day"),
+                                  #textOutput("input$select_day"),
                                   h2("Home of Snow Today"),
                                   h4("This shiny app shows some cool snow stuff."),
-                                  plotOutput(outputId = "snow_cover_area_2001")
+                                  plotOutput(outputId = "snow_cover_area_2001"),
+                                  #leafletOutput(outputId = "test_leaflet")
+                                  #leafletOutput(outputId = "wy2001_scp")
                                   ))),
+             tabPanel("wy2001",
+                      mainPanel("Annual Mean Snow Cover Percent",
+                                leafletOutput(outputId = "wy2001_scp"),
+                                p(""),
+                                "Monthly Mean Snow Cover Percent",
+                                tabsetPanel(
+                                  tabPanel("October", leafletOutput(outputId = "oct2000_scp")),
+                                  tabPanel("November", leafletOutput(outputId = "nov2000_scp")),
+                                  tabPanel("December", leafletOutput(outputId = "dec2000_scp")),
+                                  tabPanel("January", leafletOutput(outputId = "jan2001_scp")),
+                                  tabPanel("February", leafletOutput(outputId = "feb2001_scp")),
+                                  tabPanel("March", leafletOutput(outputId = "mar2001_scp")),
+                                  tabPanel("April", leafletOutput(outputId = "apr2001_scp")),
+                                  tabPanel("May", leafletOutput(outputId = "may2001_scp")),
+                                  tabPanel("June", leafletOutput(outputId = "jun2001_scp")),
+                                  tabPanel("July", leafletOutput(outputId = "jul2001_scp")),
+                                  tabPanel("August", leafletOutput(outputId = "aug2001_scp")),
+                                  tabPanel("September", leafletOutput(outputId = "sep2001_scp")),
+                                  h5("some text to explain things"),
+                                  p("Citation: xxx")))
+                      ),
              tabPanel("About",
                           p("about this project"),
                           p("more text")),
@@ -61,37 +99,119 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   # created a reactive dataframe that depends on the selection made in the site widget
-  # site_select <- reactive({
-  #   california %>% 
-  #     filter(site_name == input$site) %>% 
-  #     filter(water_year %in% c(input$wy_select))
-  #   })
   
-  # create a reactive dataframe that depends on the selection made in the site widget
-  
- 
-  
-
-  # plot of 2001 snow cover area
-  # output$snow_cover_area_2001 <- renderPlot({
-  #   terra::plot(sample_stack, as.numeric(input$select_day))
-  # })
-  
+  # plot a daily snow over based on day selected by user
   output$snow_cover_area_2001 <- renderPlot({
     terra::plot(sample_stack, as.numeric(input$select_day))
   })
   
+  # snow cover percent pallets
+  pal <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), values(wy2001_mean_annual_scp),
+                      na.color = "transparent")
 
-  # running total of accumulated snow  
-  # output$snow_plot <- renderPlot({
-  #     # if the data that you are using is a reactive dataframe then you have to add () after data = df()
-  #       ggplot(data = site_select(), aes(x = day_of_wy, y = running_wy_snow_accumulation_m)) +
-  #     geom_line(aes(color = as.factor(water_year)), size = 1.5) +
-  #     scale_x_continuous(breaks = c(1, 32, 62, 93, 124, 152, 183, 213, 244, 275),
-  #                        labels = c("Oct 01", "Nov 01", "Dec 01", "Jan 01", "Feb 01", "Mar 01", "Apr 01", "May 01", "Jun 01", "Jul 01"))
-  #   })
+  # leaflet map of wy2001 mean snow cover percent
+  test_leaflet <- leaflet() %>% 
+    addTiles()
+  
+  
+  output$test_leaflet <- renderLeaflet(test_leaflet)
+  
+  output$wy2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(wy2001_mean_annual_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(wy2001_mean_annual_scp),
+                title = "snow cover %")
+  })
+  
+  output$oct2000_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(oct2000_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(oct2000_mean_scp),
+                title = "snow cover %")
+  })
+  
+  output$nov2000_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(nov2000_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(nov2000_mean_scp),
+                title = "percent")
+  })
+    output$dec2000_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(dec2000_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(dec2000_mean_scp),
+                title = "percent")
+  })
+    output$jan2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(jan2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(jan2001_mean_scp),
+                title = "percent")
+  })
+  output$feb2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(feb2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(feb2001_mean_scp),
+                title = "percent")
+  })
+  output$mar2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(mar2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(mar2001_mean_scp),
+                title = "percent")
+  })
+  output$apr2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(apr2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(apr2001_mean_scp),
+                title = "percent")
+  })
+  output$may2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(may2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(may2001_mean_scp),
+                title = "percent")
+  })
+  output$jun2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(jun2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(jun2001_mean_scp),
+                title = "percent")
+  })
+  output$jul2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(jul2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(jul2001_mean_scp),
+                title = "percent")
+  })
+  output$aug2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(aug2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(aug2001_mean_scp),
+                title = "percent")
+  })
+  output$sep2001_scp <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(sep2001_mean_scp, colors = pal, opacity = 0.75) %>% 
+      addLegend(pal = pal, values = values(sep2001_mean_scp),
+                title = "percent")
+  })
+
+
 }
-
 
 # Let R know that you want to combine the ui & server into an app:
 shinyApp(ui = ui, server = server)
