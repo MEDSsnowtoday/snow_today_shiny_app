@@ -18,11 +18,20 @@ library(sf)
 sample_stack <- terra::rast("data/sample_stack.tif")
 #monthly_snow_cover_2001_01_raster <- raster("2001_01_mean_snow_cover.tif")
 wy2001_daily_scp_stack <- raster::raster(here("data", "stacked_annual_tiffs", "wy2001_snow_cover_percent_stack.tif"))
+
+# snow cover bricks
 wy2001_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2001_snow_cover_percent_stack.tif"))
 wy2001_daily_scp_brick <- brick(wy2001_daily_scp_brick)
 
+wy2002_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2002_snow_cover_percent_stack.tif"))
+wy2002_daily_scp_brick <- brick(wy2002_daily_scp_brick)
+
+# albedo bricks
 wy2001_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2001_albedo_stack.tif"))
 wy2001_daily_albedo_brick <- brick(wy2001_daily_albedo_brick)
+
+wy2002_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2002_albedo_stack.tif"))
+wy2002_daily_albedo_brick <- brick(wy2002_daily_albedo_brick)
 
 
 wy2001_mean_annual_scp <- raster::raster(here("data", "wy2001", "wy2001_annual_mean_snow_cover_percent.tif"))
@@ -40,8 +49,9 @@ aug2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_08_mean_snow_cov
 sep2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_09_mean_snow_cover_percent.tif"))
 
 # date for raster brick indices
-# consider havering 1 file with all dates, instead of a file per water year
+# consider having 1 file with all dates, instead of a file per water year
 wy2001_iso_dates <- read_csv(here("data", "wy2001_iso_dates.csv"))
+wy2002_iso_dates <- read_csv(here("data", "wy2002_iso_dates.csv"))
 
 # create 'ui' = "User Interface"
 # widgets are things that the user interacts with to make decisions about what they want to appear as outputs
@@ -62,18 +72,13 @@ ui <- fluidPage(
                         # sidebarPanel is where you put your widgets
                         sidebarPanel("pick a day",
                                      dateInput("date", label = h3("Date input"), value = "2001-01-01"),
-                                     # selectInput(inputId = "select_day",
-                                     #             label = h3("select a day"),
-                                     #             choices = list("January 1, 2001" = 93, "February 1, 2001" = 124, "March 1, 2001" = 152),
-                                     #             selected = 93)
                                      ),
                         mainPanel("agkgklh",
                                   h2("Home of Snow Today"),
                                   h4("This shiny app shows some cool snow stuff."),
-                                  #plotOutput(outputId = "snow_cover_area_2001")
-                                  leafletOutput(outputId = "wy2001_daily_scp"),
+                                  leafletOutput(outputId = "daily_scp_map"),
                                   h2("Albedo!!!"),
-                                  leafletOutput(outputId = "wy2001_daily_albedo")
+                                  leafletOutput(outputId = "daily_albedo_map")
                                   ))),
              tabPanel("wy2001",
                       mainPanel("Annual Mean Snow Cover Percent",
@@ -114,8 +119,16 @@ server <- function(input, output) {
   # date input widget
 
   # reactive df to select raster brick index based on date input by user
+  # selected_index <- reactive({
+  #   wy2001_iso_dates$index[wy2001_iso_dates$date == input$date]
+  # })
+  
   selected_index <- reactive({
-    wy2001_iso_dates$index[wy2001_iso_dates$date == input$date]
+    if (input$date <= as.Date("2001-09-30")) {
+      wy2001_iso_dates$index[wy2001_iso_dates$date == input$date]  
+    } else {
+      wy2002_iso_dates$index[wy2002_iso_dates$date == input$date]
+    }
   })
     
   
@@ -135,28 +148,37 @@ server <- function(input, output) {
   pal_albedo = colorNumeric(c("yellow", "orange", "red"), val_albedo,
                             na.color = "transparent")
 
-  # leaflet map of wy2001 daily snow cover percent
-  wy2001_daily_scp_brick_i <- reactive({
-    wy2001_daily_scp_brick[[selected_index()]]
+  # leaflet map of daily snow cover percent
+  daily_scp_brick_i <- reactive({
+    if (input$date <= as.Date("2001-09-30")) {
+      wy2001_daily_scp_brick[[selected_index()]]  
+    } else {
+      wy2002_daily_scp_brick[[selected_index()]]
+    }
   })
     
-  output$wy2001_daily_scp <- renderLeaflet({
+  output$daily_scp_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(wy2001_daily_scp_brick_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(wy2001_daily_scp_brick_i()),
+      addRasterImage(daily_scp_brick_i(), colors = pal_scp, opacity = 0.75) %>%
+      addLegend(pal = pal_scp, values = values(daily_scp_brick_i()),
                 title = "snow cover %")
   })
   
-  # leaflet map of wy2001 daily albedo
-  wy2001_daily_albedo_brick_i <- reactive({
-    wy2001_daily_albedo_brick[[selected_index()]]
+  # leaflet map of daily albedo
+  daily_albedo_brick_i <- reactive({
+    if (input$date <= as.Date("2001-09-30")) {
+      wy2001_daily_albedo_brick[[selected_index()]]  
+    } else {
+      wy2002_daily_albedo_brick[[selected_index()]]
+    }
+  
   })
   
-  output$wy2001_daily_albedo <- renderLeaflet({
+  output$daily_albedo_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(wy2001_daily_albedo_brick_i(), colors = pal_albedo, opacity = 0.75) %>%
+      addRasterImage(daily_albedo_brick_i(), colors = pal_albedo, opacity = 0.75) %>%
       addLegend(pal = pal_albedo, values = val_albedo, title = "Albedo")
   })
   
