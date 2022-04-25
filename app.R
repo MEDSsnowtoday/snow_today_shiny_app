@@ -20,6 +20,11 @@ sample_stack <- terra::rast("data/sample_stack.tif")
 wy2001_daily_scp_stack <- raster::raster(here("data", "stacked_annual_tiffs", "wy2001_snow_cover_percent_stack.tif"))
 wy2001_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2001_snow_cover_percent_stack.tif"))
 wy2001_daily_scp_brick <- brick(wy2001_daily_scp_brick)
+
+wy2001_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2001_albedo_stack.tif"))
+wy2001_daily_albedo_brick <- brick(wy2001_daily_albedo_brick)
+
+
 wy2001_mean_annual_scp <- raster::raster(here("data", "wy2001", "wy2001_annual_mean_snow_cover_percent.tif"))
 oct2000_mean_scp <- raster::raster(here("data", "wy2001", "2000_10_mean_snow_cover_percent.tif"))
 nov2000_mean_scp <- raster::raster(here("data", "wy2001", "2000_11_mean_snow_cover_percent.tif"))
@@ -66,8 +71,9 @@ ui <- fluidPage(
                                   h2("Home of Snow Today"),
                                   h4("This shiny app shows some cool snow stuff."),
                                   #plotOutput(outputId = "snow_cover_area_2001")
-                                  leafletOutput(outputId = "wy2001_daily_scp")
-                                  #leafletOutput(outputId = "wy2001_daily_albedo")
+                                  leafletOutput(outputId = "wy2001_daily_scp"),
+                                  h2("Albedo!!!"),
+                                  leafletOutput(outputId = "wy2001_daily_albedo")
                                   ))),
              tabPanel("wy2001",
                       mainPanel("Annual Mean Snow Cover Percent",
@@ -120,9 +126,14 @@ server <- function(input, output) {
   #   terra::plot(sample_stack, as.numeric(input$select_day))
   # })
   
-  # snow cover percent pallets
+  # snow cover percent palettes
   pal_scp <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), values(wy2001_mean_annual_scp),
                       na.color = "transparent")
+  
+  # albedo palettes
+  val_albedo = as.numeric(c(0:1))
+  pal_albedo = colorNumeric(c("yellow", "orange", "red"), val_albedo,
+                            na.color = "transparent")
 
   # leaflet map of wy2001 daily snow cover percent
   wy2001_daily_scp_brick_i <- reactive({
@@ -135,6 +146,18 @@ server <- function(input, output) {
       addRasterImage(wy2001_daily_scp_brick_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(wy2001_daily_scp_brick_i()),
                 title = "snow cover %")
+  })
+  
+  # leaflet map of wy2001 daily albedo
+  wy2001_daily_albedo_brick_i <- reactive({
+    wy2001_daily_albedo_brick[[selected_index()]]
+  })
+  
+  output$wy2001_daily_albedo <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(wy2001_daily_albedo_brick_i(), colors = pal_albedo, opacity = 0.75) %>%
+      addLegend(pal = pal_albedo, values = val_albedo, title = "Albedo")
   })
   
   # leaflet map of wy2001 mean snow cover percent
