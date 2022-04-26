@@ -26,6 +26,57 @@ wy2001_daily_scp_brick <- brick(wy2001_daily_scp_brick)
 wy2002_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2002_snow_cover_percent_stack.tif"))
 wy2002_daily_scp_brick <- brick(wy2002_daily_scp_brick)
 
+wy2003_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2003_snow_cover_percent_stack.tif"))
+wy2003_daily_scp_brick <- brick(wy2003_daily_scp_brick)
+
+wy2004_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2004_snow_cover_percent_stack.tif"))
+wy2004_daily_scp_brick <- brick(wy2004_daily_scp_brick)
+
+wy2005_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2005_snow_cover_percent_stack.tif"))
+wy2005_daily_scp_brick <- brick(wy2005_daily_scp_brick)
+
+wy2006_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2006_snow_cover_percent_stack.tif"))
+wy2006_daily_scp_brick <- brick(wy2006_daily_scp_brick)
+
+wy2007_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2007_snow_cover_percent_stack.tif"))
+wy2007_daily_scp_brick <- brick(wy2007_daily_scp_brick)
+
+wy2008_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2008_snow_cover_percent_stack.tif"))
+wy2008_daily_scp_brick <- brick(wy2008_daily_scp_brick)
+
+wy2009_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2009_snow_cover_percent_stack.tif"))
+wy2009_daily_scp_brick <- brick(wy2009_daily_scp_brick)
+
+wy2010_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2010_snow_cover_percent_stack.tif"))
+wy2010_daily_scp_brick <- brick(wy2010_daily_scp_brick)
+
+wy2011_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2011_snow_cover_percent_stack.tif"))
+wy2011_daily_scp_brick <- brick(wy2011_daily_scp_brick)
+
+wy2012_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2012_snow_cover_percent_stack.tif"))
+wy2012_daily_scp_brick <- brick(wy2012_daily_scp_brick)
+
+wy2013_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2013_snow_cover_percent_stack.tif"))
+wy2013_daily_scp_brick <- brick(wy2013_daily_scp_brick)
+
+wy2014_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2014_snow_cover_percent_stack.tif"))
+wy2014_daily_scp_brick <- brick(wy2014_daily_scp_brick)
+
+wy2015_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2015_snow_cover_percent_stack.tif"))
+wy2015_daily_scp_brick <- brick(wy2015_daily_scp_brick)
+
+wy2016_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2016_snow_cover_percent_stack.tif"))
+wy2016_daily_scp_brick <- brick(wy2016_daily_scp_brick)
+
+wy2017_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2017_snow_cover_percent_stack.tif"))
+wy2017_daily_scp_brick <- brick(wy2017_daily_scp_brick)
+
+wy2018_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2018_snow_cover_percent_stack.tif"))
+wy2018_daily_scp_brick <- brick(wy2018_daily_scp_brick)
+
+wy2019_daily_scp_brick <- (here("data", "stacked_annual_tiffs", "wy2019_snow_cover_percent_stack.tif"))
+wy2019_daily_scp_brick <- brick(wy2019_daily_scp_brick)
+
 # albedo bricks
 wy2001_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2001_albedo_stack.tif"))
 wy2001_daily_albedo_brick <- brick(wy2001_daily_albedo_brick)
@@ -33,7 +84,58 @@ wy2001_daily_albedo_brick <- brick(wy2001_daily_albedo_brick)
 wy2002_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2002_albedo_stack.tif"))
 wy2002_daily_albedo_brick <- brick(wy2002_daily_albedo_brick)
 
+wy2003_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2003_albedo_stack.tif"))
+wy2003_daily_albedo_brick <- brick(wy2003_daily_albedo_brick)
 
+wy2004_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2004_albedo_stack.tif"))
+wy2004_daily_albedo_brick <- brick(wy2004_daily_albedo_brick)
+
+wy2005_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2005_albedo_stack.tif"))
+wy2005_daily_albedo_brick <- brick(wy2005_daily_albedo_brick)
+
+wy2006_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2006_albedo_stack.tif"))
+wy2006_daily_albedo_brick <- brick(wy2006_daily_albedo_brick)
+
+wy2007_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2007_albedo_stack.tif"))
+wy2007_daily_albedo_brick <- brick(wy2007_daily_albedo_brick)
+
+wy2008_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2008_albedo_stack.tif"))
+wy2008_daily_albedo_brick <- brick(wy2008_daily_albedo_brick)
+
+wy2009_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2009_albedo_stack.tif"))
+wy2009_daily_albedo_brick <- brick(wy2009_daily_albedo_brick)
+
+wy2010_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2010_albedo_stack.tif"))
+wy2010_daily_albedo_brick <- brick(wy2010_daily_albedo_brick)
+
+wy2011_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2011_albedo_stack.tif"))
+wy2011_daily_albedo_brick <- brick(wy2011_daily_albedo_brick)
+
+wy2012_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2012_albedo_stack.tif"))
+wy2012_daily_albedo_brick <- brick(wy2012_daily_albedo_brick)
+
+wy2013_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2013_albedo_stack.tif"))
+wy2013_daily_albedo_brick <- brick(wy2013_daily_albedo_brick)
+
+wy2014_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2014_albedo_stack.tif"))
+wy2014_daily_albedo_brick <- brick(wy2014_daily_albedo_brick)
+
+wy2015_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2015_albedo_stack.tif"))
+wy2015_daily_albedo_brick <- brick(wy2015_daily_albedo_brick)
+
+wy2016_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2016_albedo_stack.tif"))
+wy2016_daily_albedo_brick <- brick(wy2016_daily_albedo_brick)
+
+wy2017_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2017_albedo_stack.tif"))
+wy2017_daily_albedo_brick <- brick(wy2017_daily_albedo_brick)
+
+wy2018_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2018_albedo_stack.tif"))
+wy2018_daily_albedo_brick <- brick(wy2018_daily_albedo_brick)
+
+wy2019_daily_albedo_brick <- (here("data", "stacked_annual_tiffs", "wy2019_albedo_stack.tif"))
+wy2019_daily_albedo_brick <- brick(wy2019_daily_albedo_brick)
+
+# annual and mothly means
 wy2001_mean_annual_scp <- raster::raster(here("data", "wy2001", "wy2001_annual_mean_snow_cover_percent.tif"))
 oct2000_mean_scp <- raster::raster(here("data", "wy2001", "2000_10_mean_snow_cover_percent.tif"))
 nov2000_mean_scp <- raster::raster(here("data", "wy2001", "2000_11_mean_snow_cover_percent.tif"))
@@ -50,8 +152,25 @@ sep2001_mean_scp <- raster::raster(here("data", "wy2001", "2001_09_mean_snow_cov
 
 # date for raster brick indices
 # consider having 1 file with all dates, instead of a file per water year
-wy2001_iso_dates <- read_csv(here("data", "wy2001_iso_dates.csv"))
-wy2002_iso_dates <- read_csv(here("data", "wy2002_iso_dates.csv"))
+wy2001_iso_dates <- read_csv(here("data", "iso_dates", "wy2001_iso_dates.csv"))
+wy2002_iso_dates <- read_csv(here("data", "iso_dates", "wy2002_iso_dates.csv"))
+wy2003_iso_dates <- read_csv(here("data", "iso_dates", "wy2003_iso_dates.csv"))
+wy2004_iso_dates <- read_csv(here("data", "iso_dates", "wy2004_iso_dates.csv"))
+wy2005_iso_dates <- read_csv(here("data", "iso_dates", "wy2005_iso_dates.csv"))
+wy2006_iso_dates <- read_csv(here("data", "iso_dates", "wy2006_iso_dates.csv"))
+wy2007_iso_dates <- read_csv(here("data", "iso_dates", "wy2007_iso_dates.csv"))
+wy2008_iso_dates <- read_csv(here("data", "iso_dates", "wy2008_iso_dates.csv"))
+wy2009_iso_dates <- read_csv(here("data", "iso_dates", "wy2009_iso_dates.csv"))
+wy2010_iso_dates <- read_csv(here("data", "iso_dates", "wy2010_iso_dates.csv"))
+wy2011_iso_dates <- read_csv(here("data", "iso_dates", "wy2011_iso_dates.csv"))
+wy2012_iso_dates <- read_csv(here("data", "iso_dates", "wy2012_iso_dates.csv"))
+wy2013_iso_dates <- read_csv(here("data", "iso_dates", "wy2013_iso_dates.csv"))
+wy2014_iso_dates <- read_csv(here("data", "iso_dates", "wy2014_iso_dates.csv"))
+wy2015_iso_dates <- read_csv(here("data", "iso_dates", "wy2015_iso_dates.csv"))
+wy2016_iso_dates <- read_csv(here("data", "iso_dates", "wy2016_iso_dates.csv"))
+wy2017_iso_dates <- read_csv(here("data", "iso_dates", "wy2017_iso_dates.csv"))
+wy2018_iso_dates <- read_csv(here("data", "iso_dates", "wy2018_iso_dates.csv"))
+wy2019_iso_dates <- read_csv(here("data", "iso_dates", "wy2019_iso_dates.csv"))
 
 # create 'ui' = "User Interface"
 # widgets are things that the user interacts with to make decisions about what they want to appear as outputs
@@ -72,7 +191,7 @@ ui <- fluidPage(
                         # sidebarPanel is where you put your widgets
                         sidebarPanel("pick a day",
                                      dateInput("date", label = h3("Date input"), value = "2001-01-01"),
-                                     ),
+                                     p("place holder for another widget")),
                         mainPanel("agkgklh",
                                   h2("Home of Snow Today"),
                                   h4("This shiny app shows some cool snow stuff."),
@@ -126,11 +245,44 @@ server <- function(input, output) {
   selected_index <- reactive({
     if (input$date <= as.Date("2001-09-30")) {
       wy2001_iso_dates$index[wy2001_iso_dates$date == input$date]  
-    } else {
+    } else if (input$date > as.Date("2001-09-30") & input$date <= as.Date("2002-09-30")) {
       wy2002_iso_dates$index[wy2002_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2002-09-30") & input$date <= as.Date("2003-09-30")) {
+      wy2003_iso_dates$index[wy2003_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2003-09-30") & input$date <= as.Date("2004-09-30")) {
+      wy2004_iso_dates$index[wy2004_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2004-09-30") & input$date <= as.Date("2005-09-30")) {
+      wy2005_iso_dates$index[wy2005_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2005-09-30") & input$date <= as.Date("2006-09-30")) {
+      wy2006_iso_dates$index[wy2006_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2006-09-30") & input$date <= as.Date("2007-09-30")) {
+      wy2007_iso_dates$index[wy2007_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2007-09-30") & input$date <= as.Date("2008-09-30")) {
+      wy2008_iso_dates$index[wy2008_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2008-09-30") & input$date <= as.Date("2009-09-30")) {
+      wy2009_iso_dates$index[wy2009_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2009-09-30") & input$date <= as.Date("2010-09-30")) {
+      wy2010_iso_dates$index[wy2010_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2010-09-30") & input$date <= as.Date("2011-09-30")) {
+      wy2011_iso_dates$index[wy2011_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2011-09-30") & input$date <= as.Date("2012-09-30")) {
+      wy2012_iso_dates$index[wy2012_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2012-09-30") & input$date <= as.Date("2013-09-30")) {
+      wy2013_iso_dates$index[wy2013_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2013-09-30") & input$date <= as.Date("2014-09-30")) {
+      wy2014_iso_dates$index[wy2014_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2014-09-30") & input$date <= as.Date("2015-09-30")) {
+      wy2015_iso_dates$index[wy2015_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2015-09-30") & input$date <= as.Date("2016-09-30")) {
+      wy2016_iso_dates$index[wy2016_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2016-09-30") & input$date <= as.Date("2017-09-30")) {
+      wy2017_iso_dates$index[wy2017_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2017-09-30") & input$date <= as.Date("2018-09-30")) {
+      wy2018_iso_dates$index[wy2018_iso_dates$date == input$date]
+    } else if (input$date > as.Date("2018-09-30") & input$date <= as.Date("2019-09-30")) {
+      wy2019_iso_dates$index[wy2019_iso_dates$date == input$date]
     }
   })
-    
   
   # created a reactive dataframe that depends on the selection made in the site widget
   
@@ -144,16 +296,50 @@ server <- function(input, output) {
                       na.color = "transparent")
   
   # albedo palettes
-  val_albedo = as.numeric(c(0:1))
-  pal_albedo = colorNumeric(c("yellow", "orange", "red"), val_albedo,
+  val_albedo = as.numeric(c(0:1)) # this doesn't work
+  pal_albedo = colorNumeric(c("yellow", "orange", "brown"), val_albedo,
                             na.color = "transparent")
 
   # leaflet map of daily snow cover percent
   daily_scp_brick_i <- reactive({
     if (input$date <= as.Date("2001-09-30")) {
       wy2001_daily_scp_brick[[selected_index()]]  
-    } else {
+    } else if (input$date > as.Date("2001-09-30") & input$date <= as.Date("2002-09-30")) {
       wy2002_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2002-09-30") & input$date <= as.Date("2003-09-30")) {
+      wy2003_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2003-09-30") & input$date <= as.Date("2004-09-30")) {
+      wy2004_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2004-09-30") & input$date <= as.Date("2005-09-30")) {
+      wy2005_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2005-09-30") & input$date <= as.Date("2006-09-30")) {
+      wy2006_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2006-09-30") & input$date <= as.Date("2007-09-30")) {
+      wy2007_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2007-09-30") & input$date <= as.Date("2008-09-30")) {
+      wy2008_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2008-09-30") & input$date <= as.Date("2009-09-30")) {
+      wy2009_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2009-09-30") & input$date <= as.Date("2010-09-30")) {
+      wy2010_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2010-09-30") & input$date <= as.Date("2011-09-30")) {
+      wy2011_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2011-09-30") & input$date <= as.Date("2012-09-30")) {
+      wy2012_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2012-09-30") & input$date <= as.Date("2013-09-30")) {
+      wy2013_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2013-09-30") & input$date <= as.Date("2014-09-30")) {
+      wy2014_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2014-09-30") & input$date <= as.Date("2015-09-30")) {
+      wy2015_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2015-09-30") & input$date <= as.Date("2016-09-30")) {
+      wy2016_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2016-09-30") & input$date <= as.Date("2017-09-30")) {
+      wy2017_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2017-09-30") & input$date <= as.Date("2018-09-30")) {
+      wy2018_daily_scp_brick[[selected_index()]]
+    } else if (input$date > as.Date("2018-09-30") & input$date <= as.Date("2019-09-30")) {
+      wy2019_daily_scp_brick[[selected_index()]]
     }
   })
     
@@ -169,8 +355,42 @@ server <- function(input, output) {
   daily_albedo_brick_i <- reactive({
     if (input$date <= as.Date("2001-09-30")) {
       wy2001_daily_albedo_brick[[selected_index()]]  
-    } else {
+    } else if (input$date > as.Date("2001-09-30") & input$date <= as.Date("2002-09-30")) {
       wy2002_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2002-09-30") & input$date <= as.Date("2003-09-30")) {
+      wy2003_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2003-09-30") & input$date <= as.Date("2004-09-30")) {
+      wy2004_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2004-09-30") & input$date <= as.Date("2005-09-30")) {
+      wy2005_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2005-09-30") & input$date <= as.Date("2006-09-30")) {
+      wy2006_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2006-09-30") & input$date <= as.Date("2007-09-30")) {
+      wy2007_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2007-09-30") & input$date <= as.Date("2008-09-30")) {
+      wy2008_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2008-09-30") & input$date <= as.Date("2009-09-30")) {
+      wy2009_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2009-09-30") & input$date <= as.Date("2010-09-30")) {
+      wy2010_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2010-09-30") & input$date <= as.Date("2011-09-30")) {
+      wy2011_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2011-09-30") & input$date <= as.Date("2012-09-30")) {
+      wy2012_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2012-09-30") & input$date <= as.Date("2013-09-30")) {
+      wy2013_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2013-09-30") & input$date <= as.Date("2014-09-30")) {
+      wy2014_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2014-09-30") & input$date <= as.Date("2015-09-30")) {
+      wy2015_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2015-09-30") & input$date <= as.Date("2016-09-30")) {
+      wy2016_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2016-09-30") & input$date <= as.Date("2017-09-30")) {
+      wy2017_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2017-09-30") & input$date <= as.Date("2018-09-30")) {
+      wy2018_daily_albedo_brick[[selected_index()]]
+    } else if (input$date > as.Date("2018-09-30") & input$date <= as.Date("2019-09-30")) {
+      wy2019_daily_albedo_brick[[selected_index()]]
     }
   
   })
@@ -179,7 +399,7 @@ server <- function(input, output) {
     leaflet() %>%
       addTiles() %>%
       addRasterImage(daily_albedo_brick_i(), colors = pal_albedo, opacity = 0.75) %>%
-      addLegend(pal = pal_albedo, values = val_albedo, title = "Albedo")
+      addLegend(pal = pal_albedo, values = values(daily_albedo_brick_i()), title = "Albedo")
   })
   
   # leaflet map of wy2001 mean snow cover percent
