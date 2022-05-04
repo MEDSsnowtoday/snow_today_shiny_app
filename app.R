@@ -13,6 +13,21 @@ library(terra)
 library(maptiles)
 library(sf)
 
+# Next steps:
+# - add year selector for monthly averages page
+# - add anomaly visualizations
+# - add interactive line graphs
+# - play with albedo color scheme
+# - add snow science text
+# - Insights - add links to current Snow Today website
+# - Data - include links to data and write up describing the data (modis, spires model, HDF5...)
+# - Tutorials - add links and text to describe the tutorials (intended audience, instructions for getting started)
+# - add About text (project background, team bios)...maybe move this tap all the way to the right
+# - improve app formating and aesthetics
+# - compare/contrast selected days side by side?
+# - think about how to differentiate where snow wasn't calculated (boundary of model output)...bounding box
+# - can you link the zoom on snow cover and albedo maps?
+#  - have start zoom closer in
 
 # load data
 sample_stack <- terra::rast("data/sample_stack.tif")
@@ -186,7 +201,7 @@ ui <- fluidPage(
              #theme = "theme_snow_shiny.css",
              theme = shinytheme("cerulean"),
              #theme = shinytheme("cyborg"),
-             tabPanel("Home",
+             tabPanel("Daily Snow Cover and Albedo",
                       sidebarLayout(
                         # sidebarPanel is where you put your widgets
                         sidebarPanel("pick a day",
@@ -199,7 +214,7 @@ ui <- fluidPage(
                                   h2("Albedo!!!"),
                                   leafletOutput(outputId = "daily_albedo_map")
                                   ))),
-             tabPanel("wy2001",
+             tabPanel("Monthly Averages",
                       mainPanel("Annual Mean Snow Cover Percent",
                                 leafletOutput(outputId = "wy2001_mean_scp"),
                                 p(""),
@@ -220,12 +235,15 @@ ui <- fluidPage(
                                   h5("some text to explain things"),
                                   p("Citation: xxx")))
                       ),
-             tabPanel("About",
-                          p("about this project"),
-                          p("more text")),
+             tabPanel("Anomalies",
+                      p("add visualizations of annual and monthly snow cover and albedo anomalies"),
+                      ),
              tabPanel("Snow Science"),
              tabPanel("Insights"),
              tabPanel("Data"),
+             tabPanel("About",
+                      p("about this project"),
+                      p("more text")),
              tabPanel("Tutorials")
   
 ))
