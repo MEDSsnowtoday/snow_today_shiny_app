@@ -1,0 +1,453 @@
+---
+title: "testing_stacks_for_shiny_app"
+author: "Marie Rivers"
+date: '2022-05-04'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(here)
+library(raster)
+library(leaflet)
+library(rgdal)
+library(tidyverse)
+library(terra)
+library(maptiles)
+```
+
+```{r}
+pal_mask <- colorNumeric(c("gray"), 999,
+  na.color = "transparent")
+
+project_area_mask <- stack(here("myapp", "data", "project_area_mask.tif"))
+project_area_mask <- project_area_mask[[1]]
+
+pal_scp <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), 1:100,
+  na.color = "transparent")
+
+pal_albedo <- colorNumeric(c("brown", "orange", "red"), 0:1,
+  na.color = "transparent")
+
+pal_scp_anomaly <- colorNumeric(c("#B80C09", "#B7B5B3", "#0C2C84"), -100:100,
+  na.color = "transparent")
+
+pal_albedo_anomaly <- colorNumeric(c("lightsalmon4", "gray", "lightsalmon"), -1:1,
+  na.color = "transparent")
+```
+
+# Snow Cover Percent
+
+## annual_snow_cover_percent_stack
+1 = wy2001 annual mean snow cover percent
+2 = wy2002 annual mean snow cover percent
+19 = wy2019 annual mean snow cover percent
+20 = mean snow cover percent of all year
+```{r}
+annual_snow_cover_percent_stack <- stack(here("myapp", "data", "snow_cover_percent", "annual", "annual_snow_cover_percent_stack.tif"))
+annual_snow_cover_percent_stack
+# 20 layers
+```
+
+```{r}
+plot(annual_snow_cover_percent_stack, 7)
+```
+
+```{r}
+annual_snow_cover_percent_stack_4 <- annual_snow_cover_percent_stack[[4]]
+plot(annual_snow_cover_percent_stack_4)
+```
+
+```{r}
+leaflet() %>% addTiles() %>%
+  addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>% 
+  addRasterImage(annual_snow_cover_percent_stack_4, colors = pal_scp, opacity = 0.8) %>%
+  addLegend(pal = pal_scp, values = values(annual_snow_cover_percent_stack_4),
+    title = "percent")
+```
+
+## annual_scp_anomaly_stack
+1 = wy2001 snow cover percent anomaly
+2 = wy2002 snow cover percent anomaly
+19 = wy2019 snow cover percent anomaly
+```{r}
+annual_scp_anomaly_stack <- stack(here("myapp", "data", "snow_cover_percent", "annual", "annual_scp_anomaly_stack.tif"))
+annual_scp_anomaly_stack
+# 19 layers
+plot(annual_scp_anomaly_stack, 1)
+```
+
+## wy2001_monthly_mean_scp_stack
+1 = january snow cover percent wy2001
+2 = february snow cover percent wy2001
+3 = march
+4 = april
+5 = may
+6 = june
+7 = july
+8 = aug
+9 = sept
+10 = oct
+11 = nov
+12 = december snow cover percent wy2001
+```{r}
+wy2001_monthly_mean_scp_stack <- stack(here("myapp", "data", "snow_cover_percent", "monthly",  "wy2001_monthly_mean_scp_stack.tif"))
+wy2001_monthly_mean_scp_stack
+# 12 layers
+plot(wy2001_monthly_mean_scp_stack, 5)
+```
+
+```{r}
+wy2001_monthly_mean_scp_stack <- brick(here("myapp", "data", "snow_cover_percent", "monthly", "wy2001_monthly_mean_scp_stack.tif"))
+wy2001_monthly_mean_scp_stack
+# 12 layers
+plot(wy2001_monthly_mean_scp_stack, 5)
+```
+
+```{r}
+wy2001_monthly_mean_scp_stack_i <- wy2001_monthly_mean_scp_stack[[0]]
+leaflet() %>% addTiles() %>%
+  addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>% 
+  addRasterImage(wy2001_monthly_mean_scp_stack_i, colors = pal_scp, opacity = 0.8) %>%
+  addLegend(pal = pal_scp, values = values(wy2001_monthly_mean_scp_stack_i),
+    title = "percent")
+```
+
+
+```{r}
+annual_snow_cover_percent_brick <- (here("myapp", "data", "snow_cover_percent", "annual", "annual_snow_cover_percent_stack.tif"))
+annual_snow_cover_percent_brick <- brick(annual_snow_cover_percent_brick)
+plot(annual_snow_cover_percent_brick, 3)
+
+annual_snow_cover_percent_brick_2 <- annual_snow_cover_percent_brick[[2]]
+leaflet() %>% addTiles() %>%
+  addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>% 
+  addRasterImage(annual_snow_cover_percent_brick_2, colors = pal_scp, opacity = 0.8) %>%
+  addLegend(pal = pal_scp, values = values(annual_snow_cover_percent_brick_2),
+    title = "percent")
+```
+
+
+```{r}
+wy2001_monthly_mean_scp_stack_5 <- wy2001_monthly_mean_scp_stack[[5]]
+leaflet() %>% addTiles() %>%
+  addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>% 
+  addRasterImage(wy2001_monthly_mean_scp_stack_5, colors = pal_scp, opacity = 0.8) %>%
+  addLegend(pal = pal_scp, values = values(wy2001_monthly_mean_scp_stack_5),
+    title = "percent")
+
+```
+## wy2002_monthly_mean_scp_stack
+1 = january snow cover percent wy2002
+2 = february snow cover percent wy2002
+13 = december snow cover percent wy2002
+
+## wy2003_monthly_mean_scp_stack
+1 = january snow cover percent wy2003
+2 = february snow cover percent wy2003
+12 = december snow cover percent wy2003
+
+## wy2004_monthly_mean_scp_stack
+1 = january snow cover percent wy2004
+2 = february snow cover percent wy2004
+12 = december snow cover percent wy2004
+
+## wy2005_monthly_mean_scp_stack
+1 = january snow cover percent wy2005
+2 = february snow cover percent wy2005
+12 = december snow cover percent wy2005
+
+## wy2006_monthly_mean_scp_stack
+1 = january snow cover percent wy2006
+2 = february snow cover percent wy2006
+12 = december snow cover percent wy2006
+
+## wy2007_monthly_mean_scp_stack
+1 = january snow cover percent wy2007
+2 = february snow cover percent wy2007
+12 = december snow cover percent wy2007
+
+## wy2008_monthly_mean_scp_stack
+1 = january snow cover percent wy2008
+2 = february snow cover percent wy2008
+12 = december snow cover percent wy2008
+
+## wy2009_monthly_mean_scp_stack
+1 = january snow cover percent wy2009
+2 = february snow cover percent wy2009
+12 = december snow cover percent wy2009
+
+## wy2010_monthly_mean_scp_stack
+1 = january snow cover percent wy2010
+2 = february snow cover percent wy2010
+12 = december snow cover percent wy2010
+
+## wy2011_monthly_mean_scp_stack
+1 = january snow cover percent wy2011
+2 = february snow cover percent wy2011
+12 = december snow cover percent wy2011
+
+## wy2012_monthly_mean_scp_stack
+1 = january snow cover percent wy2012
+2 = february snow cover percent wy2012
+12 = december snow cover percent wy2012
+
+## wy2013_monthly_mean_scp_stack
+1 = january snow cover percent wy2013
+2 = february snow cover percent wy2013
+12 = december snow cover percent wy2013
+
+## wy2014_monthly_mean_scp_stack
+1 = january snow cover percent wy2014
+2 = february snow cover percent wy2014
+12 = december snow cover percent wy2014
+
+## wy2015_monthly_mean_scp_stack
+1 = january snow cover percent wy2015
+2 = february snow cover percent wy2015
+12 = december snow cover percent wy2015
+
+## wy2016_monthly_mean_scp_stack
+1 = january snow cover percent wy2016
+2 = february snow cover percent wy2016
+12 = december snow cover percent wy2016
+
+## wy2017_monthly_mean_scp_stack
+1 = january snow cover percent wy2017
+2 = february snow cover percent wy2017
+12 = december snow cover percent wy2017
+
+## wy2018_monthly_mean_scp_stack
+1 = january snow cover percent wy2018
+2 = february snow cover percent wy2018
+12 = december snow cover percent wy2018
+
+## wy2019_monthly_mean_scp_stack
+1 = january snow cover percent wy2019
+2 = february snow cover percent wy2019
+12 = december snow cover percent wy2019
+
+## january_scp_anomaly_stack
+1 = wy2001 january snow cover percent anomaly
+2 = wy2002 january snow cover percent anomaly
+...
+19 = wy2019 january snow cover percent anomaly
+20 = mean of all january scp 
+```{r}
+january_scp_anomaly_stack <- stack(here("myapp", "data", "snow_cover_percent", "monthly", "january_scp_anomaly_stack.tif"))
+january_scp_anomaly_stack
+# 20 layers
+plot(january_scp_anomaly_stack, 1)
+january_scp_anomaly_stack_5 <- january_scp_anomaly_stack[[5]]
+```
+
+```{r}
+leaflet() %>% addTiles() %>%
+  addRasterImage(january_scp_anomaly_stack_5, colors = pal_scp_anomaly, opacity = 0.8) %>%
+  addLegend(pal = pal_scp_anomaly, values = values(january_scp_anomaly_stack_5),
+    title = "percentage point difference")
+```
+
+## february_scp_anomaly_stack
+1 = wy2001 february snow cover percent anomaly
+2 = wy2002 february snow cover percent anomaly
+
+## march_scp_anomaly_stack
+1 = wy2001 march snow cover percent anomaly
+2 = wy2002 march snow cover percent anomaly
+
+## april_scp_anomaly_stack
+1 = wy2001 april snow cover percent anomaly
+2 = wy2002 april snow cover percent anomaly
+
+## may_scp_anomaly_stack
+1 = wy2001 may snow cover percent anomaly
+2 = wy2002 may snow cover percent anomaly
+
+## june_scp_anomaly_stack
+1 = wy2001 june snow cover percent anomaly
+2 = wy2002 june snow cover percent anomaly
+
+## july_scp_anomaly_stack
+1 = wy2001 july snow cover percent anomaly
+2 = wy2002 july snow cover percent anomaly
+
+## august_scp_anomaly_stack
+1 = wy2001 august snow cover percent anomaly
+2 = wy2002 august snow cover percent anomaly
+
+## september_scp_anomaly_stack
+1 = wy2001 september snow cover percent anomaly
+2 = wy2002 september snow cover percent anomaly
+
+## october_scp_anomaly_stack
+1 = wy2001 october snow cover percent anomaly
+2 = wy2002 october snow cover percent anomaly
+
+## november_scp_anomaly_stack
+1 = wy2001 november snow cover percent anomaly
+2 = wy2002 november snow cover percent anomaly
+
+## december_scp_anomaly_stack
+1 = wy2001 december snow cover percent anomaly
+2 = wy2002 december snow cover percent anomaly
+
+# Albedo
+
+## annual_mean_albedo_stack
+1 = wy2001 annual mean albedo
+2 = wy2002 annual mean albedo
+19 = wy2019 annual mean albedo
+20 = mean albedo of all year
+```{r}
+annual_mean_albedo_stack <- stack(here("myapp", "data", "albedo", "annual", "annual_mean_albedo_stack.tif"))
+annual_mean_albedo_stack
+# 20 layers
+plot(annual_mean_albedo_stack, 5)
+```
+```{r}
+annual_mean_albedo_stack_5 <- annual_mean_albedo_stack[[5]]
+
+leaflet() %>% addTiles() %>%
+  addRasterImage(annual_mean_albedo_stack_5, colors = pal_albedo, opacity = 0.8) %>%
+  addLegend(pal = pal_albedo, values = values(annual_mean_albedo_stack_5),
+    title = "albedo")
+```
+## annual_albedo_anomaly_stack
+1 = wy2001 albedo anomaly
+2 = wy2002 albedo anomaly
+19 = wy2019 albedo anomaly
+```{r}
+annual_albedo_anomaly_stack <- stack(here("myapp", "data", "albedo", "annual", "annual_albedo_anomaly_stack.tif"))
+annual_albedo_anomaly_stack
+# 19 layers
+plot(annual_albedo_anomaly_stack, 5)
+```
+
+## wy2001_monthly_mean_albedo_stack
+1 = january albedo wy2001
+2 = february albedo wy2001
+13 = december albedo wy2001
+```{r}
+wy2001_monthly_mean_albedo_stack <- stack(here("myapp", "data", "albedo", "monthly", "wy2001_monthly_mean_albedo_stack.tif"))
+wy2001_monthly_mean_albedo_stack
+# 12 layers
+plot(wy2001_monthly_mean_albedo_stack, 4)
+```
+
+
+```{r}
+wy2001_monthly_mean_albedo_stack_5 <- wy2001_monthly_mean_albedo_stack[[5]]
+leaflet() %>% addTiles() %>%
+  addRasterImage(wy2001_monthly_mean_albedo_stack_5, colors = pal_albedo, opacity = 0.8) %>%
+  addLegend(pal = pal_albedo, values = values(wy2001_monthly_mean_albedo_stack_5),
+    title = "albedo")
+```
+## wy2002_monthly_mean_albedo_stack
+
+## wy2003_monthly_mean_albedo_stack
+
+## wy2004_monthly_mean_albedo_stack
+
+
+## wy2005_monthly_mean_albedo_stack
+
+
+## wy2006_monthly_mean_albedo_stack
+
+
+## wy2007_monthly_mean_albedo_stack
+
+
+## wy2008_monthly_mean_albedo_stack
+
+
+## wy2009_monthly_mean_albedo_stack
+
+
+## wy2010_monthly_mean_albedo_stack
+
+
+## wy2011_monthly_mean_albedo_stack
+
+
+## wy2012_monthly_mean_albedo_stack
+
+
+## wy2013_monthly_mean_albedo_stack
+
+
+## wy2014_monthly_mean_albedo_stack
+
+
+## wy2015_monthly_mean_albedo_stack
+
+
+## wy2016_monthly_mean_albedo_stack
+
+
+## wy2017_monthly_mean_salbedo_stack
+
+
+## wy2018_monthly_mean_albedo_stack
+
+
+## wy2019_monthly_mean_albedo_stack
+
+
+## january_albedo_anomaly_stack
+1 = wy2001 january albedo anomaly
+2 = wy2002 january albedo anomaly
+...
+19 = wy2019 january albedo anomaly
+20 = mean albedo of all januarys
+```{r}
+january_albedo_anomaly_stack <- stack(here("myapp", "data", "albedo", "monthly", "january_albedo_anomaly_stack.tif"))
+january_albedo_anomaly_stack
+# 20 layers
+plot(january_albedo_anomaly_stack, 5)
+```
+
+
+```{r}
+january_albedo_anomaly_stack_3 <- january_albedo_anomaly_stack[[3]]
+leaflet() %>% addTiles() %>%
+  addRasterImage(january_albedo_anomaly_stack_3, colors = pal_albedo_anomaly, opacity = 0.8) %>%
+  addLegend(pal = pal_scp_anomaly, values = values(january_albedo_anomaly_stack_3),
+    title = "albedo anomaly")
+```
+## february_albedo_anomaly_stack
+
+
+## march_albedo_anomaly_stack
+
+
+## april_albedo_anomaly_stack
+
+
+## may_albedo_anomaly_stack
+
+
+## june_albedo_anomaly_stack
+
+
+## july_albedo_anomaly_stack
+
+
+## august_albedo_anomaly_stack
+
+
+## september_albedo_anomaly_stack
+
+
+## october_albedo_anomaly_stack
+
+
+## november_albedo_anomaly_stack
+
+
+## december_albedo_anomaly_stack
+
