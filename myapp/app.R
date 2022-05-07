@@ -184,7 +184,7 @@ september_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthl
 september_mean_scp_brick <- brick(september_mean_scp_brick)
 
 october_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "october_mean_scp_stack.tif"))
-october__mean_scp_brick <- brick(october_mean_scp_brick)
+october_mean_scp_brick <- brick(october_mean_scp_brick)
 
 november_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "november_mean_scp_stack.tif"))
 november_mean_scp_brick <- brick(november_mean_scp_brick)
@@ -381,7 +381,7 @@ september_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean
 september_mean_albedo_brick <- brick(september_mean_albedo_brick)
 
 october_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "october_mean_albedo_stack.tif"))
-october__mean_albedo_brick <- brick(october_mean_albedo_brick)
+october_mean_albedo_brick <- brick(october_mean_albedo_brick)
 
 november_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "november_mean_albedo_stack.tif"))
 november_mean_albedo_brick <- brick(november_mean_albedo_brick)
@@ -612,14 +612,14 @@ ui <- fluidPage(
                                   tabPanel("November", leafletOutput(outputId = "nov_mean_scp")),
                                   tabPanel("December", leafletOutput(outputId = "dec_mean_scp")),
                                   tabPanel("January", leafletOutput(outputId = "jan_mean_scp")),
-                                  # tabPanel("February", leafletOutput(outputId = "feb_mean_scp")),
-                                  # tabPanel("March", leafletOutput(outputId = "mar_mean_scp")),
-                                  # tabPanel("April", leafletOutput(outputId = "apr_mean_scp")),
-                                  # tabPanel("May", leafletOutput(outputId = "may_mean_scp")),
-                                  # tabPanel("June", leafletOutput(outputId = "jun_mean_scp")),
-                                  # tabPanel("July", leafletOutput(outputId = "jul_mean_scp")),
-                                  # tabPanel("August", leafletOutput(outputId = "aug_mean_scp")),
-                                  # tabPanel("September", leafletOutput(outputId = "sep_mean_scp")),
+                                  tabPanel("February", leafletOutput(outputId = "feb_mean_scp")),
+                                  tabPanel("March", leafletOutput(outputId = "mar_mean_scp")),
+                                  tabPanel("April", leafletOutput(outputId = "apr_mean_scp")),
+                                  tabPanel("May", leafletOutput(outputId = "may_mean_scp")),
+                                  tabPanel("June", leafletOutput(outputId = "jun_mean_scp")),
+                                  tabPanel("July", leafletOutput(outputId = "jul_mean_scp")),
+                                  tabPanel("August", leafletOutput(outputId = "aug_mean_scp")),
+                                  tabPanel("September", leafletOutput(outputId = "sep_mean_scp")),
                                   h5("some text to explain things"),
                                   p("Citation: xxx")))
                       )),
@@ -833,272 +833,165 @@ server <- function(input, output) {
   output$annual_mean_scp <- renderLeaflet({
     leaflet() %>% 
       addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(annual_snow_cover_percent_i(), colors = pal_scp, opacity = 0.75) %>% 
       addLegend(pal = pal_scp, values = values(annual_snow_cover_percent_i()),
                 title = "percent")
   })
   
-  oct_mean_scp_i <- reactive ({
-    if (input$water_year == 1) {
-      wy2001_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 2) {
-      wy2002_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 3) {
-      wy2003_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 4) {
-      wy2004_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 5) {
-      wy2005_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 6) {
-      wy2006_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 7) {
-      wy2007_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 8) {
-      wy2008_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 9) {
-      wy2009_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 10) {
-      wy2010_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 11) {
-      wy2011_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 12) {
-      wy2012_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 13) {
-      wy2013_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 14) {
-      wy2014_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 15) {
-      wy2015_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 16) {
-      wy2016_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 17) {
-      wy2017_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 18) {
-      wy2018_monthly_mean_scp_brick[[9]]
-    } else if (input$water_year == 19) {
-      wy2019_monthly_mean_scp_brick[[9]]
-    }
+  # leaflet maps of monthly mean snow cover percent
+  oct_mean_scp_i <- reactive({
+    october_mean_scp_brick[[as.numeric(input$water_year)]]
   })
   
-  # leaflet map of monthly mean snow cover percent
-  output$oct_mean_scp <- renderLeaflet({
+    output$oct_mean_scp <- renderLeaflet({
     leaflet() %>% 
       addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(oct_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>% 
       addLegend(pal = pal_scp, values = values(oct_mean_scp_i()),
                 title = "percent")
   })
   
-  nov_mean_scp_i <- reactive ({
-    if (input$water_year == 1) {
-      wy2001_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 2) {
-      wy2002_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 3) {
-      wy2003_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 4) {
-      wy2004_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 5) {
-      wy2005_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 6) {
-      wy2006_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 7) {
-      wy2007_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 8) {
-      wy2008_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 9) {
-      wy2009_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 10) {
-      wy2010_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 11) {
-      wy2011_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 12) {
-      wy2012_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 13) {
-      wy2013_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 14) {
-      wy2014_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 15) {
-      wy2015_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 16) {
-      wy2016_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 17) {
-      wy2017_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 18) {
-      wy2018_monthly_mean_scp_brick[[10]]
-    } else if (input$water_year == 19) {
-      wy2019_monthly_mean_scp_brick[[10]]
-    }
+  nov_mean_scp_i <- reactive({
+    november_mean_scp_brick[[as.numeric(input$water_year)]]
   })
   
   output$nov_mean_scp <- renderLeaflet({
     leaflet() %>% 
       addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(nov_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>% 
       addLegend(pal = pal_scp, values = values(nov_mean_scp_i()),
                 title = "percent")
   })
   
-  dec_mean_scp_i <- reactive ({
-    if (input$water_year == 1) {
-      wy2001_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 2) {
-      wy2002_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 3) {
-      wy2003_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 4) {
-      wy2004_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 5) {
-      wy2005_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 6) {
-      wy2006_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 7) {
-      wy2007_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 8) {
-      wy2008_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 9) {
-      wy2009_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 10) {
-      wy2010_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 11) {
-      wy2011_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 12) {
-      wy2012_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 13) {
-      wy2013_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 14) {
-      wy2014_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 15) {
-      wy2015_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 16) {
-      wy2016_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 17) {
-      wy2017_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 18) {
-      wy2018_monthly_mean_scp_brick[[11]]
-    } else if (input$water_year == 19) {
-      wy2019_monthly_mean_scp_brick[[11]]
-    }
+  dec_mean_scp_i <- reactive({
+    december_mean_scp_brick[[as.numeric(input$water_year)]]
   })
 
   output$dec_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(dec_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(dec_mean_scp_i()),
                 title = "percent")
   })
   
-  jan_mean_scp_i <- reactive ({
-    if (input$water_year == 1) {
-      wy2001_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 2) {
-      wy2002_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 3) {
-      wy2003_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 4) {
-      wy2004_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 5) {
-      wy2005_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 6) {
-      wy2006_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 7) {
-      wy2007_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 8) {
-      wy2008_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 9) {
-      wy2009_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 10) {
-      wy2010_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 11) {
-      wy2011_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 12) {
-      wy2012_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 13) {
-      wy2013_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 14) {
-      wy2014_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 15) {
-      wy2015_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 16) {
-      wy2016_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 17) {
-      wy2017_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 18) {
-      wy2018_monthly_mean_scp_brick[[0]]
-    } else if (input$water_year == 19) {
-      wy2019_monthly_mean_scp_brick[[0]]
-    }
+  jan_mean_scp_i <- reactive({
+    january_mean_scp_brick[[as.numeric(input$water_year)]]
   })
   
-  output$jan_mean_scp_i <- renderLeaflet({
+  output$jan_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(jan_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(jan_mean_scp_i()),
                 title = "percent")
   })
+  
+  feb_mean_scp_i <- reactive({
+    february_mean_scp_brick[[as.numeric(input$water_year)]]
+  })
 
-  output$feb_mean_scp_i <- renderLeaflet({
+  output$feb_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(feb_mean_scp(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(feb_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(feb_mean_scp_i()),
                 title = "percent")
   })
+  
+  mar_mean_scp_i <- reactive({
+    march_mean_scp_brick[[as.numeric(input$water_year)]]
+  })
 
-  output$mar_mean_scp_i <- renderLeaflet({
+  output$mar_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(mar_mean_scp(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(mar_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(mar_mean_scp_i()),
                 title = "percent")
   })
+  
+  apr_mean_scp_i <- reactive({
+    april_mean_scp_brick[[as.numeric(input$water_year)]]
+  })
 
-  output$apr_mean_scp_i <- renderLeaflet({
+  output$apr_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(apr_mean_scp(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(apr_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(apr_mean_scp_i()),
                 title = "percent")
   })
+  
+  may_mean_scp_i <- reactive({
+    may_mean_scp_brick[[as.numeric(input$water_year)]]
+  })
 
-  output$may_mean_scp_i <- renderLeaflet({
+  output$may_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(may_mean_scp(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(may_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(may_mean_scp_i()),
                 title = "percent")
   })
+  
+  jun_mean_scp_i <- reactive({
+    june_mean_scp_brick[[as.numeric(input$water_year)]]
+  })
 
-  output$jun_mean_scp_i <- renderLeaflet({
+  output$jun_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(jun_mean_scp(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(jun_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(jun_mean_scp_i()),
                 title = "percent")
   })
+  
+  jul_mean_scp_i <- reactive({
+    july_mean_scp_brick[[as.numeric(input$water_year)]]
+  })
 
-  output$jul_mean_scp_i <- renderLeaflet({
+  output$jul_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(jul_mean_scp(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(jul_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(jul_mean_scp_i()),
                 title = "percent")
   })
+  
+  aug_mean_scp_i <- reactive({
+    august_mean_scp_brick[[as.numeric(input$water_year)]]
+  })
 
-  output$aug_mean_scp_i <- renderLeaflet({
+  output$aug_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(aug_mean_scp(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(aug_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(aug_mean_scp_i()),
                 title = "percent")
   })
+  
+  sep_mean_scp_i <- reactive({
+    september_mean_scp_brick[[as.numeric(input$water_year)]]
+  })
 
-  output$sep_mean_scp_i <- renderLeaflet({
+  output$sep_mean_scp <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addRasterImage(sep_mean_scp(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(sep_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
       addLegend(pal = pal_scp, values = values(sep_mean_scp_i()),
                 title = "percent")
   })
