@@ -32,10 +32,10 @@ pal_scp <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), 1:100,
 pal_albedo <- colorNumeric(c("brown", "orange", "red"), 0:1,
   na.color = "transparent")
 
-pal_scp_anomaly <- colorNumeric(c("#B80C09", "#B7B5B3", "#0C2C84"), -100:100,
+pal_scp_anom <- colorNumeric(c("#B80C09", "#B7B5B3", "#0C2C84"), -100:100,
   na.color = "transparent")
 
-pal_albedo_anomaly <- colorNumeric(c("lightsalmon4", "gray", "lightsalmon"), -1:1,
+pal_albedo_anom <- colorNumeric(c("lightsalmon4", "gray", "lightsalmon"), -1:1,
   na.color = "transparent")
 ```
 
