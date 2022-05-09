@@ -17,6 +17,7 @@ library(rgdal)
 library(tidyverse)
 library(terra)
 library(maptiles)
+library(leafletR)
 ```
 
 ```{r}
@@ -32,7 +33,7 @@ pal_scp <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), 1:100,
 pal_albedo <- colorNumeric(c("brown", "orange", "red"), 0:1,
   na.color = "transparent")
 
-pal_scp_anom <- colorNumeric(c("#B80C09", "#B7B5B3", "#0C2C84"), -100:100,
+pal_scp_anom <- colorNumeric(c("firebrick4","firebrick1", "white", "dodgerblue1", "dodgerblue4"), -100:100,
   na.color = "transparent")
 
 pal_albedo_anom <- colorNumeric(c("lightsalmon4", "gray", "lightsalmon"), -1:1,
@@ -67,6 +68,7 @@ leaflet() %>% addTiles() %>%
   addRasterImage(annual_snow_cover_percent_stack_4, colors = pal_scp, opacity = 0.8) %>%
   addLegend(pal = pal_scp, values = values(annual_snow_cover_percent_stack_4),
     title = "percent")
+  
 ```
 
 ## annual_scp_anomaly_stack
@@ -121,13 +123,17 @@ leaflet() %>% addTiles() %>%
 annual_snow_cover_percent_brick <- (here("myapp", "data", "snow_cover_percent", "annual", "annual_snow_cover_percent_stack.tif"))
 annual_snow_cover_percent_brick <- brick(annual_snow_cover_percent_brick)
 plot(annual_snow_cover_percent_brick, 3)
+```
 
+
+```{r}
 annual_snow_cover_percent_brick_2 <- annual_snow_cover_percent_brick[[2]]
 leaflet() %>% addTiles() %>%
   addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>% 
   addRasterImage(annual_snow_cover_percent_brick_2, colors = pal_scp, opacity = 0.8) %>%
   addLegend(pal = pal_scp, values = values(annual_snow_cover_percent_brick_2),
     title = "percent")
+
 ```
 
 
@@ -237,7 +243,7 @@ leaflet() %>% addTiles() %>%
 19 = wy2019 january snow cover percent anomaly
 20 = mean of all january scp 
 ```{r}
-january_scp_anomaly_stack <- stack(here("myapp", "data", "snow_cover_percent", "monthly", "january_scp_anomaly_stack.tif"))
+january_scp_anomaly_stack <- stack(here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "january_scp_anomaly_stack.tif"))
 january_scp_anomaly_stack
 # 20 layers
 plot(january_scp_anomaly_stack, 1)
@@ -246,8 +252,8 @@ january_scp_anomaly_stack_5 <- january_scp_anomaly_stack[[5]]
 
 ```{r}
 leaflet() %>% addTiles() %>%
-  addRasterImage(january_scp_anomaly_stack_5, colors = pal_scp_anomaly, opacity = 0.8) %>%
-  addLegend(pal = pal_scp_anomaly, values = values(january_scp_anomaly_stack_5),
+  addRasterImage(january_scp_anomaly_stack_5, colors = pal_scp_anom, opacity = 0.8) %>%
+  addLegend(pal = pal_scp_anom, values = values(january_scp_anomaly_stack_5),
     title = "percentage point difference")
 ```
 

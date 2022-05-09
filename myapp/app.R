@@ -9,23 +9,19 @@ library(raster)
 library(leaflet)
 library(rgdal)
 library(tidyverse)
-#library(terra)
 library(maptiles)
 library(sf)
 
 # Next steps:
-# - add year selector for monthly averages page
-# - add anomaly visualizations
 # - add interactive line graphs
 # - play with albedo color scheme
 # - add snow science text
 # - Insights - add links to current Snow Today website
 # - Data - include links to data and write up describing the data (modis, spires model, HDF5...)
 # - Tutorials - add links and text to describe the tutorials (intended audience, instructions for getting started)
-# - add About text (project background, team bios)...maybe move this tap all the way to the right
+# - add About text (project background, team bios)...maybe move this tab all the way to the right
 # - improve app formating and aesthetics
 # - compare/contrast selected days side by side?
-# - think about how to differentiate where snow wasn't calculated (boundary of model output)...bounding box
 # - can you link the zoom on snow cover and albedo maps?
 #  - have start zoom closer in
 
@@ -594,6 +590,20 @@ ui <- fluidPage(
                                   h2("Albedo!!!"),
                                   leafletOutput(outputId = "daily_albedo_map")
                                   ))),
+             tabPanel("Monthly Averages",
+                      sidebarLayout(
+                        sidebarPanel(selectInput("water_year_monthly_means", label = h3("Select Water Year"),
+                                                 choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+                                                                "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+                                                                "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+                                                                "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+                                                                "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
+                                     radioButtons("variable", label = h3("Select a Variable"),
+                                                  choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
+                                                  selected = 1)),
+                        mainPanel("October",
+                                  leafletOutput(outputId = "october_map"),
+                                  p("")))),
              tabPanel("Monthly Averages - snow cover",
                       sidebarLayout(
                         sidebarPanel("Select a Water Year",
@@ -633,7 +643,7 @@ ui <- fluidPage(
                                                                 "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
                                                                 "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
                         mainPanel("Annual Mean Albedo",
-                                  #leafletOutput(outputID = "annual_mean_albedo"), xxx...fix this
+                                  leafletOutput(outputId = "annual_mean_albedo"),
                                   p(""),
                                   "Monthly Mean Albedo",
                                   tabsetPanel(
@@ -711,12 +721,20 @@ ui <- fluidPage(
                                     h5("some text to explain things"),
                                     p("Citation: xxx")))
                       )),
-             tabPanel("Snow Science"),
+             navbarMenu("Snow Science",
+                        tabPanel("Remotely Sensed Snow Data"),
+                        tabPanel("Albedo")),
              tabPanel("Insights"),
-             tabPanel("Data"),
-             tabPanel("About",
-                      p("about this project"),
-                      p("more text")),
+             navbarMenu("Data",
+                        tabPanel("HDF5 Files"),
+                        tabPanel("Data Source"),
+                        tabPanel("Metadata")),
+             navbarMenu("About",
+                        tabPanel("MEDS Capstone Project"),
+                        tabPanel("Team Bios",
+                                 p("about this project"),
+                                 p("more text")),
+                        ),
              tabPanel("Tutorials")
   
 ))
@@ -730,15 +748,15 @@ server <- function(input, output) {
   pal_scp <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), 1:100,
                           na.color = "transparent")
   
-  pal_scp_anom <- colorNumeric(c("blue", "black", "red"), -100:100, # xxx...adjust the value range as needed
+  pal_scp_anom <- colorNumeric(c("firebrick4", "white", "dodgerblue4"), -100:100, # xxx...adjust the value range as needed
                           na.color = "transparent")
-  
+  # "firebrick4","firebrick1", "white", "dodgerblue1", "dodgerblue4"
   pal_albedo <- colorNumeric(c("brown", "orange", "red"), 0:1,
                              na.color = "transparent")
   
-  pal_albedo_anom <- colorNumeric(c("brown", "white", "pink"), -1:1,
+  pal_albedo_anom <- colorNumeric(c("tan4", "white", "darkseagreen3"), -1:1,
                              na.color = "transparent")
-  
+  # "tan4", "tan2", "white", "darkseagreen1", "darkseagreen3"
   pal_mask <- colorNumeric(c("gray"), 999,
                            na.color = "transparent")
   
@@ -941,6 +959,40 @@ server <- function(input, output) {
       addRasterImage(annual_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
       addLegend(pal = pal_albedo_anom, values = values(annual_albedo_anomaly_i()),
                 title = "percent")
+  })
+  
+  # leaflet maps where user selects water year and variable
+  oct_i <- reactive({
+    if(input$variable == 1) {
+      october_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      october_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+      
+  pal_monthly <- reactive({
+    if(input$variable == 1) {
+      pal_scp
+    } else if (input$variable == 2) {
+      pal_albedo
+    }
+  })
+  
+  legend_title <- reactive({
+    if(input$variable == 1) {
+      "percent"
+    } else if (input$variable == 2) {
+      "albedo"
+    }
+  })
+  
+  output$october_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(oct_i(), colors = pal_monthly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly(), values = values(oct_i()),
+                title = legend_title())
   })
   
   # leaflet maps of monthly mean snow cover percent
