@@ -189,62 +189,62 @@ november_mean_scp_brick <- brick(november_mean_scp_brick)
 december_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "december_mean_scp_stack.tif"))
 december_mean_scp_brick <- brick(december_mean_scp_brick)
 
-wy2001_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2001_monthly_mean_scp_stack.tif"))
-wy2001_monthly_mean_scp_brick <- brick(wy2001_monthly_mean_scp_brick)
-
-wy2002_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2002_monthly_mean_scp_stack.tif"))
-wy2002_monthly_mean_scp_brick <- brick(wy2002_monthly_mean_scp_brick)
-
-wy2003_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2003_monthly_mean_scp_stack.tif"))
-wy2003_monthly_mean_scp_brick <- brick(wy2003_monthly_mean_scp_brick)
-
-wy2004_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2004_monthly_mean_scp_stack.tif"))
-wy2004_monthly_mean_scp_brick <- brick(wy2004_monthly_mean_scp_brick)
-
-wy2005_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2005_monthly_mean_scp_stack.tif"))
-wy2005_monthly_mean_scp_brick <- brick(wy2005_monthly_mean_scp_brick)
-
-wy2006_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2006_monthly_mean_scp_stack.tif"))
-wy2006_monthly_mean_scp_brick <- brick(wy2006_monthly_mean_scp_brick)
-
-wy2007_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2007_monthly_mean_scp_stack.tif"))
-wy2007_monthly_mean_scp_brick <- brick(wy2007_monthly_mean_scp_brick)
-
-wy2008_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2008_monthly_mean_scp_stack.tif"))
-wy2008_monthly_mean_scp_brick <- brick(wy2008_monthly_mean_scp_brick)
-
-wy2009_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2009_monthly_mean_scp_stack.tif"))
-wy2009_monthly_mean_scp_brick <- brick(wy2009_monthly_mean_scp_brick)
-
-wy2010_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2010_monthly_mean_scp_stack.tif"))
-wy2010_monthly_mean_scp_brick <- brick(wy2010_monthly_mean_scp_brick)
-
-wy2011_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2011_monthly_mean_scp_stack.tif"))
-wy2011_monthly_mean_scp_brick <- brick(wy2011_monthly_mean_scp_brick)
-
-wy2012_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2012_monthly_mean_scp_stack.tif"))
-wy2012_monthly_mean_scp_brick <- brick(wy2012_monthly_mean_scp_brick)
-
-wy2013_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2013_monthly_mean_scp_stack.tif"))
-wy2013_monthly_mean_scp_brick <- brick(wy2013_monthly_mean_scp_brick)
-
-wy2014_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2014_monthly_mean_scp_stack.tif"))
-wy2014_monthly_mean_scp_brick <- brick(wy2014_monthly_mean_scp_brick)
-
-wy2015_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2015_monthly_mean_scp_stack.tif"))
-wy2015_monthly_mean_scp_brick <- brick(wy2015_monthly_mean_scp_brick)
-
-wy2016_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2016_monthly_mean_scp_stack.tif"))
-wy2016_monthly_mean_scp_brick <- brick(wy2016_monthly_mean_scp_brick)
-
-wy2017_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2017_monthly_mean_scp_stack.tif"))
-wy2017_monthly_mean_scp_brick <- brick(wy2017_monthly_mean_scp_brick)
-
-wy2018_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2018_monthly_mean_scp_stack.tif"))
-wy2018_monthly_mean_scp_brick <- brick(wy2018_monthly_mean_scp_brick)
-
-wy2019_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2019_monthly_mean_scp_stack.tif"))
-wy2019_monthly_mean_scp_brick <- brick(wy2019_monthly_mean_scp_brick)
+# wy2001_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2001_monthly_mean_scp_stack.tif"))
+# wy2001_monthly_mean_scp_brick <- brick(wy2001_monthly_mean_scp_brick)
+# 
+# wy2002_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2002_monthly_mean_scp_stack.tif"))
+# wy2002_monthly_mean_scp_brick <- brick(wy2002_monthly_mean_scp_brick)
+# 
+# wy2003_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2003_monthly_mean_scp_stack.tif"))
+# wy2003_monthly_mean_scp_brick <- brick(wy2003_monthly_mean_scp_brick)
+# 
+# wy2004_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2004_monthly_mean_scp_stack.tif"))
+# wy2004_monthly_mean_scp_brick <- brick(wy2004_monthly_mean_scp_brick)
+# 
+# wy2005_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2005_monthly_mean_scp_stack.tif"))
+# wy2005_monthly_mean_scp_brick <- brick(wy2005_monthly_mean_scp_brick)
+# 
+# wy2006_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2006_monthly_mean_scp_stack.tif"))
+# wy2006_monthly_mean_scp_brick <- brick(wy2006_monthly_mean_scp_brick)
+# 
+# wy2007_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2007_monthly_mean_scp_stack.tif"))
+# wy2007_monthly_mean_scp_brick <- brick(wy2007_monthly_mean_scp_brick)
+# 
+# wy2008_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2008_monthly_mean_scp_stack.tif"))
+# wy2008_monthly_mean_scp_brick <- brick(wy2008_monthly_mean_scp_brick)
+# 
+# wy2009_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2009_monthly_mean_scp_stack.tif"))
+# wy2009_monthly_mean_scp_brick <- brick(wy2009_monthly_mean_scp_brick)
+# 
+# wy2010_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2010_monthly_mean_scp_stack.tif"))
+# wy2010_monthly_mean_scp_brick <- brick(wy2010_monthly_mean_scp_brick)
+# 
+# wy2011_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2011_monthly_mean_scp_stack.tif"))
+# wy2011_monthly_mean_scp_brick <- brick(wy2011_monthly_mean_scp_brick)
+# 
+# wy2012_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2012_monthly_mean_scp_stack.tif"))
+# wy2012_monthly_mean_scp_brick <- brick(wy2012_monthly_mean_scp_brick)
+# 
+# wy2013_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2013_monthly_mean_scp_stack.tif"))
+# wy2013_monthly_mean_scp_brick <- brick(wy2013_monthly_mean_scp_brick)
+# 
+# wy2014_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2014_monthly_mean_scp_stack.tif"))
+# wy2014_monthly_mean_scp_brick <- brick(wy2014_monthly_mean_scp_brick)
+# 
+# wy2015_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2015_monthly_mean_scp_stack.tif"))
+# wy2015_monthly_mean_scp_brick <- brick(wy2015_monthly_mean_scp_brick)
+# 
+# wy2016_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2016_monthly_mean_scp_stack.tif"))
+# wy2016_monthly_mean_scp_brick <- brick(wy2016_monthly_mean_scp_brick)
+# 
+# wy2017_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2017_monthly_mean_scp_stack.tif"))
+# wy2017_monthly_mean_scp_brick <- brick(wy2017_monthly_mean_scp_brick)
+# 
+# wy2018_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2018_monthly_mean_scp_stack.tif"))
+# wy2018_monthly_mean_scp_brick <- brick(wy2018_monthly_mean_scp_brick)
+# 
+# wy2019_monthly_mean_scp_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2019_monthly_mean_scp_stack.tif"))
+# wy2019_monthly_mean_scp_brick <- brick(wy2019_monthly_mean_scp_brick)
 
 # monthly snow cover percent anomaly
 january_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "january_scp_anomaly_stack.tif"))
@@ -283,62 +283,62 @@ november_scp_anomaly_brick <- brick(november_scp_anomaly_brick)
 december_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "december_scp_anomaly_stack.tif"))
 december_scp_anomaly_brick <- brick(december_scp_anomaly_brick)
 
-wy2001_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2001_monthly_scp_anomaly_stack.tif"))
-wy2001_monthly_scp_anomaly_brick <- brick(wy2001_monthly_scp_anomaly_brick)
-
-wy2002_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2002_monthly_scp_anomaly_stack.tif"))
-wy2002_monthly_scp_anomaly_brick <- brick(wy2002_monthly_scp_anomaly_brick)
-
-wy2003_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2003_monthly_scp_anomaly_stack.tif"))
-wy2003_monthly_scp_anomaly_brick <- brick(wy2003_monthly_scp_anomaly_brick)
-
-wy2004_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2004_monthly_scp_anomaly_stack.tif"))
-wy2004_monthly_scp_anomaly_brick <- brick(wy2004_monthly_scp_anomaly_brick)
-
-wy2005_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2005_monthly_scp_anomaly_stack.tif"))
-wy2005_monthly_scp_anomaly_brick <- brick(wy2005_monthly_scp_anomaly_brick)
-
-wy2006_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2006_monthly_scp_anomaly_stack.tif"))
-wy2006_monthly_scp_anomaly_brick <- brick(wy2006_monthly_scp_anomaly_brick)
-
-wy2007_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2007_monthly_scp_anomaly_stack.tif"))
-wy2007_monthly_scp_anomaly_brick <- brick(wy2007_monthly_scp_anomaly_brick)
-
-wy2008_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2008_monthly_scp_anomaly_stack.tif"))
-wy2008_monthly_scp_anomaly_brick <- brick(wy2008_monthly_scp_anomaly_brick)
-
-wy2009_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2009_monthly_scp_anomaly_stack.tif"))
-wy2009_monthly_scp_anomaly_brick <- brick(wy2009_monthly_scp_anomaly_brick)
-
-wy2010_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2010_monthly_scp_anomaly_stack.tif"))
-wy2010_monthly_scp_anomaly_brick <- brick(wy2010_monthly_scp_anomaly_brick)
-
-wy2011_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2011_monthly_scp_anomaly_stack.tif"))
-wy2011_monthly_scp_anomaly_brick <- brick(wy2011_monthly_scp_anomaly_brick)
-
-wy2012_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2012_monthly_scp_anomaly_stack.tif"))
-wy2012_monthly_scp_anomaly_brick <- brick(wy2012_monthly_scp_anomaly_brick)
-
-wy2013_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2013_monthly_scp_anomaly_stack.tif"))
-wy2013_monthly_scp_anomaly_brick <- brick(wy2013_monthly_scp_anomaly_brick)
-
-wy2014_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2014_monthly_scp_anomaly_stack.tif"))
-wy2014_monthly_scp_anomaly_brick <- brick(wy2014_monthly_scp_anomaly_brick)
-
-wy2015_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2015_monthly_scp_anomaly_stack.tif"))
-wy2015_monthly_scp_anomaly_brick <- brick(wy2015_monthly_scp_anomaly_brick)
-
-wy2016_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2016_monthly_scp_anomaly_stack.tif"))
-wy2016_monthly_scp_anomaly_brick <- brick(wy2016_monthly_scp_anomaly_brick)
-
-wy2017_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2017_monthly_scp_anomaly_stack.tif"))
-wy2017_monthly_scp_anomaly_brick <- brick(wy2017_monthly_scp_anomaly_brick)
-
-wy2018_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2018_monthly_scp_anomaly_stack.tif"))
-wy2018_monthly_scp_anomaly_brick <- brick(wy2018_monthly_scp_anomaly_brick)
-
-wy2019_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2019_monthly_scp_anomaly_stack.tif"))
-wy2019_monthly_scp_anomaly_brick <- brick(wy2019_monthly_scp_anomaly_brick)
+# wy2001_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2001_monthly_scp_anomaly_stack.tif"))
+# wy2001_monthly_scp_anomaly_brick <- brick(wy2001_monthly_scp_anomaly_brick)
+# 
+# wy2002_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2002_monthly_scp_anomaly_stack.tif"))
+# wy2002_monthly_scp_anomaly_brick <- brick(wy2002_monthly_scp_anomaly_brick)
+# 
+# wy2003_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2003_monthly_scp_anomaly_stack.tif"))
+# wy2003_monthly_scp_anomaly_brick <- brick(wy2003_monthly_scp_anomaly_brick)
+# 
+# wy2004_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2004_monthly_scp_anomaly_stack.tif"))
+# wy2004_monthly_scp_anomaly_brick <- brick(wy2004_monthly_scp_anomaly_brick)
+# 
+# wy2005_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2005_monthly_scp_anomaly_stack.tif"))
+# wy2005_monthly_scp_anomaly_brick <- brick(wy2005_monthly_scp_anomaly_brick)
+# 
+# wy2006_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2006_monthly_scp_anomaly_stack.tif"))
+# wy2006_monthly_scp_anomaly_brick <- brick(wy2006_monthly_scp_anomaly_brick)
+# 
+# wy2007_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2007_monthly_scp_anomaly_stack.tif"))
+# wy2007_monthly_scp_anomaly_brick <- brick(wy2007_monthly_scp_anomaly_brick)
+# 
+# wy2008_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2008_monthly_scp_anomaly_stack.tif"))
+# wy2008_monthly_scp_anomaly_brick <- brick(wy2008_monthly_scp_anomaly_brick)
+# 
+# wy2009_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2009_monthly_scp_anomaly_stack.tif"))
+# wy2009_monthly_scp_anomaly_brick <- brick(wy2009_monthly_scp_anomaly_brick)
+# 
+# wy2010_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2010_monthly_scp_anomaly_stack.tif"))
+# wy2010_monthly_scp_anomaly_brick <- brick(wy2010_monthly_scp_anomaly_brick)
+# 
+# wy2011_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2011_monthly_scp_anomaly_stack.tif"))
+# wy2011_monthly_scp_anomaly_brick <- brick(wy2011_monthly_scp_anomaly_brick)
+# 
+# wy2012_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2012_monthly_scp_anomaly_stack.tif"))
+# wy2012_monthly_scp_anomaly_brick <- brick(wy2012_monthly_scp_anomaly_brick)
+# 
+# wy2013_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2013_monthly_scp_anomaly_stack.tif"))
+# wy2013_monthly_scp_anomaly_brick <- brick(wy2013_monthly_scp_anomaly_brick)
+# 
+# wy2014_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2014_monthly_scp_anomaly_stack.tif"))
+# wy2014_monthly_scp_anomaly_brick <- brick(wy2014_monthly_scp_anomaly_brick)
+# 
+# wy2015_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2015_monthly_scp_anomaly_stack.tif"))
+# wy2015_monthly_scp_anomaly_brick <- brick(wy2015_monthly_scp_anomaly_brick)
+# 
+# wy2016_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2016_monthly_scp_anomaly_stack.tif"))
+# wy2016_monthly_scp_anomaly_brick <- brick(wy2016_monthly_scp_anomaly_brick)
+# 
+# wy2017_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2017_monthly_scp_anomaly_stack.tif"))
+# wy2017_monthly_scp_anomaly_brick <- brick(wy2017_monthly_scp_anomaly_brick)
+# 
+# wy2018_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2018_monthly_scp_anomaly_stack.tif"))
+# wy2018_monthly_scp_anomaly_brick <- brick(wy2018_monthly_scp_anomaly_brick)
+# 
+# wy2019_monthly_scp_anomaly_brick <- (here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "wy2019_monthly_scp_anomaly_stack.tif"))
+# wy2019_monthly_scp_anomaly_brick <- brick(wy2019_monthly_scp_anomaly_brick)
 
 # ALBEDO
 # annual albedo
@@ -386,62 +386,62 @@ november_mean_albedo_brick <- brick(november_mean_albedo_brick)
 december_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "december_mean_albedo_stack.tif"))
 december_mean_albedo_brick <- brick(december_mean_albedo_brick)
 
-wy2001_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2001_monthly_mean_albedo_stack.tif"))
-wy2001_monthly_mean_albedo_brick <- brick(wy2001_monthly_mean_albedo_brick)
-
-wy2002_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2002_monthly_mean_albedo_stack.tif"))
-wy2002_monthly_mean_albedo_brick <- brick(wy2002_monthly_mean_albedo_brick)
-
-wy2003_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2003_monthly_mean_albedo_stack.tif"))
-wy2003_monthly_mean_albedo_brick <- brick(wy2003_monthly_mean_albedo_brick)
-
-wy2004_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2004_monthly_mean_albedo_stack.tif"))
-wy2004_monthly_mean_albedo_brick <- brick(wy2004_monthly_mean_albedo_brick)
-
-wy2005_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2005_monthly_mean_albedo_stack.tif"))
-wy2005_monthly_mean_albedo_brick <- brick(wy2005_monthly_mean_albedo_brick)
-
-wy2006_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2006_monthly_mean_albedo_stack.tif"))
-wy2006_monthly_mean_albedo_brick <- brick(wy2006_monthly_mean_albedo_brick)
-
-wy2007_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2007_monthly_mean_albedo_stack.tif"))
-wy2007_monthly_mean_albedo_brick <- brick(wy2007_monthly_mean_albedo_brick)
-
-wy2008_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2008_monthly_mean_albedo_stack.tif"))
-wy2008_monthly_mean_albedo_brick <- brick(wy2008_monthly_mean_albedo_brick)
-
-wy2009_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2009_monthly_mean_albedo_stack.tif"))
-wy2009_monthly_mean_albedo_brick <- brick(wy2009_monthly_mean_albedo_brick)
-
-wy2010_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2010_monthly_mean_albedo_stack.tif"))
-wy2010_monthly_mean_albedo_brick <- brick(wy2010_monthly_mean_albedo_brick)
-
-wy2011_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2011_monthly_mean_albedo_stack.tif"))
-wy2011_monthly_mean_albedo_brick <- brick(wy2011_monthly_mean_albedo_brick)
-
-wy2012_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2012_monthly_mean_albedo_stack.tif"))
-wy2012_monthly_mean_albedo_brick <- brick(wy2012_monthly_mean_albedo_brick)
-
-wy2013_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2013_monthly_mean_albedo_stack.tif"))
-wy2013_monthly_mean_albedo_brick <- brick(wy2013_monthly_mean_albedo_brick)
-
-wy2014_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2014_monthly_mean_albedo_stack.tif"))
-wy2014_monthly_mean_albedo_brick <- brick(wy2014_monthly_mean_albedo_brick)
-
-wy2015_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2015_monthly_mean_albedo_stack.tif"))
-wy2015_monthly_mean_albedo_brick <- brick(wy2015_monthly_mean_albedo_brick)
-
-wy2016_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2016_monthly_mean_albedo_stack.tif"))
-wy2016_monthly_mean_albedo_brick <- brick(wy2016_monthly_mean_albedo_brick)
-
-wy2017_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2017_monthly_mean_albedo_stack.tif"))
-wy2017_monthly_mean_albedo_brick <- brick(wy2017_monthly_mean_albedo_brick)
-
-wy2018_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2018_monthly_mean_albedo_stack.tif"))
-wy2018_monthly_mean_albedo_brick <- brick(wy2018_monthly_mean_albedo_brick)
-
-wy2019_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2019_monthly_mean_albedo_stack.tif"))
-wy2019_monthly_mean_albedo_brick <- brick(wy2019_monthly_mean_albedo_brick)
+# wy2001_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2001_monthly_mean_albedo_stack.tif"))
+# wy2001_monthly_mean_albedo_brick <- brick(wy2001_monthly_mean_albedo_brick)
+# 
+# wy2002_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2002_monthly_mean_albedo_stack.tif"))
+# wy2002_monthly_mean_albedo_brick <- brick(wy2002_monthly_mean_albedo_brick)
+# 
+# wy2003_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2003_monthly_mean_albedo_stack.tif"))
+# wy2003_monthly_mean_albedo_brick <- brick(wy2003_monthly_mean_albedo_brick)
+# 
+# wy2004_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2004_monthly_mean_albedo_stack.tif"))
+# wy2004_monthly_mean_albedo_brick <- brick(wy2004_monthly_mean_albedo_brick)
+# 
+# wy2005_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2005_monthly_mean_albedo_stack.tif"))
+# wy2005_monthly_mean_albedo_brick <- brick(wy2005_monthly_mean_albedo_brick)
+# 
+# wy2006_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2006_monthly_mean_albedo_stack.tif"))
+# wy2006_monthly_mean_albedo_brick <- brick(wy2006_monthly_mean_albedo_brick)
+# 
+# wy2007_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2007_monthly_mean_albedo_stack.tif"))
+# wy2007_monthly_mean_albedo_brick <- brick(wy2007_monthly_mean_albedo_brick)
+# 
+# wy2008_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2008_monthly_mean_albedo_stack.tif"))
+# wy2008_monthly_mean_albedo_brick <- brick(wy2008_monthly_mean_albedo_brick)
+# 
+# wy2009_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2009_monthly_mean_albedo_stack.tif"))
+# wy2009_monthly_mean_albedo_brick <- brick(wy2009_monthly_mean_albedo_brick)
+# 
+# wy2010_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2010_monthly_mean_albedo_stack.tif"))
+# wy2010_monthly_mean_albedo_brick <- brick(wy2010_monthly_mean_albedo_brick)
+# 
+# wy2011_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2011_monthly_mean_albedo_stack.tif"))
+# wy2011_monthly_mean_albedo_brick <- brick(wy2011_monthly_mean_albedo_brick)
+# 
+# wy2012_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2012_monthly_mean_albedo_stack.tif"))
+# wy2012_monthly_mean_albedo_brick <- brick(wy2012_monthly_mean_albedo_brick)
+# 
+# wy2013_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2013_monthly_mean_albedo_stack.tif"))
+# wy2013_monthly_mean_albedo_brick <- brick(wy2013_monthly_mean_albedo_brick)
+# 
+# wy2014_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2014_monthly_mean_albedo_stack.tif"))
+# wy2014_monthly_mean_albedo_brick <- brick(wy2014_monthly_mean_albedo_brick)
+# 
+# wy2015_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2015_monthly_mean_albedo_stack.tif"))
+# wy2015_monthly_mean_albedo_brick <- brick(wy2015_monthly_mean_albedo_brick)
+# 
+# wy2016_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2016_monthly_mean_albedo_stack.tif"))
+# wy2016_monthly_mean_albedo_brick <- brick(wy2016_monthly_mean_albedo_brick)
+# 
+# wy2017_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2017_monthly_mean_albedo_stack.tif"))
+# wy2017_monthly_mean_albedo_brick <- brick(wy2017_monthly_mean_albedo_brick)
+# 
+# wy2018_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2018_monthly_mean_albedo_stack.tif"))
+# wy2018_monthly_mean_albedo_brick <- brick(wy2018_monthly_mean_albedo_brick)
+# 
+# wy2019_monthly_mean_albedo_brick <- (here("myapp", "data", "albedo", "monthly", "mean", "wy2019_monthly_mean_albedo_stack.tif"))
+# wy2019_monthly_mean_albedo_brick <- brick(wy2019_monthly_mean_albedo_brick)
 
 # monthly albedo anomaly
 january_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "january_albedo_anomaly_stack.tif"))
@@ -480,62 +480,62 @@ november_albedo_anomaly_brick <- brick(november_albedo_anomaly_brick)
 december_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "december_albedo_anomaly_stack.tif"))
 december_albedo_anomaly_brick <- brick(december_albedo_anomaly_brick)
 
-wy2001_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2001_albedo_anomaly_stack.tif"))
-wy2001_albedo_anomaly_brick <- brick(wy2001_albedo_anomaly_brick)
-
-wy2002_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2002_albedo_anomaly_stack.tif"))
-wy2002_albedo_anomaly_brick <- brick(wy2002_albedo_anomaly_brick)
-
-wy2003_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2003_albedo_anomaly_stack.tif"))
-wy2003_albedo_anomaly_brick <- brick(wy2003_albedo_anomaly_brick)
-
-wy2004_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2004_albedo_anomaly_stack.tif"))
-wy2004_albedo_anomaly_brick <- brick(wy2004_albedo_anomaly_brick)
-
-wy2005_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2005_albedo_anomaly_stack.tif"))
-wy2005_albedo_anomaly_brick <- brick(wy2005_albedo_anomaly_brick)
-
-wy2006_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2006_albedo_anomaly_stack.tif"))
-wy2006_albedo_anomaly_brick <- brick(wy2006_albedo_anomaly_brick)
-
-wy2007_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2007_albedo_anomaly_stack.tif"))
-wy2007_albedo_anomaly_brick <- brick(wy2007_albedo_anomaly_brick)
-
-wy2008_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2008_albedo_anomaly_stack.tif"))
-wy2008_albedo_anomaly_brick <- brick(wy2008_albedo_anomaly_brick)
-
-wy2009_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2009_albedo_anomaly_stack.tif"))
-wy2009_albedo_anomaly_brick <- brick(wy2009_albedo_anomaly_brick)
-
-wy2010_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2010_albedo_anomaly_stack.tif"))
-wy2010_albedo_anomaly_brick <- brick(wy2010_albedo_anomaly_brick)
-
-wy2011_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2011_albedo_anomaly_stack.tif"))
-wy2011_albedo_anomaly_brick <- brick(wy2011_albedo_anomaly_brick)
-
-wy2012_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2012_albedo_anomaly_stack.tif"))
-wy2012_albedo_anomaly_brick <- brick(wy2012_albedo_anomaly_brick)
-
-wy2013_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2013_albedo_anomaly_stack.tif"))
-wy2013_albedo_anomaly_brick <- brick(wy2013_albedo_anomaly_brick)
-
-wy2014_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2014_albedo_anomaly_stack.tif"))
-wy2014_albedo_anomaly_brick <- brick(wy2014_albedo_anomaly_brick)
-
-wy2015_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2015_albedo_anomaly_stack.tif"))
-wy2015_albedo_anomaly_brick <- brick(wy2015_albedo_anomaly_brick)
-
-wy2016_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2016_albedo_anomaly_stack.tif"))
-wy2016_albedo_anomaly_brick <- brick(wy2016_albedo_anomaly_brick)
-
-wy2017_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2017_albedo_anomaly_stack.tif"))
-wy2017_albedo_anomaly_brick <- brick(wy2017_albedo_anomaly_brick)
-
-wy2018_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2018_albedo_anomaly_stack.tif"))
-wy2018_albedo_anomaly_brick <- brick(wy2018_albedo_anomaly_brick)
-
-wy2019_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2019_albedo_anomaly_stack.tif"))
-wy2019_albedo_anomaly_brick <- brick(wy2019_albedo_anomaly_brick)
+# wy2001_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2001_albedo_anomaly_stack.tif"))
+# wy2001_albedo_anomaly_brick <- brick(wy2001_albedo_anomaly_brick)
+# 
+# wy2002_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2002_albedo_anomaly_stack.tif"))
+# wy2002_albedo_anomaly_brick <- brick(wy2002_albedo_anomaly_brick)
+# 
+# wy2003_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2003_albedo_anomaly_stack.tif"))
+# wy2003_albedo_anomaly_brick <- brick(wy2003_albedo_anomaly_brick)
+# 
+# wy2004_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2004_albedo_anomaly_stack.tif"))
+# wy2004_albedo_anomaly_brick <- brick(wy2004_albedo_anomaly_brick)
+# 
+# wy2005_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2005_albedo_anomaly_stack.tif"))
+# wy2005_albedo_anomaly_brick <- brick(wy2005_albedo_anomaly_brick)
+# 
+# wy2006_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2006_albedo_anomaly_stack.tif"))
+# wy2006_albedo_anomaly_brick <- brick(wy2006_albedo_anomaly_brick)
+# 
+# wy2007_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2007_albedo_anomaly_stack.tif"))
+# wy2007_albedo_anomaly_brick <- brick(wy2007_albedo_anomaly_brick)
+# 
+# wy2008_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2008_albedo_anomaly_stack.tif"))
+# wy2008_albedo_anomaly_brick <- brick(wy2008_albedo_anomaly_brick)
+# 
+# wy2009_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2009_albedo_anomaly_stack.tif"))
+# wy2009_albedo_anomaly_brick <- brick(wy2009_albedo_anomaly_brick)
+# 
+# wy2010_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2010_albedo_anomaly_stack.tif"))
+# wy2010_albedo_anomaly_brick <- brick(wy2010_albedo_anomaly_brick)
+# 
+# wy2011_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2011_albedo_anomaly_stack.tif"))
+# wy2011_albedo_anomaly_brick <- brick(wy2011_albedo_anomaly_brick)
+# 
+# wy2012_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2012_albedo_anomaly_stack.tif"))
+# wy2012_albedo_anomaly_brick <- brick(wy2012_albedo_anomaly_brick)
+# 
+# wy2013_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2013_albedo_anomaly_stack.tif"))
+# wy2013_albedo_anomaly_brick <- brick(wy2013_albedo_anomaly_brick)
+# 
+# wy2014_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2014_albedo_anomaly_stack.tif"))
+# wy2014_albedo_anomaly_brick <- brick(wy2014_albedo_anomaly_brick)
+# 
+# wy2015_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2015_albedo_anomaly_stack.tif"))
+# wy2015_albedo_anomaly_brick <- brick(wy2015_albedo_anomaly_brick)
+# 
+# wy2016_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2016_albedo_anomaly_stack.tif"))
+# wy2016_albedo_anomaly_brick <- brick(wy2016_albedo_anomaly_brick)
+# 
+# wy2017_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2017_albedo_anomaly_stack.tif"))
+# wy2017_albedo_anomaly_brick <- brick(wy2017_albedo_anomaly_brick)
+# 
+# wy2018_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2018_albedo_anomaly_stack.tif"))
+# wy2018_albedo_anomaly_brick <- brick(wy2018_albedo_anomaly_brick)
+# 
+# wy2019_albedo_anomaly_brick <- (here("myapp", "data", "albedo", "monthly", "anomaly", "wy2019_albedo_anomaly_stack.tif"))
+# wy2019_albedo_anomaly_brick <- brick(wy2019_albedo_anomaly_brick)
 
 # project area mask
 project_area_mask <- (here("myapp", "data", "project_area_mask.tif"))
@@ -591,183 +591,198 @@ ui <- fluidPage(
                                   h2("Albedo!!!"),
                                   leafletOutput(outputId = "daily_albedo_map")
                                   ))),
-             tabPanel("Monthly Averages",
-                      sidebarLayout(
-                        sidebarPanel(width = 3, selectInput("water_year_monthly_means", label = h3("Select Water Year"),
-                                                 choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-                                                                "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-                                                                "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-                                                                "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-                                                                "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
-                                     radioButtons("variable", label = h3("Select a Variable"),
-                                                  choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
-                                                  selected = 1)),
-                        mainPanel(h1(textOutput("monthly_mean_header")),
-                                  fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
-                                  fluidRow(
-                                    column(4, leafletOutput(outputId = "october_mean_map")), column(4, leafletOutput(outputId = "november_mean_map")), column(4, leafletOutput(outputId = "december_mean_map"))),
-                                  fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
-                                  fluidRow(
-                                    column(4, leafletOutput(outputId = "january_mean_map")), column(4, leafletOutput(outputId = "february_mean_map")), column(4, leafletOutput(outputId = "march_mean_map"))),
-                                  fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
-                                  fluidRow(
-                                    column(4, leafletOutput(outputId = "april_mean_map")), column(4, leafletOutput(outputId = "may_mean_map")), column(4, leafletOutput(outputId = "june_mean_map"))),
-                                  fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
-                                  fluidRow(
-                                    column(4, leafletOutput(outputId = "july_mean_map")), column(4, leafletOutput(outputId = "august_mean_map")), column(4, leafletOutput(outputId = "september_mean_map"))),
-                                  #leafletOutput(outputId = "monthly_grid"),
-                                  #leafletOutput(outputId = "october_map", width = "25%"), leafletOutput(outputId = "november_map", width = "25%"),
-                                  #leafletOutput(outputId = "december_map", width = "25%"),
-                                  p("fjkafnal"),
-                                  p("fdlafn"),
-                                  p("")))),
-             tabPanel("Monthly Anomalies",
-                      sidebarLayout(
-                        sidebarPanel(width = 3, selectInput("water_year_monthly_anomaly", label = h3("Select Water Year"),
-                                                            choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-                                                                           "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-                                                                           "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-                                                                           "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-                                                                           "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
-                                     radioButtons("variable", label = h3("Select a Variable"),
-                                                  choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
-                                                  selected = 1)),
-                        mainPanel(h1(textOutput("monthly_mean_header")),
-                                  fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
-                                  fluidRow(
-                                    column(4, leafletOutput(outputId = "october_anomaly_map")), column(4, leafletOutput(outputId = "november_anomaly_map")), column(4, leafletOutput(outputId = "december_anomaly_map"))),
-                                  fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
-                                  fluidRow(
-                                    column(4, leafletOutput(outputId = "january_anomaly_map")), column(4, leafletOutput(outputId = "february_anomaly_map")), column(4, leafletOutput(outputId = "march_anomaly_map"))),
-                                  fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
-                                  fluidRow(
-                                    column(4, leafletOutput(outputId = "april_anomaly_map")), column(4, leafletOutput(outputId = "may_anomaly_map")), column(4, leafletOutput(outputId = "june_anomaly_map"))),
-                                  fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
-                                  fluidRow(
-                                    column(4, leafletOutput(outputId = "july_anomaly_map")), column(4, leafletOutput(outputId = "august_anomaly_map")), column(4, leafletOutput(outputId = "september_anomaly_map"))),
-                                  #leafletOutput(outputId = "monthly_grid"),
-                                  #leafletOutput(outputId = "october_map", width = "25%"), leafletOutput(outputId = "november_map", width = "25%"),
-                                  #leafletOutput(outputId = "december_map", width = "25%"),
-                                  p("fjkafnal"),
-                                  p("fdlafn"),
-                                  p("")))),
-             tabPanel("Monthly Averages - snow cover",
-                      sidebarLayout(
-                        sidebarPanel("Select a Water Year",
-                                     selectInput("water_year_mean_scp", label = h3("Select Water Year"),
-                                                 choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-                                                                "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-                                                                "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-                                                                "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-                                                                "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
-                        mainPanel("Annual Mean Snow Cover Percent",
-                                leafletOutput(outputId = "annual_mean_scp"),
-                                p(""),
-                                "Monthly Mean Snow Cover Percent",
-                                tabsetPanel(
-                                  tabPanel("October", leafletOutput(outputId = "oct_mean_scp")),
-                                  tabPanel("November", leafletOutput(outputId = "nov_mean_scp")),
-                                  tabPanel("December", leafletOutput(outputId = "dec_mean_scp")),
-                                  tabPanel("January", leafletOutput(outputId = "jan_mean_scp")),
-                                  tabPanel("February", leafletOutput(outputId = "feb_mean_scp")),
-                                  tabPanel("March", leafletOutput(outputId = "mar_mean_scp")),
-                                  tabPanel("April", leafletOutput(outputId = "apr_mean_scp")),
-                                  tabPanel("May", leafletOutput(outputId = "may_mean_scp")),
-                                  tabPanel("June", leafletOutput(outputId = "jun_mean_scp")),
-                                  tabPanel("July", leafletOutput(outputId = "jul_mean_scp")),
-                                  tabPanel("August", leafletOutput(outputId = "aug_mean_scp")),
-                                  tabPanel("September", leafletOutput(outputId = "sep_mean_scp")),
-                                  h5("some text to explain things"),
-                                  p("Citation: xxx")))
-                      )),
-             tabPanel("Monthly Averages - albedo",
-                      sidebarLayout(
-                        sidebarPanel("Select a Water Year",
-                                     selectInput("water_year_mean_albedo", label = h3("Select Water Year"),
-                                                 choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-                                                                "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-                                                                "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-                                                                "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-                                                                "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
-                        mainPanel("Annual Mean Albedo",
-                                  leafletOutput(outputId = "annual_mean_albedo"),
-                                  p(""),
-                                  "Monthly Mean Albedo",
-                                  tabsetPanel(
-                                    tabPanel("October", leafletOutput(outputId = "oct_mean_albedo")),
-                                    tabPanel("November", leafletOutput(outputId = "nov_mean_albedo")),
-                                    tabPanel("December", leafletOutput(outputId = "dec_mean_albedo")),
-                                    tabPanel("January", leafletOutput(outputId = "jan_mean_albedo")),
-                                    tabPanel("February", leafletOutput(outputId = "feb_mean_albedo")),
-                                    tabPanel("March", leafletOutput(outputId = "mar_mean_albedo")),
-                                    tabPanel("April", leafletOutput(outputId = "apr_mean_albedo")),
-                                    tabPanel("May", leafletOutput(outputId = "may_mean_albedo")),
-                                    tabPanel("June", leafletOutput(outputId = "jun_mean_albedo")),
-                                    tabPanel("July", leafletOutput(outputId = "jul_mean_albedo")),
-                                    tabPanel("August", leafletOutput(outputId = "aug_mean_albedo")),
-                                    tabPanel("September", leafletOutput(outputId = "sep_mean_albedo")),
-                                    h5("some text to explain things"))
-                        ))),
-             tabPanel("SCP Anomaly",
-                      p("add visualizations of annual and monthly snow cover and albedo anomalies"),
-                      sidebarLayout(
-                        sidebarPanel("Select a Water Year",
-                                     selectInput("water_year_scp_anomaly", label = h3("Select Water Year"),
-                                                 choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-                                                                "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-                                                                "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-                                                                "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-                                                                "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
-                        mainPanel("Annual Snow Cover Percent Anomaly",
-                                  leafletOutput(outputId = "annual_scp_anomaly"),
-                                  p(""),
-                                  "Monthly Snow Cover Percent Anomaly",
-                                  tabsetPanel(
-                                    tabPanel("October", leafletOutput(outputId = "oct_scp_anomaly")),
-                                    tabPanel("November", leafletOutput(outputId = "nov_scp_anomaly")),
-                                    tabPanel("December", leafletOutput(outputId = "dec_scp_anomaly")),
-                                    tabPanel("January", leafletOutput(outputId = "jan_scp_anomaly")),
-                                    tabPanel("February", leafletOutput(outputId = "feb_scp_anomaly")),
-                                    tabPanel("March", leafletOutput(outputId = "mar_scp_anomaly")),
-                                    tabPanel("April", leafletOutput(outputId = "apr_scp_anomaly")),
-                                    tabPanel("May", leafletOutput(outputId = "may_scp_anomaly")),
-                                    tabPanel("June", leafletOutput(outputId = "jun_scp_anomaly")),
-                                    tabPanel("July", leafletOutput(outputId = "jul_scp_anomaly")),
-                                    tabPanel("August", leafletOutput(outputId = "aug_scp_anomaly")),
-                                    tabPanel("September", leafletOutput(outputId = "sep_scp_anomaly")),
-                                    h5("some text to explain things"),
-                                    p("Citation: xxx")))
-                      )),
-             tabPanel("Albedo Anomaly",
-                      p("anckdsankvasnv"),
-                      sidebarLayout(
-                        sidebarPanel("Select a Water Year",
-                                     selectInput("water_year_albedo_anomaly", label = h3("Select Water Year"),
-                                                 choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-                                                                "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-                                                                "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-                                                                "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-                                                                "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
-                        mainPanel("Annual Albedo Anomaly",
-                                  leafletOutput(outputId = "annual_albedo_anomaly"),
-                                  p(""),
-                                  "Monthly Albedo Anomaly",
-                                  tabsetPanel(
-                                    tabPanel("October", leafletOutput(outputId = "oct_albedo_anomaly")),
-                                    tabPanel("November", leafletOutput(outputId = "nov_albedo_anomaly")),
-                                    tabPanel("December", leafletOutput(outputId = "dec_albedo_anomaly")),
-                                    tabPanel("January", leafletOutput(outputId = "jan_albedo_anomaly")),
-                                    tabPanel("February", leafletOutput(outputId = "feb_albedo_anomaly")),
-                                    tabPanel("March", leafletOutput(outputId = "mar_albedo_anomaly")),
-                                    tabPanel("April", leafletOutput(outputId = "apr_albedo_anomaly")),
-                                    tabPanel("May", leafletOutput(outputId = "may_albedo_anomaly")),
-                                    tabPanel("June", leafletOutput(outputId = "jun_albedo_anomaly")),
-                                    tabPanel("July", leafletOutput(outputId = "jul_albedo_anomaly")),
-                                    tabPanel("August", leafletOutput(outputId = "aug_albedo_anomaly")),
-                                    tabPanel("September", leafletOutput(outputId = "sep_albedo_anomaly")),
-                                    h5("some text to explain things"),
-                                    p("Citation: xxx")))
-                      )),
+             navbarMenu("Monthly Maps",
+                        tabPanel("Monthly Average",
+                                 sidebarLayout(
+                                   sidebarPanel(width = 3, selectInput("water_year_monthly_means", label = h3("Select Water Year"),
+                                                                       choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+                                                                                      "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+                                                                                      "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+                                                                                      "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+                                                                                      "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
+                                                radioButtons("variable1", label = h3("Select a Variable"),
+                                                             choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
+                                                             selected = 1)),
+                                   mainPanel(h1(textOutput("monthly_mean_header")),
+                                             fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
+                                             fluidRow(
+                                               column(4, leafletOutput(outputId = "october_mean_map")), column(4, leafletOutput(outputId = "november_mean_map")), column(4, leafletOutput(outputId = "december_mean_map"))),
+                                             fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
+                                             fluidRow(
+                                               column(4, leafletOutput(outputId = "january_mean_map")), column(4, leafletOutput(outputId = "february_mean_map")), column(4, leafletOutput(outputId = "march_mean_map"))),
+                                             fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
+                                             fluidRow(
+                                               column(4, leafletOutput(outputId = "april_mean_map")), column(4, leafletOutput(outputId = "may_mean_map")), column(4, leafletOutput(outputId = "june_mean_map"))),
+                                             fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
+                                             fluidRow(
+                                               column(4, leafletOutput(outputId = "july_mean_map")), column(4, leafletOutput(outputId = "august_mean_map")), column(4, leafletOutput(outputId = "september_mean_map"))),
+                                             #leafletOutput(outputId = "monthly_grid"),
+                                             #leafletOutput(outputId = "october_map", width = "25%"), leafletOutput(outputId = "november_map", width = "25%"),
+                                             #leafletOutput(outputId = "december_map", width = "25%"),
+                                             p("fjkafnal"),
+                                             p("fdlafn"),
+                                             p("")))),
+                        tabPanel("Monthly Anomaly",
+                                 sidebarLayout(
+                                   sidebarPanel(width = 3, selectInput("water_year_monthly_anomaly", label = h3("Select Water Year"),
+                                                                       choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+                                                                                      "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+                                                                                      "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+                                                                                      "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+                                                                                      "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
+                                                radioButtons("variable2", label = h3("Select a Variable"),
+                                                             choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
+                                                             selected = 1)),
+                                   mainPanel(h1(textOutput("monthly_mean_header")),
+                                             fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
+                                             fluidRow(
+                                               column(4, leafletOutput(outputId = "october_anomaly_map")), column(4, leafletOutput(outputId = "november_anomaly_map")), column(4, leafletOutput(outputId = "december_anomaly_map"))),
+                                             fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
+                                             fluidRow(
+                                               column(4, leafletOutput(outputId = "january_anomaly_map")), column(4, leafletOutput(outputId = "february_anomaly_map")), column(4, leafletOutput(outputId = "march_anomaly_map"))),
+                                             fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
+                                             fluidRow(
+                                               column(4, leafletOutput(outputId = "april_anomaly_map")), column(4, leafletOutput(outputId = "may_anomaly_map")), column(4, leafletOutput(outputId = "june_anomaly_map"))),
+                                             fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
+                                             fluidRow(
+                                               column(4, leafletOutput(outputId = "july_anomaly_map")), column(4, leafletOutput(outputId = "august_anomaly_map")), column(4, leafletOutput(outputId = "september_anomaly_map"))),
+                                             #leafletOutput(outputId = "monthly_grid"),
+                                             #leafletOutput(outputId = "october_map", width = "25%"), leafletOutput(outputId = "november_map", width = "25%"),
+                                             #leafletOutput(outputId = "december_map", width = "25%"),
+                                             p("fjkafnal"),
+                                             p("fdlafn"),
+                                             p(""))))
+                                 ),
+             navbarMenu("Annual Maps",
+                        tabPanel("Annual Average",
+                                 sidebarLayout(
+                                   sidebarPanel(radioButtons("variable3", label = h3("Select a Variable"),
+                                                             choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
+                                                             selected = 1)),
+                                   mainPanel(h1("add header"))
+                                 )),
+                        tabPanel("Annual Anomaly",
+                                 sidebarLayout(
+                                   sidebarPanel(radioButtons("variable4", label = h3("Select a Variable"),
+                                                             choices = list("Snow Cover Percent" = 1, "Albedo" = 2))),
+                                   mainPanel("hope this works")))),
+             # tabPanel("Monthly Averages - snow cover",
+             #          sidebarLayout(
+             #            sidebarPanel("Select a Water Year",
+             #                         selectInput("water_year_mean_scp", label = h3("Select Water Year"),
+             #                                     choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+             #                                                    "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+             #                                                    "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+             #                                                    "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+             #                                                    "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
+             #            mainPanel("Annual Mean Snow Cover Percent",
+             #                    leafletOutput(outputId = "annual_mean_scp"),
+             #                    p(""),
+             #                    "Monthly Mean Snow Cover Percent",
+             #                    tabsetPanel(
+             #                      tabPanel("October", leafletOutput(outputId = "oct_mean_scp")),
+             #                      tabPanel("November", leafletOutput(outputId = "nov_mean_scp")),
+             #                      tabPanel("December", leafletOutput(outputId = "dec_mean_scp")),
+             #                      tabPanel("January", leafletOutput(outputId = "jan_mean_scp")),
+             #                      tabPanel("February", leafletOutput(outputId = "feb_mean_scp")),
+             #                      tabPanel("March", leafletOutput(outputId = "mar_mean_scp")),
+             #                      tabPanel("April", leafletOutput(outputId = "apr_mean_scp")),
+             #                      tabPanel("May", leafletOutput(outputId = "may_mean_scp")),
+             #                      tabPanel("June", leafletOutput(outputId = "jun_mean_scp")),
+             #                      tabPanel("July", leafletOutput(outputId = "jul_mean_scp")),
+             #                      tabPanel("August", leafletOutput(outputId = "aug_mean_scp")),
+             #                      tabPanel("September", leafletOutput(outputId = "sep_mean_scp")),
+             #                      h5("some text to explain things"),
+             #                      p("Citation: xxx")))
+             #          )),
+             # tabPanel("Monthly Averages - albedo",
+             #          sidebarLayout(
+             #            sidebarPanel("Select a Water Year",
+             #                         selectInput("water_year_mean_albedo", label = h3("Select Water Year"),
+             #                                     choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+             #                                                    "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+             #                                                    "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+             #                                                    "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+             #                                                    "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
+             #            mainPanel("Annual Mean Albedo",
+             #                      leafletOutput(outputId = "annual_mean_albedo"),
+             #                      p(""),
+             #                      "Monthly Mean Albedo",
+             #                      tabsetPanel(
+             #                        tabPanel("October", leafletOutput(outputId = "oct_mean_albedo")),
+             #                        tabPanel("November", leafletOutput(outputId = "nov_mean_albedo")),
+             #                        tabPanel("December", leafletOutput(outputId = "dec_mean_albedo")),
+             #                        tabPanel("January", leafletOutput(outputId = "jan_mean_albedo")),
+             #                        tabPanel("February", leafletOutput(outputId = "feb_mean_albedo")),
+             #                        tabPanel("March", leafletOutput(outputId = "mar_mean_albedo")),
+             #                        tabPanel("April", leafletOutput(outputId = "apr_mean_albedo")),
+             #                        tabPanel("May", leafletOutput(outputId = "may_mean_albedo")),
+             #                        tabPanel("June", leafletOutput(outputId = "jun_mean_albedo")),
+             #                        tabPanel("July", leafletOutput(outputId = "jul_mean_albedo")),
+             #                        tabPanel("August", leafletOutput(outputId = "aug_mean_albedo")),
+             #                        tabPanel("September", leafletOutput(outputId = "sep_mean_albedo")),
+             #                        h5("some text to explain things"))
+             #            ))),
+             # tabPanel("SCP Anomaly",
+             #          p("add visualizations of annual and monthly snow cover and albedo anomalies"),
+             #          sidebarLayout(
+             #            sidebarPanel("Select a Water Year",
+             #                         selectInput("water_year_scp_anomaly", label = h3("Select Water Year"),
+             #                                     choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+             #                                                    "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+             #                                                    "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+             #                                                    "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+             #                                                    "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
+             #            mainPanel("Annual Snow Cover Percent Anomaly",
+             #                      leafletOutput(outputId = "annual_scp_anomaly"),
+             #                      p(""),
+             #                      "Monthly Snow Cover Percent Anomaly",
+             #                      tabsetPanel(
+             #                        tabPanel("October", leafletOutput(outputId = "oct_scp_anomaly")),
+             #                        tabPanel("November", leafletOutput(outputId = "nov_scp_anomaly")),
+             #                        tabPanel("December", leafletOutput(outputId = "dec_scp_anomaly")),
+             #                        tabPanel("January", leafletOutput(outputId = "jan_scp_anomaly")),
+             #                        tabPanel("February", leafletOutput(outputId = "feb_scp_anomaly")),
+             #                        tabPanel("March", leafletOutput(outputId = "mar_scp_anomaly")),
+             #                        tabPanel("April", leafletOutput(outputId = "apr_scp_anomaly")),
+             #                        tabPanel("May", leafletOutput(outputId = "may_scp_anomaly")),
+             #                        tabPanel("June", leafletOutput(outputId = "jun_scp_anomaly")),
+             #                        tabPanel("July", leafletOutput(outputId = "jul_scp_anomaly")),
+             #                        tabPanel("August", leafletOutput(outputId = "aug_scp_anomaly")),
+             #                        tabPanel("September", leafletOutput(outputId = "sep_scp_anomaly")),
+             #                        h5("some text to explain things"),
+             #                        p("Citation: xxx")))
+             #          )),
+             # tabPanel("Albedo Anomaly",
+             #          p("anckdsankvasnv"),
+             #          sidebarLayout(
+             #            sidebarPanel("Select a Water Year",
+             #                         selectInput("water_year_albedo_anomaly", label = h3("Select Water Year"),
+             #                                     choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+             #                                                    "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+             #                                                    "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+             #                                                    "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+             #                                                    "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
+             #            mainPanel("Annual Albedo Anomaly",
+             #                      leafletOutput(outputId = "annual_albedo_anomaly"),
+             #                      p(""),
+             #                      "Monthly Albedo Anomaly",
+             #                      tabsetPanel(
+             #                        tabPanel("October", leafletOutput(outputId = "oct_albedo_anomaly")),
+             #                        tabPanel("November", leafletOutput(outputId = "nov_albedo_anomaly")),
+             #                        tabPanel("December", leafletOutput(outputId = "dec_albedo_anomaly")),
+             #                        tabPanel("January", leafletOutput(outputId = "jan_albedo_anomaly")),
+             #                        tabPanel("February", leafletOutput(outputId = "feb_albedo_anomaly")),
+             #                        tabPanel("March", leafletOutput(outputId = "mar_albedo_anomaly")),
+             #                        tabPanel("April", leafletOutput(outputId = "apr_albedo_anomaly")),
+             #                        tabPanel("May", leafletOutput(outputId = "may_albedo_anomaly")),
+             #                        tabPanel("June", leafletOutput(outputId = "jun_albedo_anomaly")),
+             #                        tabPanel("July", leafletOutput(outputId = "jul_albedo_anomaly")),
+             #                        tabPanel("August", leafletOutput(outputId = "aug_albedo_anomaly")),
+             #                        tabPanel("September", leafletOutput(outputId = "sep_albedo_anomaly")),
+             #                        h5("some text to explain things"),
+             #                        p("Citation: xxx")))
+             #          )),
              navbarMenu("Snow Science",
                         tabPanel("Remotely Sensed Snow Data"),
                         tabPanel("Albedo")),
@@ -1068,9 +1083,9 @@ server <- function(input, output) {
   })
   
   oct_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       october_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       october_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1085,9 +1100,9 @@ server <- function(input, output) {
   })
   
   nov_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       november_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       november_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1102,9 +1117,9 @@ server <- function(input, output) {
   })
   
   dec_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       december_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       december_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1119,9 +1134,9 @@ server <- function(input, output) {
   })
   
   jan_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       january_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       january_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1136,9 +1151,9 @@ server <- function(input, output) {
   })
   
   feb_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       february_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       february_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1153,9 +1168,9 @@ server <- function(input, output) {
   })
   
   mar_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       march_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       march_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1170,9 +1185,9 @@ server <- function(input, output) {
   })
   
   apr_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       april_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       april_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1187,9 +1202,9 @@ server <- function(input, output) {
   })
   
   may_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       may_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       may_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1204,9 +1219,9 @@ server <- function(input, output) {
   })
   
   jun_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       june_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       june_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1221,9 +1236,9 @@ server <- function(input, output) {
   })
   
   jul_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       july_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       july_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1238,9 +1253,9 @@ server <- function(input, output) {
   })
   
   aug_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       august_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       august_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1255,9 +1270,9 @@ server <- function(input, output) {
   })
   
   sep_mean_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       september_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable1 == 2) {
       september_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1273,9 +1288,9 @@ server <- function(input, output) {
   
   # leaflet maps of monthly anomalies where user selects water year and variable
   pal_monthly_anomaly <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       pal_scp_anom
-    } else if (input$variable == 2) {
+    } else if (input$variable1 == 2) {
       pal_albedo_anom
     }
   })
@@ -1331,9 +1346,9 @@ server <- function(input, output) {
   })
   
   oct_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       october_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       october_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1348,9 +1363,9 @@ server <- function(input, output) {
   })
   
   nov_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       november_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       november_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1365,9 +1380,9 @@ server <- function(input, output) {
   })
   
   dec_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       december_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       december_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1382,9 +1397,9 @@ server <- function(input, output) {
   })
   
   jan_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       january_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       january_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1399,9 +1414,9 @@ server <- function(input, output) {
   })
   
   feb_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       february_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       february_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1416,9 +1431,9 @@ server <- function(input, output) {
   })
   
   mar_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       march_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       march_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1433,9 +1448,9 @@ server <- function(input, output) {
   })
   
   apr_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       april_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       april_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1450,9 +1465,9 @@ server <- function(input, output) {
   })
   
   may_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       may_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       may_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1467,9 +1482,9 @@ server <- function(input, output) {
   })
   
   jun_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       june_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       june_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1484,9 +1499,9 @@ server <- function(input, output) {
   })
   
   jul_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       july_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       july_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1501,9 +1516,9 @@ server <- function(input, output) {
   })
   
   aug_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       august_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       august_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1518,9 +1533,9 @@ server <- function(input, output) {
   })
   
   sep_anomaly_i <- reactive({
-    if(input$variable == 1) {
+    if(input$variable2 == 1) {
       september_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable == 2) {
+    } else if(input$variable2 == 2) {
       september_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1536,634 +1551,633 @@ server <- function(input, output) {
   
   
   # leaflet maps of monthly mean snow cover percent
-  oct_mean_scp_i <- reactive({
-    october_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-  
-    output$oct_mean_scp <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(oct_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp, values = values(oct_mean_scp_i()),
-                title = "percent")
-  })
-  
-  nov_mean_scp_i <- reactive({
-    november_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-  
-  output$nov_mean_scp <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(nov_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp, values = values(nov_mean_scp_i()),
-                title = "percent")
-  })
-  
-  dec_mean_scp_i <- reactive({
-    december_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$dec_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(dec_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(dec_mean_scp_i()),
-                title = "percent")
-  })
-  
-  jan_mean_scp_i <- reactive({
-    january_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-  
-  output$jan_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jan_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(jan_mean_scp_i()),
-                title = "percent")
-  })
-  
-  feb_mean_scp_i <- reactive({
-    february_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$feb_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(feb_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(feb_mean_scp_i()),
-                title = "percent")
-  })
-  
-  mar_mean_scp_i <- reactive({
-    march_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$mar_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(mar_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(mar_mean_scp_i()),
-                title = "percent")
-  })
-  
-  apr_mean_scp_i <- reactive({
-    april_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$apr_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(apr_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(apr_mean_scp_i()),
-                title = "percent")
-  })
-  
-  may_mean_scp_i <- reactive({
-    may_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$may_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(may_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(may_mean_scp_i()),
-                title = "percent")
-  })
-  
-  jun_mean_scp_i <- reactive({
-    june_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$jun_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jun_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(jun_mean_scp_i()),
-                title = "percent")
-  })
-  
-  jul_mean_scp_i <- reactive({
-    july_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$jul_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jul_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(jul_mean_scp_i()),
-                title = "percent")
-  })
-  
-  aug_mean_scp_i <- reactive({
-    august_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$aug_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(aug_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(aug_mean_scp_i()),
-                title = "percent")
-  })
-  
-  sep_mean_scp_i <- reactive({
-    september_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
-  })
-
-  output$sep_mean_scp <- renderLeaflet({
-    leaflet() %>%
-      addTiles() %>%
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(sep_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
-      addLegend(pal = pal_scp, values = values(sep_mean_scp_i()),
-                title = "percent")
-  })
+  # oct_mean_scp_i <- reactive({
+  #   october_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  #   output$oct_mean_scp <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(oct_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp, values = values(oct_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # nov_mean_scp_i <- reactive({
+  #   november_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$nov_mean_scp <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(nov_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp, values = values(nov_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # dec_mean_scp_i <- reactive({
+  #   december_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$dec_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(dec_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(dec_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # jan_mean_scp_i <- reactive({
+  #   january_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$jan_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jan_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(jan_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # feb_mean_scp_i <- reactive({
+  #   february_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$feb_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(feb_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(feb_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # mar_mean_scp_i <- reactive({
+  #   march_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$mar_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(mar_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(mar_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # apr_mean_scp_i <- reactive({
+  #   april_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$apr_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(apr_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(apr_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # may_mean_scp_i <- reactive({
+  #   may_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$may_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(may_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(may_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # jun_mean_scp_i <- reactive({
+  #   june_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$jun_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jun_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(jun_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # jul_mean_scp_i <- reactive({
+  #   july_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$jul_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jul_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(jul_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # aug_mean_scp_i <- reactive({
+  #   august_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$aug_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(aug_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(aug_mean_scp_i()),
+  #               title = "percent")
+  # })
+  # 
+  # sep_mean_scp_i <- reactive({
+  #   september_mean_scp_brick[[as.numeric(input$water_year_mean_scp)]]
+  # })
+  # 
+  # output$sep_mean_scp <- renderLeaflet({
+  #   leaflet() %>%
+  #     addTiles() %>%
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(sep_mean_scp_i(), colors = pal_scp, opacity = 0.75) %>%
+  #     addLegend(pal = pal_scp, values = values(sep_mean_scp_i()),
+  #               title = "percent")
+  # })
   
   # leaflet maps of monthly snow cover percent anomaly
-  oct_scp_anomaly_i <- reactive({
-    october_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$oct_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(oct_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(oct_scp_anomaly_i()),
-                title = "percentage anomaly") # xxx...should this have a better legend title
-  })
-  
-  nov_scp_anomaly_i <- reactive({
-    november_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$nov_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(nov_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(nov_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  dec_scp_anomaly_i <- reactive({
-    december_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$dec_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(dec_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(dec_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  jan_scp_anomaly_i <- reactive({
-    january_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$jan_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jan_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(jan_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  feb_scp_anomaly_i <- reactive({
-    february_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$feb_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(feb_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(feb_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  mar_scp_anomaly_i <- reactive({
-    march_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$mar_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(mar_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(mar_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  apr_scp_anomaly_i <- reactive({
-    april_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$apr_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(apr_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(apr_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  may_scp_anomaly_i <- reactive({
-    may_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$maryscp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(may_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(may_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  jun_scp_anomaly_i <- reactive({
-    june_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$jun_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jun_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(jun_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  jul_scp_anomaly_i <- reactive({
-    july_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$jul_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jul_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(jul_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  aug_scp_anomaly_i <- reactive({
-    august_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$aug_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(aug_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(aug_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
-  
-  sep_scp_anomaly_i <- reactive({
-    september_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
-  })
-  
-  output$sep_scp_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(sep_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_scp_anom, values = values(sep_scp_anomaly_i()),
-                title = "percentage anomaly")
-  })
+  # oct_scp_anomaly_i <- reactive({
+  #   october_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$oct_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(oct_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(oct_scp_anomaly_i()),
+  #               title = "percentage anomaly") # xxx...should this have a better legend title
+  # })
+  # 
+  # nov_scp_anomaly_i <- reactive({
+  #   november_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$nov_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(nov_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(nov_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # dec_scp_anomaly_i <- reactive({
+  #   december_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$dec_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(dec_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(dec_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # jan_scp_anomaly_i <- reactive({
+  #   january_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$jan_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jan_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(jan_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # feb_scp_anomaly_i <- reactive({
+  #   february_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$feb_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(feb_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(feb_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # mar_scp_anomaly_i <- reactive({
+  #   march_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$mar_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(mar_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(mar_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # apr_scp_anomaly_i <- reactive({
+  #   april_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$apr_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(apr_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(apr_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # may_scp_anomaly_i <- reactive({
+  #   may_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$maryscp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(may_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(may_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # jun_scp_anomaly_i <- reactive({
+  #   june_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$jun_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jun_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(jun_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # jul_scp_anomaly_i <- reactive({
+  #   july_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$jul_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jul_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(jul_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # aug_scp_anomaly_i <- reactive({
+  #   august_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$aug_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(aug_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(aug_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
+  # 
+  # sep_scp_anomaly_i <- reactive({
+  #   september_scp_anomaly_brick[[as.numeric(input$water_year_scp_anomaly)]]
+  # })
+  # 
+  # output$sep_scp_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(sep_scp_anomaly_i(), colors = pal_scp_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_scp_anom, values = values(sep_scp_anomaly_i()),
+  #               title = "percentage anomaly")
+  # })
   
   # monthly mean albedo maps
-  oct_mean_albedo_i <- reactive({
-    october_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$oct_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(oct_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(oct_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  nov_mean_albedo_i <- reactive({
-    november_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$nov_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(nov_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(nov_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  dec_mean_albedo_i <- reactive({
-    december_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$dec_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(dec_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(dec_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  jan_mean_albedo_i <- reactive({
-    january_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$jan_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jan_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(jan_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  feb_mean_albedo_i <- reactive({
-    february_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$feb_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(feb_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(feb_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  mar_mean_albedo_i <- reactive({
-    march_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$mar_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(mar_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(mar_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  apr_mean_albedo_i <- reactive({
-    april_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$apr_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(apr_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(apr_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  may_mean_albedo_i <- reactive({
-    may_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$may_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(may_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(may_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  jun_mean_albedo_i <- reactive({
-    june_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$jun_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jun_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(jun_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  jul_mean_albedo_i <- reactive({
-    july_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$jul_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jul_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(jul_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  aug_mean_albedo_i <- reactive({
-    august_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$aug_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(aug_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(aug_mean_albedo_i()),
-                title = "albedo")
-  })
-  
-  sep_mean_albedo_i <- reactive({
-    september_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
-  })
-  
-  output$sep_mean_albedo <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(sep_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo, values = values(sep_mean_albedo_i()),
-                title = "albedo")
-  })
-  
- 
+  # oct_mean_albedo_i <- reactive({
+  #   october_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$oct_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(oct_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(oct_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # nov_mean_albedo_i <- reactive({
+  #   november_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$nov_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(nov_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(nov_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # dec_mean_albedo_i <- reactive({
+  #   december_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$dec_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(dec_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(dec_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # jan_mean_albedo_i <- reactive({
+  #   january_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$jan_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jan_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(jan_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # feb_mean_albedo_i <- reactive({
+  #   february_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$feb_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(feb_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(feb_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # mar_mean_albedo_i <- reactive({
+  #   march_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$mar_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(mar_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(mar_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # apr_mean_albedo_i <- reactive({
+  #   april_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$apr_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(apr_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(apr_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # may_mean_albedo_i <- reactive({
+  #   may_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$may_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(may_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(may_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # jun_mean_albedo_i <- reactive({
+  #   june_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$jun_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jun_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(jun_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # jul_mean_albedo_i <- reactive({
+  #   july_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$jul_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jul_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(jul_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # aug_mean_albedo_i <- reactive({
+  #   august_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$aug_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(aug_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(aug_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+  # 
+  # sep_mean_albedo_i <- reactive({
+  #   september_mean_albedo_brick[[as.numeric(input$water_year_mean_albedo)]]
+  # })
+  # 
+  # output$sep_mean_albedo <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(sep_mean_albedo_i(), colors = pal_albedo, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo, values = values(sep_mean_albedo_i()),
+  #               title = "albedo")
+  # })
+
   
   # monthly albedo anomaly maps
-  oct_albedo_anomaly_i <- reactive({
-    october_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$oct_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(oct_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(oct_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  nov_albedo_anomaly_i <- reactive({
-    november_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$nov_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(nov_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(nov_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  dec_albedo_anomaly_i <- reactive({
-    december_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$dec_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(dec_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(dec_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  jan_albedo_anomaly_i <- reactive({
-    january_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$jan_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jan_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(jan_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  feb_albedo_anomaly_i <- reactive({
-    february_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$feb_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(feb_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(feb_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  mar_albedo_anomaly_i <- reactive({
-    march_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$mar_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(mar_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(mar_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  apr_albedo_anomaly_i <- reactive({
-    april_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$apr_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(apr_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(apr_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  may_albedo_anomaly_i <- reactive({
-    may_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$may_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(may_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(may_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  jun_albedo_anomaly_i <- reactive({
-    june_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$jun_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jun_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(jun_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  jul_albedo_anomaly_i <- reactive({
-    july_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$jul_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jul_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(jul_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  aug_albedo_anomaly_i <- reactive({
-    august_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$aug_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(aug_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(aug_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
-  
-  sep_albedo_anomaly_i <- reactive({
-    september_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
-  })
-  
-  output$sep_albedo_anomaly <- renderLeaflet({
-    leaflet() %>% 
-      addTiles() %>% 
-      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(sep_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
-      addLegend(pal = pal_albedo_anom, values = values(sep_albedo_anomaly_i()),
-                title = "albedo anomaly")
-  })
+  # oct_albedo_anomaly_i <- reactive({
+  #   october_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$oct_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(oct_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(oct_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # nov_albedo_anomaly_i <- reactive({
+  #   november_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$nov_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(nov_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(nov_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # dec_albedo_anomaly_i <- reactive({
+  #   december_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$dec_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(dec_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(dec_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # jan_albedo_anomaly_i <- reactive({
+  #   january_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$jan_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jan_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(jan_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # feb_albedo_anomaly_i <- reactive({
+  #   february_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$feb_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(feb_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(feb_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # mar_albedo_anomaly_i <- reactive({
+  #   march_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$mar_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(mar_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(mar_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # apr_albedo_anomaly_i <- reactive({
+  #   april_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$apr_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(apr_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(apr_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # may_albedo_anomaly_i <- reactive({
+  #   may_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$may_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(may_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(may_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # jun_albedo_anomaly_i <- reactive({
+  #   june_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$jun_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jun_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(jun_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # jul_albedo_anomaly_i <- reactive({
+  #   july_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$jul_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(jul_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(jul_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # aug_albedo_anomaly_i <- reactive({
+  #   august_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$aug_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(aug_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(aug_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
+  # 
+  # sep_albedo_anomaly_i <- reactive({
+  #   september_albedo_anomaly_brick[[as.numeric(input$water_year_albedo_anomaly)]]
+  # })
+  # 
+  # output$sep_albedo_anomaly <- renderLeaflet({
+  #   leaflet() %>% 
+  #     addTiles() %>% 
+  #     addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  #     addRasterImage(sep_albedo_anomaly_i(), colors = pal_albedo_anom, opacity = 0.75) %>% 
+  #     addLegend(pal = pal_albedo_anom, values = values(sep_albedo_anomaly_i()),
+  #               title = "albedo anomaly")
+  # })
 
 
 }
