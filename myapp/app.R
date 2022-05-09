@@ -605,16 +605,46 @@ ui <- fluidPage(
                         mainPanel(h1("xxx"),
                                   fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
                                   fluidRow(
-                                    column(4, leafletOutput(outputId = "october_map")), column(4, leafletOutput(outputId = "november_map")), column(4, leafletOutput(outputId = "december_map"))),
+                                    column(4, leafletOutput(outputId = "october_mean_map")), column(4, leafletOutput(outputId = "november_mean_map")), column(4, leafletOutput(outputId = "december_mean_map"))),
                                   fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
                                   fluidRow(
-                                    column(4, leafletOutput(outputId = "january_map")), column(4, leafletOutput(outputId = "february_map")), column(4, leafletOutput(outputId = "march_map"))),
+                                    column(4, leafletOutput(outputId = "january_mean_map")), column(4, leafletOutput(outputId = "february_mean_map")), column(4, leafletOutput(outputId = "march_mean_map"))),
                                   fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
                                   fluidRow(
-                                    column(4, leafletOutput(outputId = "april_map")), column(4, leafletOutput(outputId = "may_map")), column(4, leafletOutput(outputId = "june_map"))),
+                                    column(4, leafletOutput(outputId = "april_mean_map")), column(4, leafletOutput(outputId = "may_mean_map")), column(4, leafletOutput(outputId = "june_mean_map"))),
                                   fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
                                   fluidRow(
-                                    column(4, leafletOutput(outputId = "july_map")), column(4, leafletOutput(outputId = "august_map")), column(4, leafletOutput(outputId = "september_map"))),
+                                    column(4, leafletOutput(outputId = "july_mean_map")), column(4, leafletOutput(outputId = "august_mean_map")), column(4, leafletOutput(outputId = "september_mean_map"))),
+                                  #leafletOutput(outputId = "monthly_grid"),
+                                  #leafletOutput(outputId = "october_map", width = "25%"), leafletOutput(outputId = "november_map", width = "25%"),
+                                  #leafletOutput(outputId = "december_map", width = "25%"),
+                                  p("fjkafnal"),
+                                  p("fdlafn"),
+                                  p("")))),
+             tabPanel("Monthly Anomalies",
+                      sidebarLayout(
+                        sidebarPanel(width = 3, selectInput("water_year_monthly_anomaly", label = h3("Select Water Year"),
+                                                            choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+                                                                           "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+                                                                           "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+                                                                           "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+                                                                           "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
+                                     radioButtons("variable", label = h3("Select a Variable"),
+                                                  choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
+                                                  selected = 1)),
+                        mainPanel(h1("xxx"),
+                                  fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
+                                  fluidRow(
+                                    column(4, leafletOutput(outputId = "october_anomaly_map")), column(4, leafletOutput(outputId = "november_anomaly_map")), column(4, leafletOutput(outputId = "december_anomaly_map"))),
+                                  fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
+                                  fluidRow(
+                                    column(4, leafletOutput(outputId = "january_anomaly_map")), column(4, leafletOutput(outputId = "february_anomaly_map")), column(4, leafletOutput(outputId = "march_anomaly_map"))),
+                                  fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
+                                  fluidRow(
+                                    column(4, leafletOutput(outputId = "april_anomaly_map")), column(4, leafletOutput(outputId = "may_anomaly_map")), column(4, leafletOutput(outputId = "june_anomaly_map"))),
+                                  fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
+                                  fluidRow(
+                                    column(4, leafletOutput(outputId = "july_anomaly_map")), column(4, leafletOutput(outputId = "august_anomaly_map")), column(4, leafletOutput(outputId = "september_anomaly_map"))),
                                   #leafletOutput(outputId = "monthly_grid"),
                                   #leafletOutput(outputId = "october_map", width = "25%"), leafletOutput(outputId = "november_map", width = "25%"),
                                   #leafletOutput(outputId = "december_map", width = "25%"),
@@ -978,8 +1008,8 @@ server <- function(input, output) {
                 title = "percent")
   })
   
-  # leaflet maps where user selects water year and variable
-  pal_monthly <- reactive({
+  # leaflet maps of monthly means where user selects water year and variable
+  pal_monthly_mean <- reactive({
     if(input$variable == 1) {
       pal_scp
     } else if (input$variable == 2) {
@@ -987,7 +1017,7 @@ server <- function(input, output) {
     }
   })
   
-  legend_title <- reactive({
+  legend_title_monthly_mean <- reactive({
     if(input$variable == 1) {
       "percent"
     } else if (input$variable == 2) {
@@ -995,7 +1025,7 @@ server <- function(input, output) {
     }
   })
   
-  oct_i <- reactive({
+  oct_mean_i <- reactive({
     if(input$variable == 1) {
       october_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1003,16 +1033,16 @@ server <- function(input, output) {
     }
   })
   
-  output$october_map <- renderLeaflet({
+  output$october_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(oct_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(oct_i()),
-                title = legend_title())
+      addRasterImage(oct_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(oct_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  nov_i <- reactive({
+  nov_mean_i <- reactive({
     if(input$variable == 1) {
       november_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1020,16 +1050,16 @@ server <- function(input, output) {
     }
   })
   
-  output$november_map <- renderLeaflet({
+  output$november_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(nov_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(nov_i()),
-                title = legend_title())
+      addRasterImage(nov_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(nov_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  dec_i <- reactive({
+  dec_mean_i <- reactive({
     if(input$variable == 1) {
       december_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1037,16 +1067,16 @@ server <- function(input, output) {
     }
   })
   
-  output$december_map <- renderLeaflet({
+  output$december_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(dec_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(dec_i()),
-                title = legend_title())
+      addRasterImage(dec_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(dec_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  jan_i <- reactive({
+  jan_mean_i <- reactive({
     if(input$variable == 1) {
       january_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1054,16 +1084,16 @@ server <- function(input, output) {
     }
   })
   
-  output$january_map <- renderLeaflet({
+  output$january_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jan_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(jan_i()),
-                title = legend_title())
+      addRasterImage(jan_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(jan_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  feb_i <- reactive({
+  feb_mean_i <- reactive({
     if(input$variable == 1) {
       february_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1071,16 +1101,16 @@ server <- function(input, output) {
     }
   })
   
-  output$february_map <- renderLeaflet({
+  output$february_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(feb_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(feb_i()),
-                title = legend_title())
+      addRasterImage(feb_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(feb_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  mar_i <- reactive({
+  mar_mean_i <- reactive({
     if(input$variable == 1) {
       march_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1088,16 +1118,16 @@ server <- function(input, output) {
     }
   })
   
-  output$march_map <- renderLeaflet({
+  output$march_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(mar_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(mar_i()),
-                title = legend_title())
+      addRasterImage(mar_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(mar_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  apr_i <- reactive({
+  apr_mean_i <- reactive({
     if(input$variable == 1) {
       april_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1105,16 +1135,16 @@ server <- function(input, output) {
     }
   })
   
-  output$april_map <- renderLeaflet({
+  output$april_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(apr_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(apr_i()),
-                title = legend_title())
+      addRasterImage(apr_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(apr_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  may_i <- reactive({
+  may_mean_i <- reactive({
     if(input$variable == 1) {
       may_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1122,16 +1152,16 @@ server <- function(input, output) {
     }
   })
   
-  output$may_map <- renderLeaflet({
+  output$may_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(may_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(may_i()),
-                title = legend_title())
+      addRasterImage(may_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(may_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  jun_i <- reactive({
+  jun_mean_i <- reactive({
     if(input$variable == 1) {
       june_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1139,16 +1169,16 @@ server <- function(input, output) {
     }
   })
   
-  output$june_map <- renderLeaflet({
+  output$june_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jun_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(jun_i()),
-                title = legend_title())
+      addRasterImage(jun_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(jun_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  jul_i <- reactive({
+  jul_mean_i <- reactive({
     if(input$variable == 1) {
       july_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1156,16 +1186,16 @@ server <- function(input, output) {
     }
   })
   
-  output$july_map <- renderLeaflet({
+  output$july_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jul_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(jul_i()),
-                title = legend_title())
+      addRasterImage(jul_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(jul_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  aug_i <- reactive({
+  aug_mean_i <- reactive({
     if(input$variable == 1) {
       august_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1173,16 +1203,16 @@ server <- function(input, output) {
     }
   })
   
-  output$august_map <- renderLeaflet({
+  output$august_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(aug_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(aug_i()),
-                title = legend_title())
+      addRasterImage(aug_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(aug_mean_i()),
+                title = legend_title_monthly_mean())
   })
   
-  sep_i <- reactive({
+  sep_mean_i <- reactive({
     if(input$variable == 1) {
       september_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
     } else if(input$variable == 2) {
@@ -1190,13 +1220,234 @@ server <- function(input, output) {
     }
   })
   
-  output$september_map <- renderLeaflet({
+  output$september_mean_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(sep_i(), colors = pal_monthly(), opacity = 0.75) %>%
-      addLegend(pal = pal_monthly(), values = values(sep_i()),
-                title = legend_title())
+      addRasterImage(sep_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_mean(), values = values(sep_mean_i()),
+                title = legend_title_monthly_mean())
+  })
+  
+  # leaflet maps of monthly anomalies where user selects water year and variable
+  pal_monthly_anomaly <- reactive({
+    if(input$variable == 1) {
+      pal_scp_anom
+    } else if (input$variable == 2) {
+      pal_albedo_anom
+    }
+  })
+  
+  legend_title_monthly_anomaly <- reactive({
+    if(input$variable == 1) {
+      "scp percent anomaly"
+    } else if (input$variable == 2) {
+      "albedo anomaly"
+    }
+  })
+  
+  oct_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      october_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      october_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$october_anomlay_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(oct_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(oct_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  nov_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      november_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      november_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$november_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(nov_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(nov_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  dec_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      december_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      december_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$december_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(dec_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(dec_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  jan_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      january_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      january_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$january_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(jan_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(jan_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  feb_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      february_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      february_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$february_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(feb_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(feb_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  mar_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      march_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      march_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$march_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(mar_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(mar_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  apr_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      april_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      april_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$april_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(apr_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(apr_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  may_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      may_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      may_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$may_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(may_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(may_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  jun_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      june_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      june_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$june_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(jun_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(jun_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  jul_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      july_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      july_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$july_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(jul_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(jul_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  aug_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      august_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      august_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$august_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(aug_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(aug_anomaly_i()),
+                title = legend_title_monthly_anomaly())
+  })
+  
+  sep_anomaly_i <- reactive({
+    if(input$variable == 1) {
+      september_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    } else if(input$variable == 2) {
+      september_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    }
+  })
+  
+  output$september_anomaly_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(sep_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addLegend(pal = pal_monthly_anomaly(), values = values(sep_anomaly_i()),
+                title = legend_title_monthly_anomaly())
   })
   
   
