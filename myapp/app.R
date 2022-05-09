@@ -602,7 +602,7 @@ ui <- fluidPage(
                                      radioButtons("variable", label = h3("Select a Variable"),
                                                   choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
                                                   selected = 1)),
-                        mainPanel(h1("xxx"),
+                        mainPanel(h1(textOutput("monthly_mean_header")),
                                   fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
                                   fluidRow(
                                     column(4, leafletOutput(outputId = "october_mean_map")), column(4, leafletOutput(outputId = "november_mean_map")), column(4, leafletOutput(outputId = "december_mean_map"))),
@@ -632,7 +632,7 @@ ui <- fluidPage(
                                      radioButtons("variable", label = h3("Select a Variable"),
                                                   choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
                                                   selected = 1)),
-                        mainPanel(h1("xxx"),
+                        mainPanel(h1(textOutput("monthly_mean_header")),
                                   fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
                                   fluidRow(
                                     column(4, leafletOutput(outputId = "october_anomaly_map")), column(4, leafletOutput(outputId = "november_anomaly_map")), column(4, leafletOutput(outputId = "december_anomaly_map"))),
@@ -780,7 +780,7 @@ ui <- fluidPage(
                         tabPanel("MEDS Capstone Project"),
                         tabPanel("Team Bios",
                                  p("about this project"),
-                                 p("more text")),
+                                 p("more text"))
                         ),
              tabPanel("Tutorials")
   
@@ -1025,6 +1025,48 @@ server <- function(input, output) {
     }
   })
   
+  output$monthly_mean_header <- renderText({
+    if (input$water_year_monthly_means == 1) {
+      "Water Year 2001"
+    } else if (input$water_year_monthly_means == 2) {
+      "Water Year 2002"
+    } else if (input$water_year_monthly_means == 3) {
+      "Water Year 2003"
+    } else if (input$water_year_monthly_means == 4) {
+      "Water Year 2004"
+    } else if (input$water_year_monthly_means == 5) {
+      "Water Year 2005"
+    } else if (input$water_year_monthly_means == 6) {
+      "Water Year 2006"
+    } else if (input$water_year_monthly_means == 7) {
+      "Water Year 2007"
+    } else if (input$water_year_monthly_means == 8) {
+      "Water Year 2008"
+    } else if (input$water_year_monthly_means == 9) {
+      "Water Year 2009"
+    } else if (input$water_year_monthly_means == 10) {
+      "Water Year 2010"
+    } else if (input$water_year_monthly_means == 11) {
+      "Water Year 2011"
+    } else if (input$water_year_monthly_means == 12) {
+      "Water Year 2012"
+    } else if (input$water_year_monthly_means == 13) {
+      "Water Year 2013"
+    } else if (input$water_year_monthly_means == 14) {
+      "Water Year 2014"
+    } else if (input$water_year_monthly_means == 15) {
+      "Water Year 2015"
+    } else if (input$water_year_monthly_means == 16) {
+      "Water Year 2016"
+    } else if (input$water_year_monthly_means == 17) {
+      "Water Year 2017"
+    } else if (input$water_year_monthly_means == 18) {
+      "Water Year 2018"
+    } else if (input$water_year_monthly_means == 19) {
+      "Water Year 2019"
+    } 
+  })
+  
   oct_mean_i <- reactive({
     if(input$variable == 1) {
       october_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
@@ -1244,6 +1286,48 @@ server <- function(input, output) {
     } else if (input$variable == 2) {
       "albedo anomaly"
     }
+  })
+  
+  output$monthly_anomaly_header <- renderText({
+    if (input$water_year_monthly_anomaly == 1) {
+      "Water Year 2001"
+    } else if (input$water_year_monthly_anomaly == 2) {
+      "Water Year 2002"
+    } else if (input$water_year_monthly_anomaly == 3) {
+      "Water Year 2003"
+    } else if (input$water_year_monthly_anomaly == 4) {
+      "Water Year 2004"
+    } else if (input$water_year_monthly_anomaly == 5) {
+      "Water Year 2005"
+    } else if (input$water_year_monthly_anomaly == 6) {
+      "Water Year 2006"
+    } else if (input$water_year_monthly_anomaly == 7) {
+      "Water Year 2007"
+    } else if (input$water_year_monthly_anomaly == 8) {
+      "Water Year 2008"
+    } else if (input$water_year_monthly_anomaly == 9) {
+      "Water Year 2009"
+    } else if (input$water_year_monthly_anomaly == 10) {
+      "Water Year 2010"
+    } else if (input$water_year_monthly_anomaly == 11) {
+      "Water Year 2011"
+    } else if (input$water_year_monthly_anomaly == 12) {
+      "Water Year 2012"
+    } else if (input$water_year_monthly_anomaly == 13) {
+      "Water Year 2013"
+    } else if (input$water_year_monthly_anomaly == 14) {
+      "Water Year 2014"
+    } else if (input$water_year_monthly_anomaly == 15) {
+      "Water Year 2015"
+    } else if (input$water_year_monthly_anomaly == 16) {
+      "Water Year 2016"
+    } else if (input$water_year_monthly_anomaly == 17) {
+      "Water Year 2017"
+    } else if (input$water_year_monthly_anomaly == 18) {
+      "Water Year 2018"
+    } else if (input$water_year_monthly_anomaly == 19) {
+      "Water Year 2019"
+    } 
   })
   
   oct_anomaly_i <- reactive({
