@@ -25,6 +25,7 @@ library(gridExtra)
 # - compare/contrast selected days side by side?
 # - can you link the zoom on snow cover and albedo maps?
 #  - have start zoom closer in
+# plot cahsing so speed things up
 
 # load data
 
@@ -594,195 +595,52 @@ ui <- fluidPage(
              navbarMenu("Monthly Maps",
                         tabPanel("Monthly Average",
                                  sidebarLayout(
-                                   sidebarPanel(width = 3, selectInput("water_year_monthly_means", label = h3("Select Water Year"),
-                                                                       choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-                                                                                      "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-                                                                                      "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-                                                                                      "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-                                                                                      "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
+                                   sidebarPanel(selectInput("water_year_monthly_means", label = h3("Select Water Year"),
+                                                           choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+                                                                          "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+                                                                          "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+                                                                          "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+                                                                          "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
                                                 radioButtons("variable1", label = h3("Select a Variable"),
                                                              choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
                                                              selected = 1)),
-                                   mainPanel(h1(textOutput("monthly_mean_header")),
-                                             fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
-                                             fluidRow(
-                                               column(4, leafletOutput(outputId = "october_mean_map")), column(4, leafletOutput(outputId = "november_mean_map")), column(4, leafletOutput(outputId = "december_mean_map"))),
-                                             fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
-                                             fluidRow(
-                                               column(4, leafletOutput(outputId = "january_mean_map")), column(4, leafletOutput(outputId = "february_mean_map")), column(4, leafletOutput(outputId = "march_mean_map"))),
-                                             fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
-                                             fluidRow(
-                                               column(4, leafletOutput(outputId = "april_mean_map")), column(4, leafletOutput(outputId = "may_mean_map")), column(4, leafletOutput(outputId = "june_mean_map"))),
-                                             fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
-                                             fluidRow(
-                                               column(4, leafletOutput(outputId = "july_mean_map")), column(4, leafletOutput(outputId = "august_mean_map")), column(4, leafletOutput(outputId = "september_mean_map"))),
-                                             #leafletOutput(outputId = "monthly_grid"),
-                                             #leafletOutput(outputId = "october_map", width = "25%"), leafletOutput(outputId = "november_map", width = "25%"),
-                                             #leafletOutput(outputId = "december_map", width = "25%"),
-                                             p("fjkafnal"),
-                                             p("fdlafn"),
-                                             p("")))),
+                                 mainPanel(h1("Monthly Average"),
+                                           h1(textOutput("monthly_mean_header")),
+                                           fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
+                                           fluidRow(column(4, leafletOutput(outputId = "october_mean_map")), column(4, leafletOutput(outputId = "november_mean_map")), column(4, leafletOutput(outputId = "december_mean_map"))),
+                                           fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
+                                           fluidRow(column(4, leafletOutput(outputId = "january_mean_map")), column(4, leafletOutput(outputId = "february_mean_map")), column(4, leafletOutput(outputId = "march_mean_map"))),
+                                           fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
+                                           fluidRow(column(4, leafletOutput(outputId = "april_mean_map")), column(4, leafletOutput(outputId = "may_mean_map")), column(4, leafletOutput(outputId = "june_mean_map"))),
+                                           fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
+                                           fluidRow(column(4, leafletOutput(outputId = "july_mean_map")), column(4, leafletOutput(outputId = "august_mean_map")), column(4, leafletOutput(outputId = "september_mean_map"))),
+                                           ))),
                         tabPanel("Monthly Anomaly",
                                  sidebarLayout(
-                                   sidebarPanel(width = 3, selectInput("water_year_monthly_anomaly", label = h3("Select Water Year"),
-                                                                       choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-                                                                                      "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-                                                                                      "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-                                                                                      "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-                                                                                      "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
+                                   sidebarPanel(selectInput("water_year_monthly_anomaly", label = h3("Select Water Year"),
+                                                            choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
+                                                                           "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
+                                                                           "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
+                                                                           "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
+                                                                           "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19)),
                                                 radioButtons("variable2", label = h3("Select a Variable"),
                                                              choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
                                                              selected = 1)),
-                                   mainPanel(h1(textOutput("monthly_mean_header")),
+                                   mainPanel(h1("Monthly Anomaly"),
+                                             h1(textOutput("monthly_anomaly_header")),
                                              fluidRow(column(4, h3("October")), column(4, h3("November")), column(4, h3("December"))),
-                                             fluidRow(
-                                               column(4, leafletOutput(outputId = "october_anomaly_map")), column(4, leafletOutput(outputId = "november_anomaly_map")), column(4, leafletOutput(outputId = "december_anomaly_map"))),
+                                             fluidRow(column(4, leafletOutput(outputId = "october_anomaly_map")), column(4, leafletOutput(outputId = "november_anomaly_map")), column(4, leafletOutput(outputId = "december_anomaly_map"))),
                                              fluidRow(column(4, h3("January")), column(4, h3("February")), column(4, h3("March"))),
-                                             fluidRow(
-                                               column(4, leafletOutput(outputId = "january_anomaly_map")), column(4, leafletOutput(outputId = "february_anomaly_map")), column(4, leafletOutput(outputId = "march_anomaly_map"))),
+                                             fluidRow(column(4, leafletOutput(outputId = "january_anomaly_map")), column(4, leafletOutput(outputId = "february_anomaly_map")), column(4, leafletOutput(outputId = "march_anomaly_map"))),
                                              fluidRow(column(4, h3("April")), column(4, h3("May")), column(4, h3("June"))),
-                                             fluidRow(
-                                               column(4, leafletOutput(outputId = "april_anomaly_map")), column(4, leafletOutput(outputId = "may_anomaly_map")), column(4, leafletOutput(outputId = "june_anomaly_map"))),
+                                             fluidRow(column(4, leafletOutput(outputId = "april_anomaly_map")), column(4, leafletOutput(outputId = "may_anomaly_map")), column(4, leafletOutput(outputId = "june_anomaly_map"))),
                                              fluidRow(column(4, h3("July")), column(4, h3("August")), column(4, h3("September"))),
-                                             fluidRow(
-                                               column(4, leafletOutput(outputId = "july_anomaly_map")), column(4, leafletOutput(outputId = "august_anomaly_map")), column(4, leafletOutput(outputId = "september_anomaly_map"))),
-                                             #leafletOutput(outputId = "monthly_grid"),
-                                             #leafletOutput(outputId = "october_map", width = "25%"), leafletOutput(outputId = "november_map", width = "25%"),
-                                             #leafletOutput(outputId = "december_map", width = "25%"),
-                                             p("fjkafnal"),
-                                             p("fdlafn"),
-                                             p(""))))
-                                 ),
-             navbarMenu("Annual Maps",
-                        tabPanel("Annual Average",
-                                 sidebarLayout(
-                                   sidebarPanel(radioButtons("variable3", label = h3("Select a Variable"),
-                                                             choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
-                                                             selected = 1)),
-                                   mainPanel(h1("add header"))
-                                 )),
-                        tabPanel("Annual Anomaly",
-                                 sidebarLayout(
-                                   sidebarPanel(radioButtons("variable4", label = h3("Select a Variable"),
-                                                             choices = list("Snow Cover Percent" = 1, "Albedo" = 2))),
-                                   mainPanel("hope this works")))),
-             # tabPanel("Monthly Averages - snow cover",
-             #          sidebarLayout(
-             #            sidebarPanel("Select a Water Year",
-             #                         selectInput("water_year_mean_scp", label = h3("Select Water Year"),
-             #                                     choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-             #                                                    "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-             #                                                    "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-             #                                                    "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-             #                                                    "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
-             #            mainPanel("Annual Mean Snow Cover Percent",
-             #                    leafletOutput(outputId = "annual_mean_scp"),
-             #                    p(""),
-             #                    "Monthly Mean Snow Cover Percent",
-             #                    tabsetPanel(
-             #                      tabPanel("October", leafletOutput(outputId = "oct_mean_scp")),
-             #                      tabPanel("November", leafletOutput(outputId = "nov_mean_scp")),
-             #                      tabPanel("December", leafletOutput(outputId = "dec_mean_scp")),
-             #                      tabPanel("January", leafletOutput(outputId = "jan_mean_scp")),
-             #                      tabPanel("February", leafletOutput(outputId = "feb_mean_scp")),
-             #                      tabPanel("March", leafletOutput(outputId = "mar_mean_scp")),
-             #                      tabPanel("April", leafletOutput(outputId = "apr_mean_scp")),
-             #                      tabPanel("May", leafletOutput(outputId = "may_mean_scp")),
-             #                      tabPanel("June", leafletOutput(outputId = "jun_mean_scp")),
-             #                      tabPanel("July", leafletOutput(outputId = "jul_mean_scp")),
-             #                      tabPanel("August", leafletOutput(outputId = "aug_mean_scp")),
-             #                      tabPanel("September", leafletOutput(outputId = "sep_mean_scp")),
-             #                      h5("some text to explain things"),
-             #                      p("Citation: xxx")))
-             #          )),
-             # tabPanel("Monthly Averages - albedo",
-             #          sidebarLayout(
-             #            sidebarPanel("Select a Water Year",
-             #                         selectInput("water_year_mean_albedo", label = h3("Select Water Year"),
-             #                                     choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-             #                                                    "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-             #                                                    "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-             #                                                    "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-             #                                                    "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
-             #            mainPanel("Annual Mean Albedo",
-             #                      leafletOutput(outputId = "annual_mean_albedo"),
-             #                      p(""),
-             #                      "Monthly Mean Albedo",
-             #                      tabsetPanel(
-             #                        tabPanel("October", leafletOutput(outputId = "oct_mean_albedo")),
-             #                        tabPanel("November", leafletOutput(outputId = "nov_mean_albedo")),
-             #                        tabPanel("December", leafletOutput(outputId = "dec_mean_albedo")),
-             #                        tabPanel("January", leafletOutput(outputId = "jan_mean_albedo")),
-             #                        tabPanel("February", leafletOutput(outputId = "feb_mean_albedo")),
-             #                        tabPanel("March", leafletOutput(outputId = "mar_mean_albedo")),
-             #                        tabPanel("April", leafletOutput(outputId = "apr_mean_albedo")),
-             #                        tabPanel("May", leafletOutput(outputId = "may_mean_albedo")),
-             #                        tabPanel("June", leafletOutput(outputId = "jun_mean_albedo")),
-             #                        tabPanel("July", leafletOutput(outputId = "jul_mean_albedo")),
-             #                        tabPanel("August", leafletOutput(outputId = "aug_mean_albedo")),
-             #                        tabPanel("September", leafletOutput(outputId = "sep_mean_albedo")),
-             #                        h5("some text to explain things"))
-             #            ))),
-             # tabPanel("SCP Anomaly",
-             #          p("add visualizations of annual and monthly snow cover and albedo anomalies"),
-             #          sidebarLayout(
-             #            sidebarPanel("Select a Water Year",
-             #                         selectInput("water_year_scp_anomaly", label = h3("Select Water Year"),
-             #                                     choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-             #                                                    "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-             #                                                    "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-             #                                                    "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-             #                                                    "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
-             #            mainPanel("Annual Snow Cover Percent Anomaly",
-             #                      leafletOutput(outputId = "annual_scp_anomaly"),
-             #                      p(""),
-             #                      "Monthly Snow Cover Percent Anomaly",
-             #                      tabsetPanel(
-             #                        tabPanel("October", leafletOutput(outputId = "oct_scp_anomaly")),
-             #                        tabPanel("November", leafletOutput(outputId = "nov_scp_anomaly")),
-             #                        tabPanel("December", leafletOutput(outputId = "dec_scp_anomaly")),
-             #                        tabPanel("January", leafletOutput(outputId = "jan_scp_anomaly")),
-             #                        tabPanel("February", leafletOutput(outputId = "feb_scp_anomaly")),
-             #                        tabPanel("March", leafletOutput(outputId = "mar_scp_anomaly")),
-             #                        tabPanel("April", leafletOutput(outputId = "apr_scp_anomaly")),
-             #                        tabPanel("May", leafletOutput(outputId = "may_scp_anomaly")),
-             #                        tabPanel("June", leafletOutput(outputId = "jun_scp_anomaly")),
-             #                        tabPanel("July", leafletOutput(outputId = "jul_scp_anomaly")),
-             #                        tabPanel("August", leafletOutput(outputId = "aug_scp_anomaly")),
-             #                        tabPanel("September", leafletOutput(outputId = "sep_scp_anomaly")),
-             #                        h5("some text to explain things"),
-             #                        p("Citation: xxx")))
-             #          )),
-             # tabPanel("Albedo Anomaly",
-             #          p("anckdsankvasnv"),
-             #          sidebarLayout(
-             #            sidebarPanel("Select a Water Year",
-             #                         selectInput("water_year_albedo_anomaly", label = h3("Select Water Year"),
-             #                                     choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4,
-             #                                                    "Water Year 2005" = 5, "Water Year 2006" = 6, "Water Year 2007" = 7, "Water Year 2008" = 8,
-             #                                                    "Water Year 2009" = 9, "Water Year 2010" = 10, "Water Year 2011" = 11, "Water Year 2012" = 12,
-             #                                                    "Water Year 2013" = 13, "Water Year 2014" = 14, "Water Year 2015" = 15, "Water Year 2016" = 16,
-             #                                                    "Water Year 2017" = 17, "Water Year 2018" = 18, "Water Year 2019" = 19))),
-             #            mainPanel("Annual Albedo Anomaly",
-             #                      leafletOutput(outputId = "annual_albedo_anomaly"),
-             #                      p(""),
-             #                      "Monthly Albedo Anomaly",
-             #                      tabsetPanel(
-             #                        tabPanel("October", leafletOutput(outputId = "oct_albedo_anomaly")),
-             #                        tabPanel("November", leafletOutput(outputId = "nov_albedo_anomaly")),
-             #                        tabPanel("December", leafletOutput(outputId = "dec_albedo_anomaly")),
-             #                        tabPanel("January", leafletOutput(outputId = "jan_albedo_anomaly")),
-             #                        tabPanel("February", leafletOutput(outputId = "feb_albedo_anomaly")),
-             #                        tabPanel("March", leafletOutput(outputId = "mar_albedo_anomaly")),
-             #                        tabPanel("April", leafletOutput(outputId = "apr_albedo_anomaly")),
-             #                        tabPanel("May", leafletOutput(outputId = "may_albedo_anomaly")),
-             #                        tabPanel("June", leafletOutput(outputId = "jun_albedo_anomaly")),
-             #                        tabPanel("July", leafletOutput(outputId = "jul_albedo_anomaly")),
-             #                        tabPanel("August", leafletOutput(outputId = "aug_albedo_anomaly")),
-             #                        tabPanel("September", leafletOutput(outputId = "sep_albedo_anomaly")),
-             #                        h5("some text to explain things"),
-             #                        p("Citation: xxx")))
-             #          )),
+                                             fluidRow(column(4, leafletOutput(outputId = "july_anomaly_map")), column(4, leafletOutput(outputId = "august_anomaly_map")), column(4, leafletOutput(outputId = "september_anomaly_map"))),
+                                             )))
+                        ),
+             
+            
+            
              navbarMenu("Snow Science",
                         tabPanel("Remotely Sensed Snow Data"),
                         tabPanel("Albedo")),
@@ -1025,17 +883,17 @@ server <- function(input, output) {
   
   # leaflet maps of monthly means where user selects water year and variable
   pal_monthly_mean <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       pal_scp
-    } else if (input$variable == 2) {
+    } else if (input$variable1 == 2) {
       pal_albedo
     }
   })
   
   legend_title_monthly_mean <- reactive({
-    if(input$variable == 1) {
+    if(input$variable1 == 1) {
       "percent"
-    } else if (input$variable == 2) {
+    } else if (input$variable1 == 2) {
       "albedo"
     }
   })
@@ -1083,9 +941,9 @@ server <- function(input, output) {
   })
   
   oct_mean_i <- reactive({
-    if(input$variable1 == 1) {
+    if (input$variable1 == 1) {
       october_mean_scp_brick[[as.numeric(input$water_year_monthly_means)]]
-    } else if(input$variable1 == 2) {
+    } else if (input$variable1 == 2) {
       october_mean_albedo_brick[[as.numeric(input$water_year_monthly_means)]]
     }
   })
@@ -1288,17 +1146,17 @@ server <- function(input, output) {
   
   # leaflet maps of monthly anomalies where user selects water year and variable
   pal_monthly_anomaly <- reactive({
-    if(input$variable1 == 1) {
+    if (input$variable2 == 1) {
       pal_scp_anom
-    } else if (input$variable1 == 2) {
+    } else if (input$variable2 == 2) {
       pal_albedo_anom
     }
   })
   
   legend_title_monthly_anomaly <- reactive({
-    if(input$variable == 1) {
+    if (input$variable2 == 1) {
       "scp percent anomaly"
-    } else if (input$variable == 2) {
+    } else if (input$variable2 == 2) {
       "albedo anomaly"
     }
   })
@@ -1346,14 +1204,14 @@ server <- function(input, output) {
   })
   
   oct_anomaly_i <- reactive({
-    if(input$variable2 == 1) {
-      october_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    if (input$variable2 == 1) {
+      october_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      october_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      october_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
-  output$october_anomlay_map <- renderLeaflet({
+  output$october_anomaly_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
@@ -1363,10 +1221,10 @@ server <- function(input, output) {
   })
   
   nov_anomaly_i <- reactive({
-    if(input$variable2 == 1) {
-      november_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+    if (input$variable2 == 1) {
+      november_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      november_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      november_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1381,9 +1239,9 @@ server <- function(input, output) {
   
   dec_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      december_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      december_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      december_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      december_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1398,9 +1256,9 @@ server <- function(input, output) {
   
   jan_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      january_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      january_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      january_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      january_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1415,9 +1273,9 @@ server <- function(input, output) {
   
   feb_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      february_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      february_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      february_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      february_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1432,9 +1290,9 @@ server <- function(input, output) {
   
   mar_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      march_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      march_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      march_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      march_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1449,9 +1307,9 @@ server <- function(input, output) {
   
   apr_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      april_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      april_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      april_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      april_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1466,9 +1324,9 @@ server <- function(input, output) {
   
   may_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      may_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      may_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      may_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      may_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1483,9 +1341,9 @@ server <- function(input, output) {
   
   jun_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      june_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      june_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      june_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      june_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1500,9 +1358,9 @@ server <- function(input, output) {
   
   jul_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      july_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      july_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      july_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      july_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1517,9 +1375,9 @@ server <- function(input, output) {
   
   aug_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      august_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      august_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      august_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      august_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   
@@ -1534,9 +1392,9 @@ server <- function(input, output) {
   
   sep_anomaly_i <- reactive({
     if(input$variable2 == 1) {
-      september_scp_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      september_scp_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     } else if(input$variable2 == 2) {
-      september_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_means)]]
+      september_albedo_anomaly_brick[[as.numeric(input$water_year_monthly_anomaly)]]
     }
   })
   

@@ -450,6 +450,21 @@ leaflet() %>% addTiles() %>%
 
 
 ## october_albedo_anomaly_stack
+```{r}
+
+october_albedo_anomaly_stack <- stack(here("myapp", "data", "albedo", "monthly", "anomaly", "october_albedo_anomaly_stack.tif"))
+october_albedo_anomaly_stack
+# 20 layers
+
+plot(october_albedo_anomaly_stack, 4)
+
+october_albedo_anomaly_stack_5 <- october_albedo_anomaly_stack[[5]]
+leaflet() %>% addTiles() %>%
+  addRasterImage(october_albedo_anomaly_stack_5, colors = pal_albedo_anom, opacity = 0.8) #%>%
+  # addLegend(pal = pal_albedo_anom, values = values(october_albedo_anomaly_stack_5),
+  #   title = "albedo anom")
+```
+
 
 
 ## november_albedo_anomaly_stack
