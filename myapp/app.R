@@ -638,9 +638,46 @@ ui <- fluidPage(
                                              fluidRow(column(4, leafletOutput(outputId = "july_anomaly_map")), column(4, leafletOutput(outputId = "august_anomaly_map")), column(4, leafletOutput(outputId = "september_anomaly_map"))),
                                              )))
                         ),
-             
-            
-            
+             navbarMenu("Annual Maps",
+                        tabPanel("Annual Average",
+                                 sidebarLayout(
+                                   sidebarPanel(width = 2,
+                                                radioButtons("variable3", label = h3("Select a Variable"),
+                                                             choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
+                                                             selected = 1)),
+                                   mainPanel(h1("Annual Average"),
+                                             fluidRow(column(3, h3("Water Year 2001")), column(3, h3("Water Year 2002")), column(3, h3("Water Year 2003")), column(3, h3("Water Year 2004"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_avg_2001")), column(3, leafletOutput(outputId = "annual_avg_2002")), column(3, leafletOutput(outputId = "annual_avg_2003")), column(3, leafletOutput(outputId = "annual_avg_2004"))),
+                                             fluidRow(column(3, h3("Water Year 2005")), column(3, h3("Water Year 2006")), column(3, h3("Water Year 2007")), column(3, h3("Water Year 2008"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_avg_2005")), column(3, leafletOutput(outputId = "annual_avg_2006")), column(3, leafletOutput(outputId = "annual_avg_2007")), column(3, leafletOutput(outputId = "annual_avg_2008"))),
+                                             fluidRow(column(3, h3("Water Year 2009")), column(3, h3("Water Year 2010")), column(3, h3("Water Year 2011")), column(3, h3("Water Year 2012"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_avg_2009")), column(3, leafletOutput(outputId = "annual_avg_2010")), column(3, leafletOutput(outputId = "annual_avg_2011")), column(3, leafletOutput(outputId = "annual_avg_2012"))),
+                                             fluidRow(column(3, h3("Water Year 2013")), column(3, h3("Water Year 2014")), column(3, h3("Water Year 2015")), column(3, h3("Water Year 2016"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_avg_2013")), column(3, leafletOutput(outputId = "annual_avg_2014")), column(3, leafletOutput(outputId = "annual_avg_2015")), column(3, leafletOutput(outputId = "annual_avg_2016"))),
+                                             fluidRow(column(3, h3("Water Year 2017")), column(3, h3("Water Year 2018")), column(3, h3("Water Year 2019"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_avg_2017")), column(3, leafletOutput(outputId = "annual_avg_2018")), column(3, leafletOutput(outputId = "annual_avg_2019"))),
+                                             
+                                             ))
+                                 ),
+                        tabPanel("Annual Anomaly",
+                                 sidebarLayout(
+                                   sidebarPanel(width = 2,
+                                                radioButtons("variable4", label = h3("Select a Variable"),
+                                                             choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
+                                                             selected = 1)),
+                                   mainPanel(h1("Annual Anomaly"),
+                                             fluidRow(column(3, h3("Water Year 2001")), column(3, h3("Water Year 2002")), column(3, h3("Water Year 2003")), column(3, h3("Water Year 2004"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_anomaly_2001")), column(3, leafletOutput(outputId = "annual_anomaly_2002")), column(3, leafletOutput(outputId = "annual_anomaly_2003")), column(3, leafletOutput(outputId = "annual_anomaly_2004"))),
+                                             fluidRow(column(3, h3("Water Year 2005")), column(3, h3("Water Year 2006")), column(3, h3("Water Year 2007")), column(3, h3("Water Year 2008"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_anomaly_2005")), column(3, leafletOutput(outputId = "annual_anomaly_2006")), column(3, leafletOutput(outputId = "annual_anomaly_2007")), column(3, leafletOutput(outputId = "annual_anomaly_2008"))),
+                                             fluidRow(column(3, h3("Water Year 2009")), column(3, h3("Water Year 2010")), column(3, h3("Water Year 2011")), column(3, h3("Water Year 2012"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_anomaly_2009")), column(3, leafletOutput(outputId = "annual_anomaly_2010")), column(3, leafletOutput(outputId = "annual_anomaly_2011")), column(3, leafletOutput(outputId = "annual_anomaly_2012"))),
+                                             fluidRow(column(3, h3("Water Year 2013")), column(3, h3("Water Year 2014")), column(3, h3("Water Year 2015")), column(3, h3("Water Year 2016"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_anomaly_2013")), column(3, leafletOutput(outputId = "annual_anomaly_2014")), column(3, leafletOutput(outputId = "annual_anomaly_2015")), column(3, leafletOutput(outputId = "annual_anomaly_2016"))),
+                                             fluidRow(column(3, h3("Water Year 2017")), column(3, h3("Water Year 2018")), column(3, h3("Water Year 2019"))),
+                                             fluidRow(column(3, leafletOutput(outputId = "annual_anomaly_2017")), column(3, leafletOutput(outputId = "annual_anomaly_2018")), column(3, leafletOutput(outputId = "annual_anomaly_2019")), column(3, leafletOutput(outputId = "annual_anomaly_2020"))),
+                                             ))
+                                 )),
              navbarMenu("Snow Science",
                         tabPanel("Remotely Sensed Snow Data"),
                         tabPanel("Albedo")),
@@ -1405,6 +1442,689 @@ server <- function(input, output) {
       addRasterImage(sep_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(sep_anomaly_i()),
                 title = legend_title_monthly_anomaly())
+  })
+  
+  
+  # ANNUAL MAPS
+  
+  pal_annual_mean <- reactive({
+    if(input$variable3 == 1) {
+      pal_scp
+    } else if (input$variable3 == 2) {
+      pal_albedo
+    }
+  })
+  
+  legend_title_annual_mean <- reactive({
+    if(input$variable3 == 1) {
+      "percent"
+    } else if (input$variable3 == 2) {
+      "albedo"
+    }
+  })
+  
+  annual_avg_2001_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[1]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[1]]
+    }
+  })
+  
+  output$annual_avg_2001 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2001_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2001_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2002_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[2]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[2]]
+    }
+  })
+  
+  output$annual_avg_2002 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2002_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2002_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2003_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[3]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[3]]
+    }
+  })
+  
+  output$annual_avg_2003 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2003_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2003_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2004_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[4]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[4]]
+    }
+  })
+  
+  output$annual_avg_2004 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2004_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2004_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2005_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[5]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[5]]
+    }
+  })
+  
+  output$annual_avg_2005 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2005_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2005_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2006_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[6]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[6]]
+    }
+  })
+  
+  output$annual_avg_2006 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2006_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2006_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2007_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[7]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[7]]
+    }
+  })
+  
+  output$annual_avg_2007 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2007_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2007_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2008_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[8]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[8]]
+    }
+  })
+  
+  output$annual_avg_2008 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2008_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2008_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2009_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[9]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[9]]
+    }
+  })
+  
+  output$annual_avg_2009 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2009_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2009_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2010_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[10]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[10]]
+    }
+  })
+  
+  output$annual_avg_2010 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2010_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2010_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2011_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[11]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[11]]
+    }
+  })
+  
+  output$annual_avg_2011 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2011_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2011_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2012_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[12]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[12]]
+    }
+  })
+  
+  output$annual_avg_2012 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2012_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2012_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2013_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[13]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[13]]
+    }
+  })
+  
+  output$annual_avg_2013 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2013_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2013_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2014_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[14]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[14]]
+    }
+  })
+  
+  output$annual_avg_2014 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2014_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2014_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2015_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[15]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[15]]
+    }
+  })
+  
+  output$annual_avg_2015 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2015_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2015_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2016_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[16]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[16]]
+    }
+  })
+  
+  output$annual_avg_2016 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2016_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2016_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2017_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[17]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[17]]
+    }
+  })
+  
+  output$annual_avg_2017 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2017_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2017_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2018_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[18]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[18]]
+    }
+  })
+  
+  output$annual_avg_2018 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2018_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2018_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  annual_avg_2019_i <- reactive({
+    if(input$variable3 == 1) {
+      annual_snow_cover_percent_brick[[19]]
+    } else if (input$variable3 == 2) {
+      annual_mean_albedo_brick[[19]]
+    }
+  })
+  
+  output$annual_avg_2019 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_avg_2019_i(), colors = pal_annual_mean(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_mean(), values = values(annual_avg_2019_i()),
+                title = legend_title_annual_mean())
+  })
+  
+  
+  # annual anomaly
+  pal_annual_anomaly <- reactive({
+    if (input$variable4 == 1) {
+      pal_scp_anom
+    } else if (input$variable4 == 2) {
+      pal_albedo_anom
+    }
+  })
+  
+  legend_title_annual_anomaly <- reactive({
+    if (input$variable4 == 1) {
+      "scp percent anomaly"
+    } else if (input$variable4 == 2) {
+      "albedo anomaly"
+    }
+  })
+  
+  annual_anomaly_2001_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[1]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[1]]
+    }
+  })
+  
+  output$annual_anomaly_2001 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2001_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2001_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2002_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[2]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[2]]
+    }
+  })
+  
+  output$annual_anomaly_2002 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2002_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2002_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2003_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[3]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[3]]
+    }
+  })
+  
+  output$annual_anomaly_2003 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2003_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2003_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2004_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[4]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[4]]
+    }
+  })
+  
+  output$annual_anomaly_2004 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2004_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2004_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2005_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[5]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[5]]
+    }
+  })
+  
+  output$annual_anomaly_2005 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2005_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2005_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2006_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[6]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[6]]
+    }
+  })
+  
+  output$annual_anomaly_2006 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2006_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2006_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2007_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[7]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[7]]
+    }
+  })
+  
+  output$annual_anomaly_2007 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2007_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2007_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2008_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[8]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[8]]
+    }
+  })
+  
+  output$annual_anomaly_2008 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2008_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2008_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2009_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[9]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[9]]
+    }
+  })
+  
+  output$annual_anomaly_2009 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2009_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2009_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2010_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[10]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[10]]
+    }
+  })
+  
+  output$annual_anomaly_2010 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2010_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2010_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2011_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[11]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[11]]
+    }
+  })
+  
+  output$annual_anomaly_2011 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2011_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2011_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2012_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[12]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[12]]
+    }
+  })
+  
+  output$annual_anomaly_2012 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2012_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2012_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2013_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[13]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[13]]
+    }
+  })
+  
+  output$annual_anomaly_2013 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2013_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2013_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2014_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[14]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[14]]
+    }
+  })
+  
+  output$annual_anomaly_2014 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2014_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2014_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2015_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[15]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[15]]
+    }
+  })
+  
+  output$annual_anomaly_2015 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2015_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2015_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2016_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[16]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[16]]
+    }
+  })
+  
+  output$annual_anomaly_2016 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2016_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2016_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2017_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[17]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[17]]
+    }
+  })
+  
+  output$annual_anomaly_2017 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2017_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2017_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2018_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[18]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[18]]
+    }
+  })
+  
+  output$annual_anomaly_2018 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2018_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2018_i()),
+                title = legend_title_annual_anomaly())
+  })
+  
+  annual_anomaly_2019_i <- reactive({
+    if(input$variable4 == 1) {
+      annual_scp_anomaly_brick[[19]]
+    } else if (input$variable4 == 2) {
+      annual_albedo_anomaly_brick[[19]]
+    }
+  })
+  
+  output$annual_anomaly_2019 <- renderLeaflet({
+    leaflet() %>% 
+      addTiles() %>% 
+      addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+      addRasterImage(annual_anomaly_2019_i(), colors = pal_annual_anomaly(), opacity = 0.75) %>% 
+      addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_2019_i()),
+                title = legend_title_annual_anomaly())
   })
   
   
