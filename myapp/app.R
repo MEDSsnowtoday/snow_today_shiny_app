@@ -1,5 +1,14 @@
 # a shiny app for snow data
 
+# list of packages required
+list.of.packages <- c("shiny", "paletteer", "shinythemes", "here", "raster", "leaflet", "rgdal", "tidyverse", "sf", "bslib", "thematic")
+
+# checking missing packages from list
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+
+# install missing ones
+if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
+
 # attach packages
 library(shiny)
 library(paletteer)
@@ -10,7 +19,8 @@ library(leaflet)
 library(rgdal)
 library(tidyverse)
 library(sf)
-library(gridExtra)
+library(bslib)
+library(thematic)
 
 # Next steps:
 # - add interactive line graphs
@@ -465,7 +475,8 @@ ui <- fluidPage(
                         tabPanel("HDF5 Files")),
              navbarMenu("About",
                         tabPanel("MEDS Capstone Project",
-                                 p("about this project"),
+                                 h1("MEDS Capstone Project"),
+                                 p("The Master's of Environmental Data Science (MEDS) program at UC Santa Barbara's Bren School of Environmental Science & Management culminates with a 6-month group Capstone project."),
                                  p("more text")),
                         tabPanel("Snow Today"),
                         tabPanel("Team Bios",
