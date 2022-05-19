@@ -20,11 +20,10 @@ library(gridExtra)
 # - Data - include links to data and write up describing the data (modis, spires model, HDF5...)
 # - Tutorials - add links and text to describe the tutorials (intended audience, instructions for getting started)
 # - add About text (project background, team bios)...maybe move this tab all the way to the right
-# - improve app formating and aesthetics
+# - improve app formatting and aesthetics
 # - compare/contrast selected days side by side?
 # - can you link the zoom on snow cover and albedo maps?
-#  - have start zoom closer in
-# plot cahsing so speed things up
+# plot cahsing so speed things up?
 
 # load data
 
@@ -445,7 +444,18 @@ ui <- fluidPage(
                         ))),
              navbarMenu("Snow Science",
                         tabPanel("Remotely Sensed Snow Data"),
-                        tabPanel("Albedo")),
+                        tabPanel("Albedo",
+                                 h1("Albedo"),
+                                 p("Albedo is a non-dimensional, unitless measurement of how much solar energy is reflected from a surface. More specifically, albedo is the ratio of reflected solar radiation to incoming solar radiation. Theoretically, albedo values can range from 0 (the surface absorbs all incoming energy) to 1 (the surface reflects all incoming energy). Land surfaces typically have albedo values between 0.1 and 0.4."),
+                                 p("Albedo affects climate by determining how much radiation the planet absorbs. For this reason, snow albedo has important climate implications. In a way, albedo is a measure of the brightness of snow. Fresh, clean snow appears bright white and has high albedo, while old, dirty snow appears darker and has lower albedo. Typical albedo values for snow range between 0.65 and 0.85 but can be as low as 0.2 for dirty snow and as high as 0.9 for fresh snow. The more solar radiation snow absorbs, the faster it melts so dark snow melts faster than clean snow. Spring snow melt contributes to drinking water reservoirs in drier months. Earlier snow melt can leave less water in the summer when it’s needed most."),
+                                 p("A layer of fresh snow increases albedo for that area which can result in local cooling. When snow melts, it reveals darker surfaces such as soil or grass with lower albedo which increases local temperatures and encourages more melting in a feedback loop where the surface absorbs more solar radiation. Naturally occurring dust, ash from wildfire burnt areas, and soot from fossil fuels can be transported by wind and darken snow, which lowers its albedo value. Human activities such as overgrazing can contribute to the transport of dust. A case study found that snow in some areas was cleaner during COVID lockdowns."),
+                                 p("Due to the importance of albedo and variability of values over space and time, it may not be suitable to apply a single value to a broad region based solely on land cover. Since field measurements are difficult to collect, especially in mountainous terrain, albedo measurements from remotely sensed data sources are important."),
+                                 h4("References"),
+                                 p("Bair E, Stillinger T, Rittger K, Skiles M. COVID-19 lockdowns show reduced pollution on snow and ice in the Indus River Basin. Proc Natl Acad Sci U S A. 2021 May 4;118(18):e2101174118. doi: 10.1073/pnas.2101174118. PMID: 33903254; PMCID: PMC8106343."),
+                                 p("Properties of Snow. Our Winter World. 2022.", tags$a(href="http://ourwinterworld.org/snow-science/properties-of-snow", "http://ourwinterworld.org/snow-science/properties-of-snow")),
+                                 #tags$a(href="www.rstudio.com", "Click here!"),
+                                 p("Snow Today. National Snow and Ice Data Center.", tags$a(href="https://nsidc.org/reports/snow-today/glossary", "https://nsidc.org/reports/snow-today/glossary"))
+                                 )),
              tabPanel("Insights"),
              navbarMenu("Data",
                         tabPanel("HDF5 Files"),

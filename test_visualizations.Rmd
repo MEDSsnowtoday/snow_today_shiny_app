@@ -18,6 +18,7 @@ library(tidyverse)
 library(terra)
 library(maptiles)
 library(leafletR)
+library(leaflet)
 ```
 
 ```{r}
@@ -103,19 +104,16 @@ plot(wy2001_monthly_mean_scp_stack, 5)
 ```
 
 ```{r}
-wy2001_monthly_mean_scp_stack <- brick(here("myapp", "data", "snow_cover_percent", "monthly", "wy2001_monthly_mean_scp_stack.tif"))
+wy2001_monthly_mean_scp_stack <- brick(here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2001_monthly_mean_scp_stack.tif"))
 wy2001_monthly_mean_scp_stack
 # 12 layers
 plot(wy2001_monthly_mean_scp_stack, 5)
 ```
 
 ```{r}
-wy2001_monthly_mean_scp_stack_i <- wy2001_monthly_mean_scp_stack[[0]]
+wy2001_monthly_mean_scp_stack_1 <- wy2001_monthly_mean_scp_stack[[1]]
 leaflet() %>% addTiles() %>%
-  addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>% 
-  addRasterImage(wy2001_monthly_mean_scp_stack_i, colors = pal_scp, opacity = 0.8) %>%
-  addLegend(pal = pal_scp, values = values(wy2001_monthly_mean_scp_stack_i),
-    title = "percent")
+  addRasterImage(wy2001_monthly_mean_scp_stack_1, colors = pal_scp, opacity = 0.8)
 ```
 
 
@@ -144,7 +142,6 @@ leaflet() %>% addTiles() %>%
   addRasterImage(wy2001_monthly_mean_scp_stack_5, colors = pal_scp, opacity = 0.8) %>%
   addLegend(pal = pal_scp, values = values(wy2001_monthly_mean_scp_stack_5),
     title = "percent")
-
 ```
 ## wy2002_monthly_mean_scp_stack
 1 = january snow cover percent wy2002
@@ -230,6 +227,23 @@ leaflet() %>% addTiles() %>%
 1 = january snow cover percent wy2018
 2 = february snow cover percent wy2018
 12 = december snow cover percent wy2018
+```{r}
+wy2018_monthly_mean_scp_stack <- brick(here("myapp", "data", "snow_cover_percent", "monthly", "mean", "wy2018_monthly_mean_scp_stack.tif"))
+wy2018_monthly_mean_scp_stack
+
+wy2018_monthly_mean_scp_stack_5 <- wy2018_monthly_mean_scp_stack[[5]]
+```
+
+```{r}
+leaflet() %>%
+  setView(lat = 39, lng = -120, zoom = 6) %>%
+  addTiles() %>%
+  addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
+  addRasterImage(wy2018_monthly_mean_scp_stack_5, colors = pal_scp, opacity = 0.75) %>%
+  addLegend(pal = pal_scp, values = values(wy2018_monthly_mean_scp_stack_5),
+            title = "percent")
+```
+
 
 ## wy2019_monthly_mean_scp_stack
 1 = january snow cover percent wy2019
@@ -243,6 +257,9 @@ leaflet() %>% addTiles() %>%
 19 = wy2019 january snow cover percent anomaly
 20 = mean of all january scp 
 ```{r}
+wy2001_monthly_mean_scp_stack <- brick(here("myapp", "data", "snow_cover_percent", "monthly", "wy2001_monthly_mean_scp_stack.tif"))
+wy2001_monthly_mean_scp_stack
+
 january_scp_anomaly_stack <- stack(here("myapp", "data", "snow_cover_percent", "monthly", "anomaly", "january_scp_anomaly_stack.tif"))
 january_scp_anomaly_stack
 # 20 layers
@@ -471,4 +488,11 @@ leaflet() %>% addTiles() %>%
 
 
 ## december_albedo_anomaly_stack
+
+
+```{r}
+m <- leaflet() %>%
+  addTiles()
+```
+
 
