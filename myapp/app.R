@@ -450,25 +450,50 @@ ui <- fluidPage(
                                  p("Albedo affects climate by determining how much radiation the planet absorbs. For this reason, snow albedo has important climate implications. In a way, albedo is a measure of the brightness of snow. Fresh, clean snow appears bright white and has high albedo, while old, dirty snow appears darker and has lower albedo. Typical albedo values for snow range between 0.65 and 0.85 but can be as low as 0.2 for dirty snow and as high as 0.9 for fresh snow. The more solar radiation snow absorbs, the faster it melts so dark snow melts faster than clean snow. Spring snow melt contributes to drinking water reservoirs in drier months. Earlier snow melt can leave less water in the summer when it’s needed most."),
                                  p("A layer of fresh snow increases albedo for that area which can result in local cooling. When snow melts, it reveals darker surfaces such as soil or grass with lower albedo which increases local temperatures and encourages more melting in a feedback loop where the surface absorbs more solar radiation. Naturally occurring dust, ash from wildfire burnt areas, and soot from fossil fuels can be transported by wind and darken snow, which lowers its albedo value. Human activities such as overgrazing can contribute to the transport of dust. A case study found that snow in some areas was cleaner during COVID lockdowns."),
                                  p("Due to the importance of albedo and variability of values over space and time, it may not be suitable to apply a single value to a broad region based solely on land cover. Since field measurements are difficult to collect, especially in mountainous terrain, albedo measurements from remotely sensed data sources are important."),
+                                 img(src = "albedo.png"),
                                  h4("References"),
                                  p("Bair E, Stillinger T, Rittger K, Skiles M. COVID-19 lockdowns show reduced pollution on snow and ice in the Indus River Basin. Proc Natl Acad Sci U S A. 2021 May 4;118(18):e2101174118. doi: 10.1073/pnas.2101174118. PMID: 33903254; PMCID: PMC8106343."),
                                  p("Properties of Snow. Our Winter World. 2022.", tags$a(href="http://ourwinterworld.org/snow-science/properties-of-snow", "http://ourwinterworld.org/snow-science/properties-of-snow")),
-                                 #tags$a(href="www.rstudio.com", "Click here!"),
-                                 p("Snow Today. National Snow and Ice Data Center.", tags$a(href="https://nsidc.org/reports/snow-today/glossary", "https://nsidc.org/reports/snow-today/glossary"))
+                                 p("Snow Today. National Snow and Ice Data Center.", tags$a(href="https://nsidc.org/reports/snow-today/glossary", "https://nsidc.org/reports/snow-today/glossary")),
+                                 p("fjkdsal")
                                  )),
-             tabPanel("Insights"),
+             #tabPanel("Insights"),
+             tabPanel("Tutorials"),
              navbarMenu("Data",
-                        tabPanel("HDF5 Files"),
+                        tabPanel("Metadata"),
                         tabPanel("Data Source"),
-                        tabPanel("Metadata")),
+                        tabPanel("HDF5 Files")),
              navbarMenu("About",
-                        tabPanel("MEDS Capstone Project"),
-                        tabPanel("Team Bios",
+                        tabPanel("MEDS Capstone Project",
                                  p("about this project"),
-                                 p("more text"))
-                        ),
-             tabPanel("Tutorials")
-  
+                                 p("more text")),
+                        tabPanel("Snow Today"),
+                        tabPanel("Team Bios",
+                                 h1("Team Bios"),
+                                 h3("Ryan Munnikhuis"),
+                                 h4("Role: Project Manager"),
+                                 fluidRow(column(2,
+                                                 img(src = "Munnikhuis_Ryan_meds22.jpg", height = 225.4, width = 150)),
+                                          column(10, p("Ryan Munnikhuis (RYE-awn MEW-nikh-HAOUSE; he/him) graduated from the University of California, Santa Cruz, in 2017 with a Bachelor of Science in Earth Science with a Concentration in Environmental Geology. Mr. Munnikhuis’s undergraduate education provided him a foundational understanding of the interactions between the biological, physical, and geologic processes. His senior capstone project utilized geospatial data to identify active faults and the extent of glacial moraines in Eastern Sierra Nevada to better understand the region’s complex Quaternary geologic history."),
+                                                 p("Since graduating, Mr. Munnikhuis has worked as a forester and environmental analyst. As a forester, he has worked on various fire-related projects, including a community wildfire plan for Santa Barbara, a fuel reduction program for the County of Fresno, and a post-fire hazard tree assessment in Big Basin State Park. As an environmental analyst, he has assessed geologic, hydrologic, air quality, and greenhouse gas-related impacts of projects throughout California, such as a seismic dam retrofit in Merced County, a quarry restoration in San Diego County, and various large-scale developments."),
+                                                 p("As a Bren MEDS student, Mr. Munnikhuis hopes to integrate his background with data science to better model and predict large-scale ecological and morphological changes resulting from climate change."))),
+                                 br(),
+                                 h3("Julia Parish"),
+                                 h4("Role: Communication Manager"),
+                                 fluidRow(column(2,
+                                                 img(src = "Parish_Julia_meds22.jpg", height = 225.5, width = 150)),
+                                          column(10, p("Julia Parish is an experienced Program Director with expertise in project management and invasion biology. She is currently a candidate for a master’s in Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. Since graduating from the University of Hawaii at Manoa with a B.A. in Environmental Studies, she has led field teams to enhance biological diversity, ecosystem health, and cultural and recreational resources on islands in the Pacific region and throughout Southern California. While working at Pohakuloa Training Area on Hawaii Island, she developed and implemented an invasive plant early detection and rapid response program, which involved establishing data collection and mapping standards. This experience solidified her passion for collecting and maintaining tidy data. After obtaining her master’s, she will focus on aiding land managers and conservation organizations with developing management priorities based on data science tools and analysis."),
+                                                 h5("website: ", tags$a(href="https://juliaparish.github.io/", "juliaparish.github.io")))),
+                                 br(),
+                                 h3("Marie Rivers"),
+                                 h4("Role: Data Manager"),
+                                 fluidRow(column(2,
+                                                img(src = "Rivers_Marie_meds22.jpg", height = 225.4, width = 150)),
+                                         column(10, p("Marie holds Bachelors and Masters degrees in Environmental Engineering from the University of Delaware (2009) and University of Massachusetts (2011). She is also a registered professional civil water resources engineer with 10 years of consultant experience modeling and designing municipal drinking water distribution systems. During this time, she observed the growing need for reproducible data science and visualization skills to develop innovative solutions to current and emerging environmental problems. Marie grew up on a small New England lake with high water quality in part due to a mostly forested watershed. Throughout Marie’s academic and professional career, she gained a greater understanding of the factors that contribute to water quality. An initial interest in lake ecosystems expanded to a larger awareness of the interconnectedness of environmental conditions and public health. After graduation, Marie plans to use her professional experience and new data science skills to evaluate interactions between human and natural systems and support implementation of measures that protect and improve the environment by communicating these dynamics to wider audiences."),
+                                                h5("website: ", tags$a(href="https://marierivers.github.io/", "marierivers.github.io"))))
+                        )
+             )
+                        
 ))
 
 
