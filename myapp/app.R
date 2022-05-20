@@ -346,6 +346,8 @@ wy2017_iso_dates <- read_csv(here("myapp", "data", "iso_dates", "wy2017_iso_date
 wy2018_iso_dates <- read_csv(here("myapp", "data", "iso_dates", "wy2018_iso_dates.csv"))
 wy2019_iso_dates <- read_csv(here("myapp", "data", "iso_dates", "wy2019_iso_dates.csv"))
 
+snow_cover_data <- read_csv(here("myapp", "data", "snow_cover_data.csv"))
+
 # create 'ui' = "User Interface"
 # widgets are things that the user interacts with to make decisions about what they want to appear as outputs
 ui <- fluidPage(
@@ -452,26 +454,42 @@ ui <- fluidPage(
                                   h3("Annual Anomaly"),
                                   leafletOutput(outputId = "annual_anomaly")
                         ))),
+             tabPanel("Annual Graph",
+                      sidebarLayout(
+                        sidebarPanel(checkboxGroupInput("wy_checkbox", label = h3("Select Water Years"),
+                                                        choices = levels(as.factor(snow_cover_data$water_year)),
+                                                        selected = levels(as.factor(snow_cover_data$water_year)))),
+                                                        # choices = list("Water Year 2001" = 2001, "Water Year 2002" = 2002, "Water Year 2003" = 2003, "Water Year 2004" = 2004, 
+                                                        #                "Water Year 2005" = 2005, "Water Year 2006" = 2006, "Water Year 2007" = 2007, "Water Year 2008" = 2008, 
+                                                        #                "Water Year 2009" = 2009, "Water Year 2010" = 2010, "Water Year 2011" = 2011, "Water Year 2012" = 2012, 
+                                                        #                "Water Year 2013" = 2013, "Water Year 2014" = 2014, "Water Year 2015" = 2015, "Water Year 2016" = 2016, 
+                                                        #                "Water Year 2017" = 2017, "Water Year 2018" = 2018, "Water Year 2019" = 2019),
+                                                        # selected = c(2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 
+                                                        #              2011, 2003, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019))),
+                        mainPanel(h1("A GRAPH!!!"),
+                                  plotOutput(outputId = "snow_cover_area_graph"))
+                      )),
+             tabPanel("Tutorials",
+                      p("xxx...text similar to the ReadMe files")),
              navbarMenu("Snow Science",
                         tabPanel("Remotely Sensed Snow Data"),
                         tabPanel("Albedo",
                                  h1("Albedo"),
                                  p("Albedo is a non-dimensional, unitless measurement of how much solar energy is reflected from a surface. More specifically, albedo is the ratio of reflected solar radiation to incoming solar radiation. Theoretically, albedo values can range from 0 (the surface absorbs all incoming energy) to 1 (the surface reflects all incoming energy). Land surfaces typically have albedo values between 0.1 and 0.4."),
-                                 p("Albedo affects climate by determining how much radiation the planet absorbs. For this reason, snow albedo has important climate implications. In a way, albedo is a measure of the brightness of snow. Fresh, clean snow appears bright white and has high albedo, while old, dirty snow appears darker and has lower albedo. Typical albedo values for snow range between 0.65 and 0.85 but can be as low as 0.2 for dirty snow and as high as 0.9 for fresh snow. The more solar radiation snow absorbs, the faster it melts so dark snow melts faster than clean snow. Spring snow melt contributes to drinking water reservoirs in drier months. Earlier snow melt can leave less water in the summer when it’s needed most."),
-                                 p("A layer of fresh snow increases albedo for that area which can result in local cooling. When snow melts, it reveals darker surfaces such as soil or grass with lower albedo which increases local temperatures and encourages more melting in a feedback loop where the surface absorbs more solar radiation. Naturally occurring dust, ash from wildfire burnt areas, and soot from fossil fuels can be transported by wind and darken snow, which lowers its albedo value. Human activities such as overgrazing can contribute to the transport of dust. A case study found that snow in some areas was cleaner during COVID lockdowns."),
+                                 p("Albedo affects climate by determining how much radiation the planet absorbs. For this reason, snow albedo has important climate implications. In a way, albedo is a measure of the brightness of snow. Fresh, clean snow appears bright white and has high albedo, while old, dirty snow appears darker and has lower albedo. Typical albedo values for snow range between 0.65 and 0.85 but can be as low as 0.2 for dirty snow and as high as 0.9 for fresh snow. The more solar radiation snow absorbs, the faster it melts, so dark snow melts faster than clean snow. Spring snowmelt contributes to drinking water reservoirs in drier months. Earlier snowmelt can leave less water in the summer when it’s needed most."),
+                                 p("A layer of fresh snow increases albedo for that area, which can result in local cooling. When snow melts, it reveals darker surfaces such as soil or grass with lower albedo which increases local temperatures and encourages more melting in a feedback loop where the surface absorbs more solar radiation. Naturally occurring dust, ash from wildfire burnt areas, and soot from fossil fuels can be transported by wind and darken snow, which lowers its albedo value. Human activities such as overgrazing can contribute to the transport of dust. A case study found that snow in some areas was cleaner during COVID lockdowns."),
                                  p("Due to the importance of albedo and variability of values over space and time, it may not be suitable to apply a single value to a broad region based solely on land cover. Since field measurements are difficult to collect, especially in mountainous terrain, albedo measurements from remotely sensed data sources are important."),
                                  img(src = "albedo.png"),
                                  h4("References"),
                                  p("Bair E, Stillinger T, Rittger K, Skiles M. COVID-19 lockdowns show reduced pollution on snow and ice in the Indus River Basin. Proc Natl Acad Sci U S A. 2021 May 4;118(18):e2101174118. doi: 10.1073/pnas.2101174118. PMID: 33903254; PMCID: PMC8106343."),
                                  p("Properties of Snow. Our Winter World. 2022.", tags$a(href="http://ourwinterworld.org/snow-science/properties-of-snow", "http://ourwinterworld.org/snow-science/properties-of-snow")),
                                  p("Snow Today. National Snow and Ice Data Center.", tags$a(href="https://nsidc.org/reports/snow-today/glossary", "https://nsidc.org/reports/snow-today/glossary")),
-                                 p("fjkdsal")
+                                 p("")
                                  )),
              #tabPanel("Insights"),
-             tabPanel("Tutorials"),
              navbarMenu("Data",
-                        tabPanel("Metadata"),
                         tabPanel("Data Source"),
+                        tabPanel("Metadata"),
                         tabPanel("HDF5 Files")),
              navbarMenu("About",
                         tabPanel("MEDS Capstone Project",
@@ -1297,6 +1315,24 @@ server <- function(input, output) {
       addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_i()),
                 title = legend_title_annual_anomaly())
   })
+  
+  # snow cover area graph
+  snow_cover_area_df <- reactive({
+    snow_cover_data %>% 
+      filter(water_year %in% c(input$wy_checkbox))
+  })
+  
+  output$snow_cover_area_graph <- renderPlot({
+    ggplot(data = snow_cover_area_df(), aes(x = day_of_wy, y = total_snow_cover_area)) +
+      geom_line(aes(color = as.factor(water_year))) +
+      scale_x_continuous(breaks = c(1, 32, 62, 93, 124, 152, 183, 213, 244, 275, 306, 337),
+                         labels = c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep")) +
+      labs(x = "day of water year", color = "water year",
+           title = "Total Snow Cover Area",
+           subtitle = "Sierra Mountain Region") +
+      ylab(bquote("total snow cover area " ("thousand"-km^2)))
+  })
+  
 
 }
 
