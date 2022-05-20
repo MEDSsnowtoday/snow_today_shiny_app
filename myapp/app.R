@@ -1,7 +1,7 @@
 # a shiny app for snow data
 
 # list of packages required
-list.of.packages <- c("shiny", "paletteer", "shinythemes", "here", "raster", "leaflet", "rgdal", "tidyverse", "sf", "bslib", "thematic")
+list.of.packages <- c("shiny", "paletteer", "shinythemes", "here", "raster", "leaflet", "rgdal", "tidyverse", "sf", "bslib", "thematic", "ggiraph")
 
 # checking missing packages from list
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -21,6 +21,7 @@ library(tidyverse)
 library(sf)
 library(bslib)
 library(thematic)
+library(ggiraph)
 
 # Next steps:
 # - add interactive line graphs
@@ -459,15 +460,11 @@ ui <- fluidPage(
                         sidebarPanel(checkboxGroupInput("wy_checkbox", label = h3("Select Water Years"),
                                                         choices = levels(as.factor(snow_cover_data$water_year)),
                                                         selected = levels(as.factor(snow_cover_data$water_year)))),
-                                                        # choices = list("Water Year 2001" = 2001, "Water Year 2002" = 2002, "Water Year 2003" = 2003, "Water Year 2004" = 2004, 
-                                                        #                "Water Year 2005" = 2005, "Water Year 2006" = 2006, "Water Year 2007" = 2007, "Water Year 2008" = 2008, 
-                                                        #                "Water Year 2009" = 2009, "Water Year 2010" = 2010, "Water Year 2011" = 2011, "Water Year 2012" = 2012, 
-                                                        #                "Water Year 2013" = 2013, "Water Year 2014" = 2014, "Water Year 2015" = 2015, "Water Year 2016" = 2016, 
-                                                        #                "Water Year 2017" = 2017, "Water Year 2018" = 2018, "Water Year 2019" = 2019),
-                                                        # selected = c(2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 
-                                                        #              2011, 2003, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019))),
+                                     #actionButton("selectall", label="Select/Deselect all")),
                         mainPanel(h1("A GRAPH!!!"),
-                                  plotOutput(outputId = "snow_cover_area_graph"))
+                                  plotOutput(outputId = "snow_cover_area_graph"),
+                                  h2("a ggirafe"),
+                                  girafeOutput("plot"))
                       )),
              tabPanel("Tutorials",
                       p("xxx...text similar to the ReadMe files")),
@@ -1317,6 +1314,22 @@ server <- function(input, output) {
   })
   
   # snow cover area graph
+  # select/deselect all button
+  # observe({
+  #   if (input$selectall >0) {
+  #     if (input$selectall %% 2 == 0){
+  #       updateCheckboxGroupInput(session = session,
+  #                                inputId = "wy_checkbox",
+  #                                choices = levels(as.factor(snow_cover_data$water_year)),
+  #                                selected = levels(as.factor(snow_cover_data$water_year)))
+  #     } else {
+  #       updateCheckboxGroupInput(session = session,
+  #                                inputId = "wy_checkbox",
+  #                                choices = levels(as.factor(snow_cover_data$water_year)),
+  #                                selected = c())
+  #     }}
+  #   })
+    
   snow_cover_area_df <- reactive({
     snow_cover_data %>% 
       filter(water_year %in% c(input$wy_checkbox))
@@ -1331,6 +1344,19 @@ server <- function(input, output) {
            title = "Total Snow Cover Area",
            subtitle = "Sierra Mountain Region") +
       ylab(bquote("total snow cover area " ("thousand"-km^2)))
+  })
+  
+  girafe_plot <- ggplot(data = snow_cover_data, aes(x = day_of_wy, y = total_snow_cover_area)) +
+    geom_line(aes(color = as.factor(water_year))) +
+    scale_x_continuous(breaks = c(1, 32, 62, 93, 124, 152, 183, 213, 244, 275, 306, 337),
+                       labels = c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep")) +
+    labs(x = "day of water year", color = "water year",
+         title = "Total Snow Cover Area",
+         subtitle = "Sierra Mountain Region") +
+    ylab(bquote("total snow cover area " ("thousand"-km^2)))
+  
+  output$plot <- renderGirafe({
+    girafe(ggobj = girafe_plot)
   })
   
 
