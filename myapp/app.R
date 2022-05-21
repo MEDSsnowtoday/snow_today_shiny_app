@@ -533,17 +533,16 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   # palettes
-  pal_scp <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), 1:100,
+  pal_scp <- colorNumeric(c("darkblue", "darkslategray4", "cyan2", "floralwhite"), 0:100,
                           na.color = "transparent")
   
-  pal_scp_anom <- colorNumeric(c("firebrick4", "white", "dodgerblue4"), -100:100, # xxx...adjust the value range as needed
-                          na.color = "transparent")
-  # "firebrick4","firebrick1", "white", "dodgerblue1", "dodgerblue4"
-  pal_albedo <- pal_albedo <- colorBin(c("goldenrod4", "goldenrod3", "goldenrod2", "goldenrod1", "floralwhite"), 
-                                       domain = c(0.4, 0.9), bins = 5, na.color = "transparent")
+  pal_scp_anom <- colorNumeric(c("firebrick4","firebrick1", "white", "royalblue2", "royalblue4"), -100:100,
+                               na.color = "transparent")
   
-  pal_albedo_anom <- colorBin(c("gray10", "gray40", "floralwhite", "mediumpurple1", "mediumpurple4"), domain = c(-0.45, 0.45), bins = 5, na.color = "transparent")
- 
+  pal_albedo <- colorNumeric(c("darkgoldenrod4", "goldenrod2", "floralwhite"), domain = c(0.4, 0.9), na.color = "transparent")
+  
+  pal_albedo_anom <- colorBin(c("chocolate4", "chocolate3", "floralwhite", "mediumpurple1", "mediumpurple4" ), domain = c(-0.45, 0.45), bins = 5, na.color = "transparent")
+  
   pal_mask <- colorNumeric(c("lightgray"), 999,
                            na.color = "transparent")
   
@@ -639,7 +638,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(daily_scp_brick_i(), colors = pal_scp, opacity = 0.75) %>%
+      addRasterImage(daily_scp_brick_i(), colors = pal_scp, opacity = 0.9) %>%
       addLegend(pal = pal_scp, values = values(daily_scp_brick_i()),
                 title = "percent")
   })
@@ -693,7 +692,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(daily_albedo_brick_i(), colors = pal_albedo, opacity = 0.75) %>%
+      addRasterImage(daily_albedo_brick_i(), colors = pal_albedo, opacity = 0.9) %>%
       addLegend(pal = pal_albedo, values = values(daily_albedo_brick_i()), title = "Albedo")
   })
   
@@ -769,7 +768,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>% 
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(oct_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(oct_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(oct_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -787,7 +786,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(nov_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(nov_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(nov_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -805,7 +804,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(dec_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(dec_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(dec_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -823,7 +822,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jan_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(jan_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(jan_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -841,7 +840,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(feb_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(feb_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(feb_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -859,7 +858,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(mar_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(mar_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(mar_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -877,7 +876,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(apr_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(apr_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(apr_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -895,7 +894,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(may_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(may_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(may_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -913,7 +912,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jun_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(jun_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(jun_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -931,7 +930,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jul_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(jul_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(jul_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -949,7 +948,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(aug_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(aug_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(aug_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -967,7 +966,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(sep_mean_i(), colors = pal_monthly_mean(), opacity = 0.75) %>%
+      addRasterImage(sep_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(sep_mean_i()),
                 title = legend_title_monthly_mean())
   })
@@ -1044,7 +1043,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(oct_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(oct_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(oct_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1062,7 +1061,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(nov_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(nov_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(nov_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1080,7 +1079,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(dec_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(dec_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(dec_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1098,7 +1097,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jan_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(jan_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(jan_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1116,7 +1115,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(feb_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(feb_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(feb_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1134,7 +1133,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(mar_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(mar_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(mar_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1152,7 +1151,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(apr_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(apr_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(apr_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1170,7 +1169,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(may_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(may_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(may_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1188,7 +1187,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jun_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(jun_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(jun_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1206,7 +1205,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(jul_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(jul_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(jul_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1224,7 +1223,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(aug_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(aug_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(aug_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1242,7 +1241,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(sep_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.75) %>%
+      addRasterImage(sep_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(sep_anomaly_i()),
                 title = legend_title_monthly_anomaly())
   })
@@ -1279,7 +1278,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>% 
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(annual_avg_i(), colors = pal_annual_mean(), opacity = 0.8) %>% 
+      addRasterImage(annual_avg_i(), colors = pal_annual_mean(), opacity = 0.9) %>% 
       addLegend(pal = pal_annual_mean(), values = values(annual_avg_i()),
                 title = legend_title_annual_mean())
   })
@@ -1313,7 +1312,7 @@ server <- function(input, output) {
       setView(lat = 39, lng = -120, zoom = 6) %>%
       addTiles() %>% 
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
-      addRasterImage(annual_anomaly_i(), colors = pal_annual_anomaly(), opacity = 0.8) %>% 
+      addRasterImage(annual_anomaly_i(), colors = pal_annual_anomaly(), opacity = 0.9) %>% 
       addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_i()),
                 title = legend_title_annual_anomaly())
   })
