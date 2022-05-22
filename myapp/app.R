@@ -391,9 +391,8 @@ ui <- fluidPage(
                                      radioButtons("variable1", label = h3("Select a Variable"),
                                                   choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
                                                   selected = 1)),
-                        mainPanel(h1("Monthly Maps",
-                                     #"add reactive text for selected variables or convey this in the legend",
-                                     h3(textOutput("monthly_header"))),
+                        mainPanel(h1("Monthly Maps"),
+                                  h3(textOutput("monthly_header")),
                                   tabsetPanel(
                                               tabPanel("October",
                                                        h3("Monthly Average"), leafletOutput(outputId = "october_mean_map"),
@@ -455,6 +454,7 @@ ui <- fluidPage(
                                                   choices = list("Snow Cover Percent" = 1, "Albedo" = 2),
                                                   selected = 1)),
                         mainPanel(h1("Annual Maps"),
+                                  h3(textOutput("annual_header")),
                                   h3("Annual Average"), 
                                   leafletOutput(outputId = "annual_avg"),
                                   h3("Annual Anomaly"),
@@ -640,7 +640,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(daily_scp_brick_i(), colors = pal_scp, opacity = 0.9) %>%
       addLegend(pal = pal_scp, values = values(daily_scp_brick_i()),
-                title = "percent")
+                title = "percent") %>% 
+      addControl("Daily Snow Cover Percent", position = "bottomleft")
   })
   
   # select file and layer for map of  daily albedo
@@ -693,7 +694,8 @@ server <- function(input, output) {
       addTiles() %>%
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(daily_albedo_brick_i(), colors = pal_albedo, opacity = 0.9) %>%
-      addLegend(pal = pal_albedo, values = values(daily_albedo_brick_i()), title = "Albedo")
+      addLegend(pal = pal_albedo, values = values(daily_albedo_brick_i()), title = "albedo") %>% 
+      addControl("Daily Albedo", position = "bottomleft")
   })
   
   # leaflet maps of monthly means where user selects water year and variable
@@ -707,53 +709,53 @@ server <- function(input, output) {
   
   legend_title_monthly_mean <- reactive({
     if(input$variable1 == 1) {
-      "percent"
+      "snow cover<br>percent"
     } else if (input$variable1 == 2) {
       "albedo"
     }
   })
   
-  output$monthly_mean_header <- renderText({
-    if (input$water_year_monthly_means == 1) {
-      "Water Year 2001"
-    } else if (input$water_year_monthly_means == 2) {
-      "Water Year 2002"
-    } else if (input$water_year_monthly_means == 3) {
-      "Water Year 2003"
-    } else if (input$water_year_monthly_means == 4) {
-      "Water Year 2004"
-    } else if (input$water_year_monthly_means == 5) {
-      "Water Year 2005"
-    } else if (input$water_year_monthly_means == 6) {
-      "Water Year 2006"
-    } else if (input$water_year_monthly_means == 7) {
-      "Water Year 2007"
-    } else if (input$water_year_monthly_means == 8) {
-      "Water Year 2008"
-    } else if (input$water_year_monthly_means == 9) {
-      "Water Year 2009"
-    } else if (input$water_year_monthly_means == 10) {
-      "Water Year 2010"
-    } else if (input$water_year_monthly_means == 11) {
-      "Water Year 2011"
-    } else if (input$water_year_monthly_means == 12) {
-      "Water Year 2012"
-    } else if (input$water_year_monthly_means == 13) {
-      "Water Year 2013"
-    } else if (input$water_year_monthly_means == 14) {
-      "Water Year 2014"
-    } else if (input$water_year_monthly_means == 15) {
-      "Water Year 2015"
-    } else if (input$water_year_monthly_means == 16) {
-      "Water Year 2016"
-    } else if (input$water_year_monthly_means == 17) {
-      "Water Year 2017"
-    } else if (input$water_year_monthly_means == 18) {
-      "Water Year 2018"
-    } else if (input$water_year_monthly_means == 19) {
-      "Water Year 2019"
-    } 
-  })
+  # output$monthly_mean_header <- renderText({
+  #   if (input$water_year_monthly_means == 1) {
+  #     "Water Year 2001"
+  #   } else if (input$water_year_monthly_means == 2) {
+  #     "Water Year 2002"
+  #   } else if (input$water_year_monthly_means == 3) {
+  #     "Water Year 2003"
+  #   } else if (input$water_year_monthly_means == 4) {
+  #     "Water Year 2004"
+  #   } else if (input$water_year_monthly_means == 5) {
+  #     "Water Year 2005"
+  #   } else if (input$water_year_monthly_means == 6) {
+  #     "Water Year 2006"
+  #   } else if (input$water_year_monthly_means == 7) {
+  #     "Water Year 2007"
+  #   } else if (input$water_year_monthly_means == 8) {
+  #     "Water Year 2008"
+  #   } else if (input$water_year_monthly_means == 9) {
+  #     "Water Year 2009"
+  #   } else if (input$water_year_monthly_means == 10) {
+  #     "Water Year 2010"
+  #   } else if (input$water_year_monthly_means == 11) {
+  #     "Water Year 2011"
+  #   } else if (input$water_year_monthly_means == 12) {
+  #     "Water Year 2012"
+  #   } else if (input$water_year_monthly_means == 13) {
+  #     "Water Year 2013"
+  #   } else if (input$water_year_monthly_means == 14) {
+  #     "Water Year 2014"
+  #   } else if (input$water_year_monthly_means == 15) {
+  #     "Water Year 2015"
+  #   } else if (input$water_year_monthly_means == 16) {
+  #     "Water Year 2016"
+  #   } else if (input$water_year_monthly_means == 17) {
+  #     "Water Year 2017"
+  #   } else if (input$water_year_monthly_means == 18) {
+  #     "Water Year 2018"
+  #   } else if (input$water_year_monthly_means == 19) {
+  #     "Water Year 2019"
+  #   } 
+  # })
   
   oct_mean_i <- reactive({
     if (input$variable1 == 1) {
@@ -770,7 +772,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(oct_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(oct_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("October Average", position = "bottomleft")
   })
   
   nov_mean_i <- reactive({
@@ -788,7 +791,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(nov_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(nov_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("November Average", position = "bottomleft")
   })
   
   dec_mean_i <- reactive({
@@ -806,7 +810,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(dec_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(dec_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("December Average", position = "bottomleft")
   })
   
   jan_mean_i <- reactive({
@@ -824,7 +829,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(jan_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(jan_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("January Average", position = "bottomleft")
   })
   
   feb_mean_i <- reactive({
@@ -842,7 +848,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(feb_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(feb_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("February Average", position = "bottomleft")
   })
   
   mar_mean_i <- reactive({
@@ -860,7 +867,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(mar_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(mar_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("March Average", position = "bottomleft")
   })
   
   apr_mean_i <- reactive({
@@ -878,7 +886,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(apr_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(apr_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("April Average", position = "bottomleft")
   })
   
   may_mean_i <- reactive({
@@ -896,7 +905,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(may_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(may_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("May Average", position = "bottomleft")
   })
   
   jun_mean_i <- reactive({
@@ -914,7 +924,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(jun_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(jun_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("June Average", position = "bottomleft")
   })
   
   jul_mean_i <- reactive({
@@ -932,7 +943,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(jul_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(jul_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("July Average", position = "bottomleft")
   })
   
   aug_mean_i <- reactive({
@@ -950,7 +962,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(aug_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(aug_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("August Average", position = "bottomleft")
   })
   
   sep_mean_i <- reactive({
@@ -968,7 +981,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(sep_mean_i(), colors = pal_monthly_mean(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_mean(), values = values(sep_mean_i()),
-                title = legend_title_monthly_mean())
+                title = legend_title_monthly_mean()) %>% 
+      addControl("September Average", position = "bottomleft")
   })
   
   # leaflet maps of monthly anomalies where user selects water year and variable
@@ -982,7 +996,7 @@ server <- function(input, output) {
   
   legend_title_monthly_anomaly <- reactive({
     if (input$variable1 == 1) {
-      "anomaly"
+      "snow cover<br>anomaly"
     } else if (input$variable1 == 2) {
       "albedo anomaly"
     }
@@ -1045,7 +1059,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(oct_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(oct_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("October Anomaly", position = "bottomleft")
   })
   
   nov_anomaly_i <- reactive({
@@ -1063,7 +1078,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(nov_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(nov_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("November Anomaly", position = "bottomleft")
   })
   
   dec_anomaly_i <- reactive({
@@ -1081,7 +1097,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(dec_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(dec_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("December Anomaly", position = "bottomleft")
   })
   
   jan_anomaly_i <- reactive({
@@ -1099,7 +1116,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(jan_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(jan_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("January Anomaly", position = "bottomleft")
   })
   
   feb_anomaly_i <- reactive({
@@ -1117,7 +1135,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(feb_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(feb_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("February Anomaly", position = "bottomleft")
   })
   
   mar_anomaly_i <- reactive({
@@ -1135,7 +1154,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(mar_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(mar_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("March Anomaly", position = "bottomleft")
   })
   
   apr_anomaly_i <- reactive({
@@ -1153,7 +1173,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(apr_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(apr_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("April Anomaly", position = "bottomleft")
   })
   
   may_anomaly_i <- reactive({
@@ -1171,7 +1192,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(may_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(may_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("May Anomaly", position = "bottomleft")
   })
   
   jun_anomaly_i <- reactive({
@@ -1189,7 +1211,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(jun_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(jun_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("June Anomaly", position = "bottomleft")
   })
   
   jul_anomaly_i <- reactive({
@@ -1207,7 +1230,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(jul_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(jul_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("July Anomaly", position = "bottomleft")
   })
   
   aug_anomaly_i <- reactive({
@@ -1225,7 +1249,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(aug_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(aug_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("August Anomaly", position = "bottomleft")
   })
   
   sep_anomaly_i <- reactive({
@@ -1243,7 +1268,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(sep_anomaly_i(), colors = pal_monthly_anomaly(), opacity = 0.9) %>%
       addLegend(pal = pal_monthly_anomaly(), values = values(sep_anomaly_i()),
-                title = legend_title_monthly_anomaly())
+                title = legend_title_monthly_anomaly()) %>% 
+      addControl("September Anomaly", position = "bottomleft")
   })
   
   
@@ -1259,7 +1285,7 @@ server <- function(input, output) {
   
   legend_title_annual_mean <- reactive({
     if(input$variable_annual == 1) {
-      "percent"
+      "snow cover<br>percent"
     } else if (input$variable_annual == 2) {
       "albedo"
     }
@@ -1280,7 +1306,8 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(annual_avg_i(), colors = pal_annual_mean(), opacity = 0.9) %>% 
       addLegend(pal = pal_annual_mean(), values = values(annual_avg_i()),
-                title = legend_title_annual_mean())
+                title = legend_title_annual_mean()) %>% 
+      addControl("Annual Average", position = "bottomleft")
   })
   
   pal_annual_anomaly <- reactive({
@@ -1293,7 +1320,7 @@ server <- function(input, output) {
   
   legend_title_annual_anomaly <- reactive({
     if (input$variable_annual == 1) {
-      "anomaly"
+      "snow cover<br>anomaly"
     } else if (input$variable_annual == 2) {
       "albedo anomaly"
     }
@@ -1314,7 +1341,50 @@ server <- function(input, output) {
       addRasterImage(project_area_mask, colors = pal_mask, opacity = 0.5) %>%
       addRasterImage(annual_anomaly_i(), colors = pal_annual_anomaly(), opacity = 0.9) %>% 
       addLegend(pal = pal_annual_anomaly(), values = values(annual_anomaly_i()),
-                title = legend_title_annual_anomaly())
+                title = legend_title_annual_anomaly()) %>% 
+      addControl("Annual Anomaly", position = "bottomleft")
+  })
+  
+  output$annual_header <- renderText({
+    if (input$water_year_annual == 1) {
+      "Water Year 2001"
+    } else if (input$water_year_annual == 2) {
+      "Water Year 2002"
+    } else if (input$water_year_annual == 3) {
+      "Water Year 2003"
+    } else if (input$water_year_annual == 4) {
+      "Water Year 2004"
+    } else if (input$water_year_annual == 5) {
+      "Water Year 2005"
+    } else if (input$water_year_annual == 6) {
+      "Water Year 2006"
+    } else if (input$water_year_annual == 7) {
+      "Water Year 2007"
+    } else if (input$water_year_annual == 8) {
+      "Water Year 2008"
+    } else if (input$water_year_annual == 9) {
+      "Water Year 2009"
+    } else if (input$water_year_annual == 10) {
+      "Water Year 2010"
+    } else if (input$water_year_annual == 11) {
+      "Water Year 2011"
+    } else if (input$water_year_annual == 12) {
+      "Water Year 2012"
+    } else if (input$water_year_annual == 13) {
+      "Water Year 2013"
+    } else if (input$water_year_annual == 14) {
+      "Water Year 2014"
+    } else if (input$water_year_annual == 15) {
+      "Water Year 2015"
+    } else if (input$water_year_annual == 16) {
+      "Water Year 2016"
+    } else if (input$water_year_annual == 17) {
+      "Water Year 2017"
+    } else if (input$water_year_annual == 18) {
+      "Water Year 2018"
+    } else if (input$water_year_annual == 19) {
+      "Water Year 2019"
+    } 
   })
   
   # snow cover area graph
