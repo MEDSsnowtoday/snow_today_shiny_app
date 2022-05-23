@@ -461,16 +461,11 @@ ui <- fluidPage(
                                   leafletOutput(outputId = "annual_anomaly")
                         ))),
              tabPanel("Annual Graph",
-                      sidebarLayout(
-                        sidebarPanel(checkboxGroupInput("wy_checkbox", label = h3("Select Water Years"),
-                                                        choices = levels(as.factor(snow_cover_data$water_year)),
-                                                        selected = levels(as.factor(snow_cover_data$water_year)))),
-                                     #actionButton("selectall", label="Select/Deselect all")),
-                        mainPanel(h1("A GRAPH!!!"),
-                                  plotOutput(outputId = "snow_cover_area_graph"),
-                                  h2("a ggirafe"),
-                                  girafeOutput("plot"))
-                      )),
+                      h1("A GRAPH!!!"),
+                      includeHTML(here("myapp", "data", "snow_cover_figure.html")),
+                      h1("Another graph!!!"),
+                      includeHTML(here("myapp", "data", "albedo_figure.html"))
+                                  ),
              tabPanel("Tutorials",
                       p("xxx...text similar to the ReadMe files")),
              navbarMenu("Snow Science",
