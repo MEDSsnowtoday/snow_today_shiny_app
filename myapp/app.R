@@ -353,11 +353,11 @@ snow_cover_data <- read_csv(here("myapp", "data", "snow_cover_data.csv"))
 # widgets are things that the user interacts with to make decisions about what they want to appear as outputs
 ui <- fluidPage(
   navbarPage("MEDS Snow Today",
-             theme = bslib::bs_theme(
-               bg = "oldlace", fg = "blue",
-               primary = "purple", secondary = "yellow",
-               base_font = font_google("Open Sans")
-             ), # bg = background; fg = foreground
+             # theme = bslib::bs_theme(
+             #   bg = "oldlace", fg = "blue",
+             #   primary = "purple", secondary = "yellow",
+             #   base_font = font_google("Open Sans")), 
+             # bg = background; fg = foreground
              # tags$head(tags$style(HTML('.navbar-static-top {background-color: #36648b;}',
              #                           '.navbar-default .navbar-nav>.active>a {background-color: #a9d3de;}'))),
              #theme = bslib::bs_theme(
@@ -366,7 +366,7 @@ ui <- fluidPage(
                #primary = "#36648b"), # primary accent color
              #theme = bslib::bs_theme(bootswatch = "minty"),
              #theme = "theme_snow_shiny.css",
-             #theme = shinytheme("cerulean"),
+             theme = shinytheme("cerulean"),
              #theme = shinytheme("cyborg"),
              tabPanel("Daily Snow Cover and Albedo",
                       sidebarLayout(
@@ -461,7 +461,7 @@ ui <- fluidPage(
                                   leafletOutput(outputId = "annual_anomaly")
                         ))),
              tabPanel("Annual Graph",
-                      h1("A GRAPH!!!"),
+                      h1(""),
                       includeHTML(here("myapp", "data", "snow_cover_figure.html")),
                       h1("Another graph!!!"),
                       includeHTML(here("myapp", "data", "albedo_figure.html"))
