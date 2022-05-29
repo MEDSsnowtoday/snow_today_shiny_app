@@ -1,10 +1,10 @@
 # MEDS Snow Today Capstone Group Project R Shiny App
 
-The MEDS Capstone group project deliverables are visualized within this R Shiny application. This application hosts pages displaying snow data visualizations, snow science glossary, and links to Snow Today's monthly news letters, SPIReS data, and tutorials based in python. 
+This Shiny app was developed to showcase our project's contributions towards a more open source workflow for Snow Today data and increase the usability of the Snow Today website. The web application presents potential features for the new Snow Today website, interactive visualizations, and tutorials. It also presents documentation on snow science, links to Snow Today monthly newsletters, information on the data sources including metadata, MEDS capstone project background, and team bios.
 
 ## Motivation
 
-The MEDS Snow Today Capstone group created this R Shiny app to provide background details on the capstone project team and project goals, display project deliverables related to interactive snow condition data charts and maps, and house links to Snow Today data, snow science reference materials, and links to tutorials on processing SPIReS data in Python. 
+The MEDS Snow Today Capstone group created this R Shiny app to provide background details on the capstone project team and project goals, display project deliverables related to interactive snow condition data charts and maps, and house links to Snow Today data, snow science reference materials, and links to tutorials on processing SPIReS data in Python. Interactive visualizations presented on the Shiny app are for the Sierra region in the Western United States.
 
 ## Packages
 
