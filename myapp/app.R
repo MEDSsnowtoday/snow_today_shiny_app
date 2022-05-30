@@ -460,10 +460,11 @@ ui <- fluidPage(
                                   h3("Annual Anomaly"),
                                   leafletOutput(outputId = "annual_anomaly")
                         ))),
-             tabPanel("Annual Graph",
-                      h1(""),
+             tabPanel("Annual Graphs",
+                      p("In the legend, toggle years on/off to compare water years against the interquartile range"),
+                      br(""),
                       includeHTML(here("myapp", "data", "snow_cover_figure.html")),
-                      h1("Another graph!!!"),
+                      br(),
                       includeHTML(here("myapp", "data", "albedo_figure.html"))
                                   ),
              tabPanel("Tutorials",
@@ -521,10 +522,19 @@ ui <- fluidPage(
                                  p("Grid_trimlat: -90, 90"),
                                  p("Grid_trimlon: -135, 135"),
                                  p("ISOdates: dates are presented in the format YYYYdoy. For example, '2017274' would be the 274th day of the year 2017."),
-                                 p(""),
+                                 p("")
 
                                  ),
-                        tabPanel("HDF5 Files")),
+                        tabPanel("HDF5 Files",
+                                 h1("HDF5 Files"),
+                                 p("There are distinct advantages to h5 files as they store a large amount of information in a smaller dataset and multiple types of data in a single group."),
+                                 p("HDF5 simplifies the file structure to include only two major types of object:"),
+                                 tags$li("Datasets: multidimensional arrays of a homogeneous type"),
+                                 tags$li("Groups: container structures that can hold datasets and other groups"),
+                                 br(),
+                                 p("HDF is self-describing, allowing an application to interpret the structure and contents of a file with no outside information. One HDF file can hold a mix of related objects, which can be accessed as a group or as individual objects."),
+                                 img(src = "HDF5_Picture.png"))
+             ),
              tabPanel("About",
                       navlistPanel("About", widths = c(3, 9),
                                    tabPanel("MEDS Capstone Project",
@@ -572,7 +582,7 @@ p("End-user tutorials on the steps needed to access, process, and visualize snow
                                    tabPanel("Acknowledgements",
                                             h1("Acknowledgements"),
                                             p("The Snow Today Capstone Team would like to thank our faculty advisors: Sam Stevenson and Allison Horst; our clients: Timbo Stillinger, Ned Bair and Karl Rittger; external advisors: James Frew, Niklas Griessbaum, Michael Colee and Kat Le; and the endlessly supportive MEDS cohort.")
-                                            ),
+                                            )
              ))
                         
 ))
