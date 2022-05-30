@@ -352,7 +352,27 @@ snow_cover_data <- read_csv(here("myapp", "data", "snow_cover_data.csv"))
 # create 'ui' = "User Interface"
 # widgets are things that the user interacts with to make decisions about what they want to appear as outputs
 ui <- fluidPage(
-  navbarPage("MEDS Snow Today",
+  #img(src = "bren_logo.png", width = 54, height = 56.3, align = "right"),
+  titlePanel(
+    fluidRow(img(src = "bren_logo.png", height = 80, align = "right"),
+             img(src = "bren_meds_hex.png", height = 80, align = "right")
+             )
+    ),
+    # img(src = "bren_meds_hex.png", height = 50, align = "right"),
+    #          img(src = "bren_logo.png", height = 50, align = "right")),
+  navbarPage("",
+             theme = bslib::bs_theme(
+               bg = "white", fg = "black",
+               primary = "#0D4FBD", secondary = "green",
+               base_font = font_google("Open Sans")
+             ),
+             tags$head(tags$style(HTML(".navbar.navbar-default {
+                                       background-color: #0D4FBD !important;
+                                       }",
+                                       ".nav-link.active {background-color:  #gray;
+                                           color: #FFFFFF;
+                                       }"))),
+            
              # theme = bslib::bs_theme(
              #   bg = "oldlace", fg = "blue",
              #   primary = "purple", secondary = "yellow",
@@ -366,8 +386,21 @@ ui <- fluidPage(
                #primary = "#36648b"), # primary accent color
              #theme = bslib::bs_theme(bootswatch = "minty"),
              #theme = "theme_snow_shiny.css",
-             theme = shinytheme("cerulean"),
+             #theme = shinytheme("cerulean"),
              #theme = shinytheme("cyborg"),
+             tabPanel("MEDS Snow Today",
+                      img(src = "Picture1.jpg"),
+                      h1("Welcome to the MEDS Capstone Project"),
+                      p("The ", tags$a(href="https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds", "Master of Environmental Data Science (MEDS)"), "program at UC Santa Barbara's", tags$a(href="https://bren.ucsb.edu", "Bren School of Environmental Science & Management"), "culminates with a 6-month group Capstone project."),
+                      p("The Snow Today Capstone project’s primary goal was to create an open source workflow for processing and visualizing snow data. To achieve this goal, the Snow Today Group produced three deliverables:"),
+                      tags$li("Created recommendations for an information architecture plan and wireframe mockups of proposed Snow Today website;"),
+                      tags$li("Developed visuals of snow cover area and albedo on an interactive website application; and "),
+                      tags$li("Generated “How To” example tutorials to guide various end users through the process of using the data to extract meaningful insights."),
+                      br(),
+                      p("The Snow Today Capstone Project delivers recommendations to update the current Snow Today website by creating an information architecture plan, wireframe mockups, and a web application prototype that includes interactive visualizations and end-user tutorials. Revamping the existing website interface aids users in navigating the site. "),
+                      p("Current static visuals presented on the Snow Today website were updated with interactive figures to allow users to select specific geospatial regions and temporal ranges. Interactive visualizations are presented in a Shiny application that allows users to select a specific date and view maps of snow cover and albedo, then zoom in/out on the maps to view specific areas. The Shiny app also displays annual and monthly snow cover and albedo anomalies. Users can learn more about snow science, the importance of albedo, nuances of the HDF5 file metadata, and background information on the Capstone Project and team members from supplemental tabs within the Shiny app. The “Tutorials” tab on the Shiny app directs users to notebooks on our Group repository."),
+                      p("End-user tutorials on the steps needed to access, process, and visualize snow cover extent and albedo data. These elements help the Client achieve their goals for an updated Snow Today website that enables a larger set of users to access and interpret seasonal snow condition data.")
+                      ),
              tabPanel("Daily Snow Cover and Albedo",
                       sidebarLayout(
                         # sidebarPanel is where you put your widgets
@@ -536,6 +569,7 @@ ui <- fluidPage(
                                  img(src = "HDF5_Picture.png"))
              ),
              tabPanel("About",
+                      img(src = "Picture1.jpg"),
                       navlistPanel("About", widths = c(3, 9),
                                    tabPanel("MEDS Capstone Project",
                                             h1("MEDS Capstone Project"),
