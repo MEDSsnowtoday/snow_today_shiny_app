@@ -23,18 +23,6 @@ library(bslib)
 library(thematic)
 library(ggiraph)
 
-# Next steps:
-# - add interactive line graphs
-# - play with albedo color scheme
-# - add snow science text
-# - Insights - add links to current Snow Today website
-# - Data - include links to data and write up describing the data (modis, spires model, HDF5...)
-# - Tutorials - add links and text to describe the tutorials (intended audience, instructions for getting started)
-# - add About text (project background, team bios)...maybe move this tab all the way to the right
-# - improve app formatting and aesthetics
-# - compare/contrast selected days side by side?
-# - can you link the zoom on snow cover and albedo maps?
-# plot cahsing so speed things up?
 
 # load data
 
@@ -372,12 +360,6 @@ ui <- fluidPage(
                                        ".nav-link.active {background-color:  #gray;
                                            color: #FFFFFF;
                                        }"))),
-            
-             # theme = bslib::bs_theme(
-             #   bg = "oldlace", fg = "blue",
-             #   primary = "purple", secondary = "yellow",
-             #   base_font = font_google("Open Sans")), 
-             # bg = background; fg = foreground
              # tags$head(tags$style(HTML('.navbar-static-top {background-color: #36648b;}',
              #                           '.navbar-default .navbar-nav>.active>a {background-color: #a9d3de;}'))),
              #theme = bslib::bs_theme(
@@ -387,8 +369,7 @@ ui <- fluidPage(
              #theme = bslib::bs_theme(bootswatch = "minty"),
              #theme = "theme_snow_shiny.css",
              #theme = shinytheme("cerulean"),
-             #theme = shinytheme("cyborg"),
-             tabPanel("MEDS Snow Today",
+             tabPanel(h5(style = "color:white; font-weight:bold", "MEDS Snow Today"),
                       img(src = "Picture1.jpg"),
                       h1("Welcome to the MEDS Capstone Project"),
                       p("The ", tags$a(href="https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds", "Master of Environmental Data Science (MEDS)"), "program at UC Santa Barbara's", tags$a(href="https://bren.ucsb.edu", "Bren School of Environmental Science & Management"), "culminates with a 6-month group Capstone project."),
@@ -401,7 +382,7 @@ ui <- fluidPage(
                       p("Current static visuals presented on the Snow Today website were updated with interactive figures to allow users to select specific geospatial regions and temporal ranges. Interactive visualizations are presented in a Shiny application that allows users to select a specific date and view maps of snow cover and albedo, then zoom in/out on the maps to view specific areas. The Shiny app also displays annual and monthly snow cover and albedo anomalies. Users can learn more about snow science, the importance of albedo, nuances of the HDF5 file metadata, and background information on the Capstone Project and team members from supplemental tabs within the Shiny app. The “Tutorials” tab on the Shiny app directs users to notebooks on our Group repository."),
                       p("End-user tutorials on the steps needed to access, process, and visualize snow cover extent and albedo data. These elements help the Client achieve their goals for an updated Snow Today website that enables a larger set of users to access and interpret seasonal snow condition data.")
                       ),
-             tabPanel("Daily Snow Cover and Albedo",
+             tabPanel(h5(style = "color:white; font-weight:bold", "Daily Snow Cover and Albedo"),
                       sidebarLayout(
                         # sidebarPanel is where you put your widgets
                         sidebarPanel("",
@@ -416,7 +397,7 @@ ui <- fluidPage(
                                   h2("Albedo"),
                                   leafletOutput(outputId = "daily_albedo_map")
                                   ))),
-             tabPanel("Monthly Maps",
+             tabPanel(h5(style = "color:white; font-weight:bold", "Monthly Maps"),
                       sidebarLayout(
                         sidebarPanel(selectInput("water_year_monthly", label = h3("Select Water Year"),
                                                  choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4, "Water Year 2005" = 5, 
@@ -478,7 +459,7 @@ ui <- fluidPage(
                                                        p(),
                                                        h3("Monthly Anomaly"), leafletOutput(outputId = "september_anomaly_map"))))
                       )),
-             tabPanel("Annual Maps",
+             tabPanel(h5(style = "color:white; font-weight:bold", "Annual Maps"),
                       sidebarLayout(
                         sidebarPanel(selectInput("water_year_annual", label = h3("Select Water Year"),
                                                  choices = list("Water Year 2001" = 1, "Water Year 2002" = 2, "Water Year 2003" = 3, "Water Year 2004" = 4, "Water Year 2005" = 5, 
@@ -495,14 +476,14 @@ ui <- fluidPage(
                                   h3("Annual Anomaly"),
                                   leafletOutput(outputId = "annual_anomaly")
                         ))),
-             tabPanel("Annual Graphs",
-                      p("In the legend, toggle years on/off to compare water years against the interquartile range"),
+             tabPanel(h5(style = "color:white; font-weight:bold", "Annual Graph"),
+                      h5("In the legend, toggle years on/off to compare water years against the interquartile range"),
                       br(""),
                       includeHTML(here("myapp", "data", "snow_cover_figure.html")),
-                      br(),
+                      br()
                       #includeHTML(here("myapp", "data", "albedo_figure.html"))
                                   ),
-             tabPanel("Tutorials",
+             tabPanel(h5(style = "color:white; font-weight:bold", "Tutorials"),
                       h1("Tutorials"),
                       h4("Tutorial 1: ", tags$a(href="https://github.com/MEDSsnowtoday/Tutorials/blob/main/ST_01_Downloading_and_Exploring_Snow_Data.ipynb", "Downloading and Exploring Snow Data")),
                       h4("Tutorial 2:", tags$a(href="https://github.com/MEDSsnowtoday/Tutorials/blob/main/ST_02_Snow_Geospatial_Calculations.ipynb", "Snow Geospatial Calculations")),
@@ -523,73 +504,72 @@ ui <- fluidPage(
                       p("Bair, E. H., Stillinger, T., & Dozier, J. (2021). Snow Property Inversion From Remote Sensing (SPIReS): A Generalized Multispectral Unmixing Approach With Examples From MODIS and Landsat 8 OLI. IEEE Transactions on Geoscience and Remote Sensing, 59(9), 7270–7284.", tags$a(href="https://ieeexplore.ieee.org/document/9290428", "https://doi.org/10.1109/TGRS.2020.3040328")),
                       p("Stillinger, T., Bair, N., Colee, M., Davis, B., Dozier, J. 2022. Remotely-sensed products. Snow research at UC Santa Barbara and The Cold Regions Research and Engineering Laboratory (CRREL) and University of California Santa Barbara (UCSB) Energy Site. Last accessed: 2022/05/22.", tags$a(href="https://snow.ucsb.edu/index.php/remotely-sensed-products/", "snow.ucsb.edu/index.php/remotely-sensed-products"))
                       ),
-             navbarMenu("Snow Science",
-                        tabPanel("Remotely Sensed Snow Data"),
-                        tabPanel("Albedo",
-                                 h1("Albedo"),
-                                 p("Albedo is a non-dimensional, unitless measurement of how much solar energy is reflected from a surface. More specifically, albedo is the ratio of reflected solar radiation to incoming solar radiation. Theoretically, albedo values can range from 0 (the surface absorbs all incoming energy) to 1 (the surface reflects all incoming energy). Land surfaces typically have albedo values between 0.1 and 0.4."),
-                                 p("Albedo affects climate by determining how much radiation the planet absorbs. For this reason, snow albedo has important climate implications. In a way, albedo is a measure of the brightness of snow. Fresh, clean snow appears bright white and has high albedo, while old, dirty snow appears darker and has lower albedo. Typical albedo values for snow range between 0.65 and 0.85 but can be as low as 0.2 for dirty snow and as high as 0.9 for fresh snow. The more solar radiation snow absorbs, the faster it melts, so dark snow melts faster than clean snow. Spring snowmelt contributes to drinking water reservoirs in drier months. Earlier snowmelt can leave less water in the summer when it’s needed most."),
-                                 p("A layer of fresh snow increases albedo for that area, which can result in local cooling. When snow melts, it reveals darker surfaces such as soil or grass with lower albedo which increases local temperatures and encourages more melting in a feedback loop where the surface absorbs more solar radiation. Naturally occurring dust, ash from wildfire burnt areas, and soot from fossil fuels can be transported by wind and darken snow, which lowers its albedo value. Human activities such as overgrazing can contribute to the transport of dust. A case study found that snow in some areas was cleaner during COVID lockdowns."),
-                                 p("Due to the importance of albedo and variability of values over space and time, it may not be suitable to apply a single value to a broad region based solely on land cover. Since field measurements are difficult to collect, especially in mountainous terrain, albedo measurements from remotely sensed data sources are important."),
-                                 img(src = "albedo.png"),
-                                 h4("References"),
-                                 p("Bair E, Stillinger T, Rittger K, Skiles M. COVID-19 lockdowns show reduced pollution on snow and ice in the Indus River Basin. Proc Natl Acad Sci U S A. 2021 May 4;118(18):e2101174118. doi: 10.1073/pnas.2101174118. PMID: 33903254; PMCID: PMC8106343."),
-                                 p("Properties of Snow. Our Winter World. 2022.", tags$a(href="http://ourwinterworld.org/snow-science/properties-of-snow", "http://ourwinterworld.org/snow-science/properties-of-snow")),
-                                 p("Snow Today. National Snow and Ice Data Center.", tags$a(href="https://nsidc.org/reports/snow-today/glossary", "https://nsidc.org/reports/snow-today/glossary")),
-                                 p("")
+             tabPanel(h5(style = "color:white; font-weight:bold", "Snow Science"),
+                      navlistPanel("Snow Science",
+                                   tabPanel("Remotely Sensed Snow Data"),
+                                   tabPanel("Albedo",
+                                            h1("Albedo"),
+                                            p("Albedo is a non-dimensional, unitless measurement of how much solar energy is reflected from a surface. More specifically, albedo is the ratio of reflected solar radiation to incoming solar radiation. Theoretically, albedo values can range from 0 (the surface absorbs all incoming energy) to 1 (the surface reflects all incoming energy). Land surfaces typically have albedo values between 0.1 and 0.4."),
+                                            p("Albedo affects climate by determining how much radiation the planet absorbs. For this reason, snow albedo has important climate implications. In a way, albedo is a measure of the brightness of snow. Fresh, clean snow appears bright white and has high albedo, while old, dirty snow appears darker and has lower albedo. Typical albedo values for snow range between 0.65 and 0.85 but can be as low as 0.2 for dirty snow and as high as 0.9 for fresh snow. The more solar radiation snow absorbs, the faster it melts, so dark snow melts faster than clean snow. Spring snowmelt contributes to drinking water reservoirs in drier months. Earlier snowmelt can leave less water in the summer when it’s needed most."),
+                                            p("A layer of fresh snow increases albedo for that area, which can result in local cooling. When snow melts, it reveals darker surfaces such as soil or grass with lower albedo which increases local temperatures and encourages more melting in a feedback loop where the surface absorbs more solar radiation. Naturally occurring dust, ash from wildfire burnt areas, and soot from fossil fuels can be transported by wind and darken snow, which lowers its albedo value. Human activities such as overgrazing can contribute to the transport of dust. A case study found that snow in some areas was cleaner during COVID lockdowns."),
+                                            p("Due to the importance of albedo and variability of values over space and time, it may not be suitable to apply a single value to a broad region based solely on land cover. Since field measurements are difficult to collect, especially in mountainous terrain, albedo measurements from remotely sensed data sources are important."),
+                                            img(src = "albedo.png"),
+                                            h4("References"),
+                                            p("Bair E, Stillinger T, Rittger K, Skiles M. COVID-19 lockdowns show reduced pollution on snow and ice in the Indus River Basin. Proc Natl Acad Sci U S A. 2021 May 4;118(18):e2101174118. doi: 10.1073/pnas.2101174118. PMID: 33903254; PMCID: PMC8106343."),
+                                            p("Properties of Snow. Our Winter World. 2022.", tags$a(href="http://ourwinterworld.org/snow-science/properties-of-snow", "http://ourwinterworld.org/snow-science/properties-of-snow")),
+                                            p("Snow Today. National Snow and Ice Data Center.", tags$a(href="https://nsidc.org/reports/snow-today/glossary", "https://nsidc.org/reports/snow-today/glossary")),
+                                            p("")
+                                            ))),
+             tabPanel(h5(style = "color:white; font-weight:bold", "Data"),
+                      navlistPanel("Data", widths = c(2, 10),
+                                   tabPanel("Data Source",
+                                            h1("Data Source"),
+                                            p("The data used in this project was created by the Earth Research Institute, which hosts a repository of historical snow condition data. These files were developed using the Snow Property Inversion From Remote Sensing (SPIReS) model and are outputted in an HDF5 (.H5) format. The SPIReS HDF files contain 19 years of snow cover and albedo data. There is one file for each year from 2001 to 2019 with snow cover and albedo in separate files. All data are publicly available, and there are no limitations to how others can use the data."),
+                                            p("The data files can be accessed here:", tags$a(href="https://snow.ucsb.edu/index.php/remotely-sensed-products/", "snow.ucsb.edu/index.php/remotely-sensed-products")),
+                                            p("The files used on this Shiny app is available withing the SPIRES/Sierra and SPIRES/SierraAlbedo folders."),
+                                            p("The SPIReS model is a physically based model that uses multispectral unmixing to estimate snow properties from remote sensing imagery. The model calculates concentrations of light absorbing particles, grain size, albedo, and fractional snow cover. The model reduces computation time by grouping similar pixels. Since snow can be hidden by forest canopies, the model assumes that snow detected between canopy gaps is also present beneath trees."),
+                                            p("Cloud cover is always a challenge when attempting to identify snow from remote sensing imagery. To help minimize this error for low-lying areas with persistent cloud cover, the SPIReS model applies a minimum elevation filter. For example, in the Sierra Nevada, pixels below an elevation of 1,000 meters are set to a fractional snow cover of zero. Time-space smoothing is also applied to reduce errors caused by clouds. Typically, snow is present for a longer duration than clouds so pixels that do not display snow for a minimum threshold number of days are classified as no snow. The model also masks out water bodies to reduce the occurrence of false positives."),
+                                            h4("References"),
+                                            p("National Snow and ICe Data Center's (NCIDC) Snow Today:", tags$a(href="https://nsidc.org/reports/snow-today", "nsidc.org/reports/snow-today")),
+                                            p("E. H. Bair, T. Stillinger and J. Dozier, \"Snow Property Inversion From Remote Sensing (SPIReS): A Generalized Multispectral Unmixing Approach With Examples From MODIS and Landsat 8 OLI,\" in IEEE Transactions on Geoscience and Remote Sensing, vol. 59, no. 9, pp. 7270-7284, Sept. 2021, doi: 10.1109/TGRS.2020.3040328.")),
+                                   tabPanel("Metadata",
+                                            p("The spatial projection of the data is Albers Equal-Area Conic, however this information is not connected to the data in a standard format recognized by mapping softwater and open-source packages. See the tutorials for guidance  addressing this issue."),
+                                            h1("Metadata"),
+                                            p("Grid_angleunits: degrees"),
+                                            p("Grid_aspect: normal"),
+                                            p("Grid_falseeasting: 0"),
+                                            p("Grid_falsenorthing: -4000000"),
+                                            p("Grid_geoid: 6378137, 0.0818191908426215"),
+                                            p("Grid_maplatlimit: -90, 90"),
+                                            p("Grid_maplonlimit: -255, 15"),
+                                            p("Grid_mapparallels: 34, 40.5"),
+                                            p("Grid_mapparallels: 34, 40.5"),
+                                            p("Grid_mapprojection: eqaconicstd"),
+                                            p("Grid_MODIS_GRID_500m_dust_divisor: 10"),
+                                            p("Grid_MODIS_GRID_500m_grain_size_divisor: 1"),
+                                            p("Grid_MODIS_GRID_500m_raw_snow_fraction_divisor: 100"),
+                                            p("Albedo divisor: 10000"),
+                                            p("Grid_MODIS_GRID_500m_ReferencingMatrix: 0, 500, -285750, -500, 0, 500250"),
+                                            p("Grid_MODIS_GRID_500m_snow_fraction_divisor: 100"),
+                                            p("Grid_nparallels: 2"),
+                                            p("Grid_origin: 0, -120, 0"),
+                                            p("Grid_scalefactor: 1"),
+                                            p("Grid_trimlat: -90, 90"),
+                                            p("Grid_trimlon: -135, 135"),
+                                            p("ISOdates: dates are presented in the format YYYYdoy. For example, '2017274' would be the 274th day of the year 2017."),
+                                            p("")
+                                 ),
+                                 tabPanel("HDF5 Files",
+                                          h1("HDF5 Files"),
+                                          p("There are distinct advantages to h5 files as they store a large amount of information in a smaller dataset and multiple types of data in a single group."),
+                                          p("HDF5 simplifies the file structure to include only two major types of object:"),
+                                          tags$li("Datasets: multidimensional arrays of a homogeneous type"),
+                                          tags$li("Groups: container structures that can hold datasets and other groups"),
+                                          br(),
+                                          p("HDF is self-describing, allowing an application to interpret the structure and contents of a file with no outside information. One HDF file can hold a mix of related objects, which can be accessed as a group or as individual objects."),
+                                          img(src = "HDF5_Picture.png"))
                                  )),
-             #tabPanel("Insights"),
-             navbarMenu("Data",
-                        tabPanel("Data Source",
-                                 h1("Data Source"),
-                                 p("The data used in this project was created by the Earth Research Institute, which hosts a repository of historical snow condition data. These files were developed using the Snow Property Inversion From Remote Sensing (SPIReS) model and are outputted in an HDF5 (.H5) format. The SPIReS HDF files contain 19 years of snow cover and albedo data. There is one file for each year from 2001 to 2019 with snow cover and albedo in separate files. All data are publicly available, and there are no limitations to how others can use the data."),
-                                 p("The data files can be accessed here:", tags$a(href="https://snow.ucsb.edu/index.php/remotely-sensed-products/", "snow.ucsb.edu/index.php/remotely-sensed-products")),
-                                 p("The files used on this Shiny app is available withing the SPIRES/Sierra and SPIRES/SierraAlbedo folders."),
-                                 p("The SPIReS model is a physically based model that uses multispectral unmixing to estimate snow properties from remote sensing imagery. The model calculates concentrations of light absorbing particles, grain size, albedo, and fractional snow cover. The model reduces computation time by grouping similar pixels. Since snow can be hidden by forest canopies, the model assumes that snow detected between canopy gaps is also present beneath trees."),
-                                 p("Cloud cover is always a challenge when attempting to identify snow from remote sensing imagery. To help minimize this error for low-lying areas with persistent cloud cover, the SPIReS model applies a minimum elevation filter. For example, in the Sierra Nevada, pixels below an elevation of 1,000 meters are set to a fractional snow cover of zero. Time-space smoothing is also applied to reduce errors caused by clouds. Typically, snow is present for a longer duration than clouds so pixels that do not display snow for a minimum threshold number of days are classified as no snow. The model also masks out water bodies to reduce the occurrence of false positives."),
-                                 h4("References"),
-                                 p("National Snow and ICe Data Center's (NCIDC) Snow Today:", tags$a(href="https://nsidc.org/reports/snow-today", "nsidc.org/reports/snow-today")),
-                                 p("E. H. Bair, T. Stillinger and J. Dozier, \"Snow Property Inversion From Remote Sensing (SPIReS): A Generalized Multispectral Unmixing Approach With Examples From MODIS and Landsat 8 OLI,\" in IEEE Transactions on Geoscience and Remote Sensing, vol. 59, no. 9, pp. 7270-7284, Sept. 2021, doi: 10.1109/TGRS.2020.3040328.")
-                                 ),
-                        tabPanel("Metadata",
-                                 p("The spatial projection of the data is Albers Equal-Area Conic, however this information is not connected to the data in a standard format recognized by mapping softwater and open-source packages. See the tutorials for guidance  addressing this issue."),
-                                 h1("Metadata"),
-                                 p("Grid_angleunits: degrees"),
-                                 p("Grid_aspect: normal"),
-                                 p("Grid_falseeasting: 0"),
-                                 p("Grid_falsenorthing: -4000000"),
-                                 p("Grid_geoid: 6378137, 0.0818191908426215"),
-                                 p("Grid_maplatlimit: -90, 90"),
-                                 p("Grid_maplonlimit: -255, 15"),
-                                 p("Grid_mapparallels: 34, 40.5"),
-                                 p("Grid_mapparallels: 34, 40.5"),
-                                 p("Grid_mapprojection: eqaconicstd"),
-                                 p("Grid_MODIS_GRID_500m_dust_divisor: 10"),
-                                 p("Grid_MODIS_GRID_500m_grain_size_divisor: 1"),
-                                 p("Grid_MODIS_GRID_500m_raw_snow_fraction_divisor: 100"),
-                                 p("Albedo divisor: 10000"),
-                                 p("Grid_MODIS_GRID_500m_ReferencingMatrix: 0, 500, -285750, -500, 0, 500250"),
-                                 p("Grid_MODIS_GRID_500m_snow_fraction_divisor: 100"),
-                                 p("Grid_nparallels: 2"),
-                                 p("Grid_origin: 0, -120, 0"),
-                                 p("Grid_scalefactor: 1"),
-                                 p("Grid_trimlat: -90, 90"),
-                                 p("Grid_trimlon: -135, 135"),
-                                 p("ISOdates: dates are presented in the format YYYYdoy. For example, '2017274' would be the 274th day of the year 2017."),
-                                 p("")
-
-                                 ),
-                        tabPanel("HDF5 Files",
-                                 h1("HDF5 Files"),
-                                 p("There are distinct advantages to h5 files as they store a large amount of information in a smaller dataset and multiple types of data in a single group."),
-                                 p("HDF5 simplifies the file structure to include only two major types of object:"),
-                                 tags$li("Datasets: multidimensional arrays of a homogeneous type"),
-                                 tags$li("Groups: container structures that can hold datasets and other groups"),
-                                 br(),
-                                 p("HDF is self-describing, allowing an application to interpret the structure and contents of a file with no outside information. One HDF file can hold a mix of related objects, which can be accessed as a group or as individual objects."),
-                                 img(src = "HDF5_Picture.png"))
-             ),
-             tabPanel("About",
+             tabPanel(h5(style = "color:white; font-weight:bold", "About"),
                       img(src = "Picture1.jpg"),
                       navlistPanel("About", widths = c(3, 9),
                                    tabPanel("MEDS Capstone Project",
