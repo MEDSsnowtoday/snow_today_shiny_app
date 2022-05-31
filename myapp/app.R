@@ -1,13 +1,13 @@
 # a shiny app for snow data
 
 # list of packages required
-list.of.packages <- c("shiny", "paletteer", "shinythemes", "here", "raster", "leaflet", "rgdal", "tidyverse", "sf", "bslib", "thematic", "ggiraph")
+#list.of.packages <- c("shiny", "paletteer", "shinythemes", "here", "raster", "leaflet", "rgdal", "tidyverse", "sf", "bslib", "thematic", "ggiraph")
 
 # checking missing packages from list
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+#new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 
 # install missing ones
-if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
+#if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
 
 # attach packages
 library(shiny)
@@ -341,11 +341,11 @@ snow_cover_data <- read_csv(here("myapp", "data", "snow_cover_data.csv"))
 # widgets are things that the user interacts with to make decisions about what they want to appear as outputs
 ui <- fluidPage(
   #img(src = "bren_logo.png", width = 54, height = 56.3, align = "right"),
-  titlePanel(
-    fluidRow(img(src = "bren_logo.png", height = 80, align = "right"),
-             img(src = "bren_meds_hex.png", height = 80, align = "right")
-             )
-    ),
+  #titlePanel(HTML('<right><img src="bren_logo.png" width="40"></right>', '<right><img src="bren_logo.png" width="40"></right>')),
+    fluidRow(img(src = "bren_logo.png", height = 80, style = 'float:right;'),
+             img(src = "bren_meds_hex.png", height = 80, style = 'float:right;')
+             ),
+    #),
     # img(src = "bren_meds_hex.png", height = 50, align = "right"),
     #          img(src = "bren_logo.png", height = 50, align = "right")),
   navbarPage("",
