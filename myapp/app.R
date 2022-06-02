@@ -343,7 +343,7 @@ ui <- fluidPage(
   fluidRow(
     column(10,),
     column(1, tags$a(href="https://bren.ucsb.edu/masters-programs/master-environmental-data-science", tags$img(src = "bren_logo.png", height = 80))),
-    column(1, tags$a(href="https://ucsb-meds.github.io/", tags$img(src="bren_meds_hex.png", height=80)))
+    column(1, tags$a(href="https://ucsb-meds.github.io/", tags$img(src = "bren_meds_hex.png", height = 80)))
     ),
   navbarPage("",
              theme = bslib::bs_theme(
@@ -362,11 +362,13 @@ ui <- fluidPage(
                       h1("Welcome to the MEDS Snow Today Shiny App!"),
                       br(),
                       p("This app presents interactive visualizations of snow cover percent and albedo for the Sierra region. Explore this app to view daily, monthly, and yearly maps; learn about remote sensing and snow data collection; and try out tutorials for working with the data presented in this app."),
-                      br(),
-                      p(tags$b("Why do we care about snow data in the first place?")),
+                      h4(tags$b("Why do we care about snow data in the first place?")),
                       p("Snow is one of the most important natural water resources present in nature. It stores water in winter and releases it in spring during the melting season. Snow also influences our ability to participate in winter activities, such as skiing and snowboarding. As such, knowing the spatial extent of snow cover and understanding its properties is critical for water resource management and winter recreation."),
-                      br(),
-                      p(tags$b("Note: Maps are slow to load. Please be patient"))
+                      #br(),
+                      img(src = "Albie.png", height = 100),
+                      img(src = "snow_octocat.png", height = 100),
+                      h5("View code on the MEDS Snow Today public", tags$a(href="https://github.com/MEDSsnowtoday", "GitHub Repository.")),
+                      h5(tags$b("Note: Maps are slow to load. Please be patient"))
                       ),
              tabPanel(h5(style = "color:white; font-weight:bold", "Daily Snow Cover and Albedo"),
                       sidebarLayout(
@@ -496,6 +498,10 @@ ui <- fluidPage(
                                             h1("Snow Measurements in the Field"),
                                             p("Snow water equivalent (SWE) is a measure of the amount of liquid water in a snowpack. Typically units used to report SWE values are inches of water.  Think of SWE as the depth of water you would have if an entire snowpack melted.  This information is important to water supply managers and hydrologists. Simply measuring the depth of snow is not enough to estimate water quantities. As a snowpack condenses over time, its density increases, but the amount of water within the snowpack does not change. SWE is measured using snow pillows or Federal Snow Samplers. A snow pillow is an in situ device that measures the weight of a snowpack. This weight is then used to calculate an equivalent weight of water to get the snow water equivalent (SWE). A federal snow sampler is a long tube that is driven into the snowpack all the way to the ground surface below. This gets you both a depth of snow and a core sample of the snowpack. The core is then weighed using a calibrated scale that gives the corresponding SWE value. The snow density can then be calculated from the depth and weight."),
                                             p("As our group experienced firsthand, it’s not easy to collect in field snow measurements of snow and it’s properties. In March, our group had the opportunity to meet our Capstone clients in Mammoth Lakes to see how snow data is collected on the ground. It became quickly apparent that the amount of time and energy needed to collect snow data is not feasible over large areas. In addition, things like mountainous terrain, weather conditions, and equipment logistics can increase the difficulty of acquiring these measurements. Once a snowpack has melted above the elevation of the highest field monitoring station, water managers could be left without vital information. Luckily, remote sensing, or data collection  from satellites in this case, is an accurate and effective alternative for collecting snow measurements. "),
+                                            fluidRow(
+                                              column(3, tags$img(src = "federal_sampler.jpg", alt = "snow federal sampler", height = 400)),
+                                              column(4, tags$img(src = "albedo_field.jpg", alt = "albedo measurement in the field", height = 400)),
+                                              column(4, tags$img(src = "snow_density.jpg", alt = "snow pit to measures density profile", height = 400))),
                                             h4("References"),
                                             p(tags$a(href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833", "NRCS: What is Now Water Equivalent?"))),
                                             tabPanel("Snow and Remote Sensing",
@@ -524,7 +530,7 @@ ui <- fluidPage(
                                             h1("Data Source"),
                                             p("The data used in this project was created by the Earth Research Institute, which hosts a repository of historical snow condition data. These files were developed applying a physically-based model called the Snow Property Inversion From Remote Sensing (SPIReS) to daily satellite data. Model outputs are in an HDF5 (.H5) format. The SPIReS HDF5 files contain 19 years of snow cover and albedo data. There is one file for each year from water year 2001 to water year 2019 with snow cover and albedo in separate files. All data are publicly available, and there are no limitations to how others can use the data."),
                                             p("The data files can be accessed here:", tags$a(href="https://snow.ucsb.edu/index.php/remotely-sensed-products/", "snow.ucsb.edu/index.php/remotely-sensed-products")),
-                                            p("The files used on this Shiny app is available withing the SPIRES/Sierra and SPIRES/SierraAlbedo folders."),
+                                            p("The files used on this Shiny app are available within the SPIRES/Sierra and SPIRES/SierraAlbedo folders."),
                                             p("The SPIReS model is a physically based model that uses multispectral unmixing to estimate snow properties from MODIS remote sensing imagery. The model uses data from the Moderate Resolution Imaging Spectroradiometer (MODIS) and calculates concentrations of light absorbing particles, grain size, albedo, and fractional snow cover. The model reduces computation time by grouping similar pixels. Since snow can be hidden by forest canopies, the model assumes that snow detected between canopy gaps is also present beneath trees."),
                                             p("Cloud cover is always a challenge when attempting to identify snow from remote sensing imagery. To help minimize this error for low-lying areas with persistent cloud cover, the SPIReS model applies a minimum elevation filter. For example, in the Sierra Nevada, pixels below an elevation of 1,000 meters are set to a fractional snow cover of zero. Time-space smoothing is also applied to reduce errors caused by clouds. Typically, snow is present for a longer duration than clouds so pixels that do not display snow for a minimum threshold number of days are classified as no snow. The model also masks out water bodies to reduce the occurrence of false positives."),
                                             h4("References"),
@@ -575,7 +581,7 @@ ui <- fluidPage(
              tabPanel(h5(style = "color:white; font-weight:bold", "About"),
                       img(src = "Picture3.jpg", width="100%"),
                       navlistPanel("About", widths = c(3, 9),
-                                   tabPanel(h5("MEDS Capstone Project"),
+                                   tabPanel("MEDS Capstone Project",
                                             h1("MEDS Capstone Project"),
                                             p("The ", tags$a(href="https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds", "Master of Environmental Data Science (MEDS)"), "program at UC Santa Barbara's", tags$a(href="https://bren.ucsb.edu", "Bren School of Environmental Science & Management"), "culminates with a 6-month group Capstone project."),
                                             p("The Snow Today Capstone project’s primary goal was to create an open source workflow for processing and visualizing snow data. To achieve this goal, the Snow Today Group produced three deliverables:"),
@@ -583,15 +589,18 @@ ui <- fluidPage(
                                             tags$li("Developed visuals of snow cover area and albedo on an interactive website application; and "),
                                             tags$li("Generated “How To” example tutorials to guide various end users through the process of using the data to extract meaningful insights."),
                                             br(),
-                                            p("The Snow Today Capstone Project delivers recommendations to update the current Snow Today website by creating an information architecture plan, wireframe mockups, and a web application prototype that includes interactive visualizations and end-user tutorials. Revamping the existing website interface aids users in navigating the site. "),
-                                            p("Current static visuals presented on the Snow Today website were updated with interactive figures to allow users to select specific geospatial regions and temporal ranges. Interactive visualizations are presented in a Shiny application that allows users to select a specific date and view maps of snow cover and albedo, then zoom in/out on the maps to view specific areas. The Shiny app also displays annual and monthly snow cover and albedo anomalies. Users can learn more about snow science, the importance of albedo, nuances of the HDF5 file metadata, and background information on the Capstone Project and team members from supplemental tabs within the Shiny app. The “Tutorials” tab on the Shiny app directs users to notebooks on our Group repository.
-"),
-p("End-user tutorials on the steps needed to access, process, and visualize snow cover extent and albedo data. These elements help the Client achieve their goals for an updated Snow Today website that enables a larger set of users to access and interpret seasonal snow condition data.")
+                                            p("The Snow Today Capstone Project delivered recommendations to update the current Snow Today website by creating an information architecture plan, wireframe mockups, and a web application prototype that includes interactive visualizations and end-user tutorials. Revamping the existing website interface aids users in navigating the site."),
+                                            p("All code generated for this project can be found on the MEDS Snow Today public", tags$a(href="https://github.com/MEDSsnowtoday", "GitHub Repository.")),
+                                            p("Current static visuals presented on the Snow Today website were updated with interactive figures to allow users to select specific geospatial regions and temporal ranges. Interactive visualizations are presented in a Shiny application that allows users to select a specific date and view maps of snow cover and albedo, then zoom in/out on the maps to view specific areas. The Shiny app also displays annual and monthly snow cover and albedo anomalies. Users can learn more about snow science, the importance of albedo, nuances of the HDF5 file metadata, and background information on the Capstone Project and team members from supplemental tabs within the Shiny app. The “Tutorials” tab on the Shiny app directs users to notebooks on our Group repository."),
+                                            p("End-user tutorials on the steps needed to access, process, and visualize snow cover extent and albedo data. These elements help the Client achieve their goals for an updated Snow Today website that enables a larger set of users to access and interpret seasonal snow condition data."),
+                                            img(src = "capstone_team.jpg", height = 400, style="display: block; margin-left: auto; margin-right: auto;", alt = "capstone teammembers"),
+                                            br()
                                    ),
                                    tabPanel("Snow Today",
                                             h1("Snow Today"),
                                             p(tags$a(href="https://nsidc.org/reports/snow-today", "Snow Today"), "is an existing scientific analysis website that provides a near real time snapshot and interpretation of snow conditions across the Western United States. The Snow Today Website is a collaboration between the", tags$a(href="https://www.eri.ucsb.edu/", "UCSB Earth Research Institute,"), "the University of Colorado (CU) Boulder", tags$a(href="https://cires.colorado.edu/", "Cooperative Institute for Research in Environmental Sciences (CIRES),"), tags$a(href="https://instaar.colorado.edu/", "Institute of Arctic & Alpine Research (INSTAAR),"), "and the", tags$a(href="https://nsidc.org/", "National Snow and Ice Data Center (NSIDC)."), "This website provides earth scientists, natural resource managers, and outdoor enthusiasts with valuable data from remote sensing satellites and surface observation stations. Data visualizations are presented for snow cover area, snow cover days, albedo, and snow water equivalent. Current values are compared to past days, years, and decades. Snow Today plans to expand the spatial extent of its data products to include all of North America, Greenland, and High Mountain Asia."),
-                                            p("")
+                                            br(),
+                                            img(src = "snow_today_example_map.png", height = 400, style="display: block; margin-left: auto; margin-right: auto;"),
                                             ),
                                    tabPanel("Team Bios",
                                             h1("Team Bios"),
@@ -619,9 +628,13 @@ p("End-user tutorials on the steps needed to access, process, and visualize snow
                                             ),
                                    tabPanel("Acknowledgements",
                                             h1("Acknowledgements"),
-                                            p("The Snow Today Capstone Team would like to thank our faculty advisors: Sam Stevenson and Allison Horst; our clients: Timbo Stillinger, Ned Bair and Karl Rittger; external advisors: James Frew, Niklas Griessbaum, Michael Colee and Kat Le; and the endlessly supportive MEDS cohort.")
+                                            p("The Snow Today Capstone Team would like to thank:"),
+                                            tags$li(tags$b("faculty advisors:"), "Sam Stevenson and Allison Horst;"),
+                                            tags$li(tags$b("clients:"), "Timbo Stillinger, Ned Bair and Karl Rittger;"),
+                                            tags$li(tags$b("external advisors:"), "James Frew, Niklas Griessbaum, Kat Le, and Michael Colee and the entire GRIT Team; and"),
+                                            tags$li("the endlessly supportive MEDS cohort."))
                                             )
-             ))
+             )
                         
 ))
 
