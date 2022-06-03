@@ -1,4 +1,4 @@
-# MEDS Snow Today Capstone Group Project R Shiny App
+# MEDS Snow Today Capstone Project R Shiny App
 
 This Shiny app was developed to showcase our project's contributions towards a more open source workflow for Snow Today data and increase the usability of the Snow Today website. The web application presents potential features for the new Snow Today website, interactive visualizations, and tutorials. It also presents documentation on snow science, links to Snow Today monthly newsletters, information on the data sources including metadata, MEDS capstone project background, and team bios.
 
