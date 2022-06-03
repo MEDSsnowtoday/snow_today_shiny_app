@@ -368,7 +368,7 @@ ui <- fluidPage(
                       h5("View code on the MEDS Snow Today public", tags$a(href="https://github.com/MEDSsnowtoday", "GitHub Repository.")),
                       h5(tags$b("Note: Maps are slow to load. Please be patient"))
                       ),
-             tabPanel(h5(style = "color:white; font-weight:bold", "Daily Snow Cover and Albedo"),
+             tabPanel(h5(style = "color:white; font-weight:bold", "Daily Maps"),
                       sidebarLayout(
                         # sidebarPanel is where you put your widgets
                         sidebarPanel("",
