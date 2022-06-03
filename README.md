@@ -4,7 +4,7 @@ This Shiny app was developed to showcase our project's contributions towards a m
 
 ## Motivation
 
-The MEDS Snow Today Capstone group created this R Shiny app to provide background details on the capstone project team and project goals, display project deliverables related to interactive snow condition data charts and maps, and house links to Snow Today data, snow science reference materials, and links to tutorials on processing SPIReS data in Python. Interactive visualizations presented on the Shiny app are for the Sierra region in the Western United States.
+The MEDS Snow Today Capstone group created this R Shiny app to provide background details on the capstone project team and project goals, display project deliverables related to interactive snow condition data charts and maps, and house links to Snow Today data, snow science reference materials, and links to tutorials on processing SPIReS data in Python. Interactive visualizations presented on the Shiny app are for the Sierra Nevada region of the Western United States.
 
 ## Packages
 
