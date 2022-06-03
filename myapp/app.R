@@ -443,8 +443,9 @@ ui <- fluidPage(
                                               tabPanel("September",
                                                        h3("Monthly Average"), leafletOutput(outputId = "september_mean_map"),
                                                        p(),
-                                                       h3("Monthly Anomaly"), leafletOutput(outputId = "september_anomaly_map"))))
-                      )),
+                                                       h3("Monthly Anomaly"), leafletOutput(outputId = "september_anomaly_map"))),
+                                  br()
+                      ))),
              tabPanel(h5(style = "color:white; font-weight:bold", "Annual Maps"),
                       sidebarLayout(
                         sidebarPanel(selectInput("water_year_annual", label = h3("Select Water Year"),
@@ -460,7 +461,8 @@ ui <- fluidPage(
                                   h3("Annual Average"), 
                                   leafletOutput(outputId = "annual_avg"),
                                   h3("Annual Anomaly"),
-                                  leafletOutput(outputId = "annual_anomaly")
+                                  leafletOutput(outputId = "annual_anomaly"),
+                                  br()
                         ))),
              tabPanel(h5(style = "color:white; font-weight:bold", "Annual Graph"),
                       h5("In the legend, toggle years on/off to compare water years against the interquartile range"),
@@ -599,6 +601,7 @@ ui <- fluidPage(
                                             p(tags$a(href="https://nsidc.org/reports/snow-today", "Snow Today"), "is an existing scientific analysis website that provides a near real time snapshot and interpretation of snow conditions across the Western United States. The Snow Today Website is a collaboration between the", tags$a(href="https://www.eri.ucsb.edu/", "UCSB Earth Research Institute,"), "the University of Colorado (CU) Boulder", tags$a(href="https://cires.colorado.edu/", "Cooperative Institute for Research in Environmental Sciences (CIRES),"), tags$a(href="https://instaar.colorado.edu/", "Institute of Arctic & Alpine Research (INSTAAR),"), "and the", tags$a(href="https://nsidc.org/", "National Snow and Ice Data Center (NSIDC)."), "This website provides earth scientists, natural resource managers, and outdoor enthusiasts with valuable data from remote sensing satellites and surface observation stations. Data visualizations are presented for snow cover area, snow cover days, albedo, and snow water equivalent. Current values are compared to past days, years, and decades. Snow Today plans to expand the spatial extent of its data products to include all of North America, Greenland, and High Mountain Asia."),
                                             br(),
                                             img(src = "snow_today_example_map.png", height = 400, style="display: block; margin-left: auto; margin-right: auto;"),
+                                            br()
                                             ),
                                    tabPanel("Team Bios",
                                             h1("Team Bios"),
@@ -623,7 +626,8 @@ ui <- fluidPage(
                                             fluidRow(column(3,
                                                             img(src = "Rivers_Marie_meds22.jpg", height = 225.4, width = 150)),
                                                      column(8, p("Marie holds Bachelors and Masters degrees in Environmental Engineering from the University of Delaware (2009) and University of Massachusetts (2011). She is also a registered professional civil water resources engineer with 10 years of consultant experience modeling and designing municipal drinking water distribution systems. During this time, she observed the growing need for reproducible data science and visualization skills to develop innovative solutions to current and emerging environmental problems. Marie grew up on a small New England lake with high water quality in part due to a mostly forested watershed. Throughout Marie’s academic and professional career, she gained a greater understanding of the factors that contribute to water quality. An initial interest in lake ecosystems expanded to a larger awareness of the interconnectedness of environmental conditions and public health. After graduation, Marie plans to use her professional experience and new data science skills to evaluate interactions between human and natural systems and support implementation of measures that protect and improve the environment by communicating these dynamics to wider audiences."),
-                                                            h5("website: ", tags$a(href="https://marierivers.github.io/", "marierivers.github.io"))))
+                                                            h5("website: ", tags$a(href="https://marierivers.github.io/", "marierivers.github.io")))),
+                                            br()
                                             ),
                                    tabPanel("Acknowledgements",
                                             h1("Acknowledgements"),
