@@ -628,13 +628,49 @@ ui <- fluidPage(
                                             ),
                                    tabPanel("Acknowledgements",
                                             h1("Acknowledgements"),
-                                            p("The Snow Today Capstone Team would like to thank:"),
-                                            tags$li(tags$b("faculty advisors:"), "Sam Stevenson and Allison Horst;"),
-                                            tags$li(tags$b("clients:"), "Timbo Stillinger, Ned Bair and Karl Rittger;"),
-                                            tags$li(tags$b("external advisors:"), "James Frew, Niklas Griessbaum, Kat Le, and Michael Colee and the entire GRIT Team; and"),
-                                            tags$li("the endlessly supportive MEDS cohort."))
+                                            p("The Snow Today Capstone Team would like to express our appreciation to all those who helped support and guide our project:"),
+                                            fluidRow(
+                                              column(2, tags$b("Faculty Advisors:")),
+                                              column(8, "Dr. Sam Stevenson, Bren School of Environmental Science & Management",
+                                                     br(),
+                                                     "Dr. Allison Horst, Bren School of Environmental Science & Management")),
+                                            br(),
+                                            fluidRow(
+                                              column(2, tags$b("Clients:")),
+                                              column(8, "Dr. Timbo Stillinger, UCSB Earth Research Institute",
+                                                     br(),
+                                                     "Dr. Ned Bair, UCSB Earth Research Institute",
+                                                     br(),
+                                                     "Dr. Karl Rittger, CU Boulder Institute for Arctic and Alpine Research")),
+                                            br(),
+                                            fluidRow(
+                                              column(2, tags$b("External Advisors:")),
+                                              column(8, "Kat Le, Bren School for Environmental Science & Management",
+                                                     br(),
+                                                     "Niklas Griessbaum, Bren School of Environmental Science & Management",
+                                                     br(),
+                                                     "Dr. James Frew, Bren School for Environmental Science & Management",
+                                                     br(),
+                                                     "Aaron Martin, UCSB General Research IT",
+                                                     br(),
+                                                     "Mike Colee, UCSB General Research IT")),
+                                            br(),
+                                            fluidRow(
+                                              column(2, tags$b("Special Thanks:")),
+                                              column(8, "Jamie Montgomery, Bren School of Environmental Science & Management",
+                                                     br(),
+                                                     "Samantha Csik, National Center for Ecological Analysis & Synthesis",
+                                                     br(),
+                                                     "Brad Hill, Bren School of Environmental Science & Management",
+                                                     br(),
+                                                     "UCSB General Research Information & Technology team",
+                                                     br(),
+                                                     "National Snow and Ice Data Center Information & Technology team",
+                                                     br(),
+                                                     "and the endlessly supportive Master of Environmental Data Science cohort.")),
+                                            br()
                                             )
-             )
+             ))
                         
 ))
 
