@@ -1,7 +1,7 @@
 # a shiny app for snow data
 
 # list of packages required
-#list.of.packages <- c("shiny", "paletteer", "shinythemes", "here", "raster", "leaflet", "rgdal", "tidyverse", "sf", "bslib", "thematic", "ggiraph")
+#list.of.packages <- c("shiny", "shinythemes", "here", "raster", "leaflet", "rgdal", "tidyverse", "sf", "bslib", "thematic")
 
 # checking missing packages from list
 #new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -11,7 +11,6 @@
 
 # attach packages
 library(shiny)
-library(paletteer)
 library(shinythemes)
 library(here)
 library(raster)
@@ -21,7 +20,6 @@ library(tidyverse)
 library(sf)
 library(bslib)
 library(thematic)
-library(ggiraph)
 
 
 # load data
@@ -590,7 +588,7 @@ ui <- fluidPage(
                                             tags$li("Generated “How To” example tutorials to guide various end users through the process of using the data to extract meaningful insights."),
                                             br(),
                                             p("The Snow Today Capstone Project delivered recommendations to update the current Snow Today website by creating an information architecture plan, wireframe mockups, and a web application prototype that includes interactive visualizations and end-user tutorials. Revamping the existing website interface aids users in navigating the site."),
-                                            p("All code generated for this project can be found on the MEDS Snow Today public", tags$a(href="https://github.com/MEDSsnowtoday", "GitHub Repository.")),
+                                            p("All code generated for this project can be found on the MEDS Snow Today public", tags$a(href="https://github.com/MEDSsnowtoday", "GitHub Repository."), "Further information about this project can be found in our", tags$a(href="https://medssnowtoday.github.io/Technical_Documentation/", "Technical Documentation.")),
                                             p("Current static visuals presented on the Snow Today website were updated with interactive figures to allow users to select specific geospatial regions and temporal ranges. Interactive visualizations are presented in a Shiny application that allows users to select a specific date and view maps of snow cover and albedo, then zoom in/out on the maps to view specific areas. The Shiny app also displays annual and monthly snow cover and albedo anomalies. Users can learn more about snow science, the importance of albedo, nuances of the HDF5 file metadata, and background information on the Capstone Project and team members from supplemental tabs within the Shiny app. The “Tutorials” tab on the Shiny app directs users to notebooks on our Group repository."),
                                             p("End-user tutorials on the steps needed to access, process, and visualize snow cover extent and albedo data. These elements help the Client achieve their goals for an updated Snow Today website that enables a larger set of users to access and interpret seasonal snow condition data."),
                                             img(src = "capstone_team.jpg", height = 400, style="display: block; margin-left: auto; margin-right: auto;", alt = "capstone teammembers"),
@@ -1534,23 +1532,6 @@ server <- function(input, output) {
     } 
   })
   
-  # snow cover area graph
-  # select/deselect all button
-  # observe({
-  #   if (input$selectall >0) {
-  #     if (input$selectall %% 2 == 0){
-  #       updateCheckboxGroupInput(session = session,
-  #                                inputId = "wy_checkbox",
-  #                                choices = levels(as.factor(snow_cover_data$water_year)),
-  #                                selected = levels(as.factor(snow_cover_data$water_year)))
-  #     } else {
-  #       updateCheckboxGroupInput(session = session,
-  #                                inputId = "wy_checkbox",
-  #                                choices = levels(as.factor(snow_cover_data$water_year)),
-  #                                selected = c())
-  #     }}
-  #   })
-    
   snow_cover_area_df <- reactive({
     snow_cover_data %>% 
       filter(water_year %in% c(input$wy_checkbox))
@@ -1565,19 +1546,6 @@ server <- function(input, output) {
            title = "Total Snow Cover Area",
            subtitle = "Sierra Mountain Region") +
       ylab(bquote("total snow cover area " ("thousand"-km^2)))
-  })
-  
-  girafe_plot <- ggplot(data = snow_cover_data, aes(x = day_of_wy, y = total_snow_cover_area)) +
-    geom_line(aes(color = as.factor(water_year))) +
-    scale_x_continuous(breaks = c(1, 32, 62, 93, 124, 152, 183, 213, 244, 275, 306, 337),
-                       labels = c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep")) +
-    labs(x = "day of water year", color = "water year",
-         title = "Total Snow Cover Area",
-         subtitle = "Sierra Mountain Region") +
-    ylab(bquote("total snow cover area " ("thousand"-km^2)))
-  
-  output$plot <- renderGirafe({
-    girafe(ggobj = girafe_plot)
   })
   
 
