@@ -12,11 +12,10 @@ The packages used to create this app and process and visualize data within:
 
 |            |            |                |
 | ---------- | -----------| ---------------|
-|  bslib     |  ggiraph   |  here          | 
-|  leaflet   |  paletteer |  raster        | 
-|  rgdal     |  shiny     |  shinythemes   |
-|  sf        |  thematic  |  tidyverse     |
-|            |            |                |
+|  bslib     | here       |  leaflet       | 
+|  raster    | rgdal      | shiny          | 
+|  shinythemes | sf       | thematic       |
+|  tidyverse |            |                |
 
 
 ## Data Sources
